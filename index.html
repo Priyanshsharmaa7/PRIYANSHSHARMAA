@@ -1,0 +1,2455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Priyansh Sharma | Future Developer</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+
+html{
+scroll-behavior:smooth;
+}
+
+
+body{
+
+background:#000;
+
+color:#fff;
+
+overflow-x:hidden;
+
+}
+
+
+/* Background */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:600px;
+
+height:600px;
+
+background:white;
+
+filter:blur(250px);
+
+opacity:.07;
+
+top:-200px;
+
+left:-200px;
+
+z-index:-1;
+
+}
+
+
+
+/* Navbar */
+
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:25px 8%;
+
+background:rgba(0,0,0,.85);
+
+backdrop-filter:blur(20px);
+
+border-bottom:1px solid rgba(255,255,255,.15);
+
+position:sticky;
+
+top:0;
+
+z-index:100;
+
+}
+
+
+
+.logo{
+
+font-size:32px;
+
+font-weight:900;
+
+letter-spacing:3px;
+
+}
+
+
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+margin-left:25px;
+
+transition:.4s;
+
+}
+
+
+nav a:hover{
+
+opacity:.5;
+
+}
+
+
+
+/* Hero */
+
+
+.hero{
+
+height:90vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:30px;
+
+}
+
+
+
+.badge{
+
+display:inline-block;
+
+padding:10px 25px;
+
+border:1px solid white;
+
+border-radius:30px;
+
+font-size:13px;
+
+letter-spacing:3px;
+
+margin-bottom:25px;
+
+animation:fade 1s;
+
+}
+
+
+
+
+.hero h1{
+
+font-size:65px;
+
+animation:fade 1.2s;
+
+}
+
+
+
+.hero span{
+
+text-shadow:
+
+0 0 25px white;
+
+}
+
+
+
+
+.typing{
+
+margin:25px auto;
+
+font-size:22px;
+
+color:#aaa;
+
+border-right:3px solid white;
+
+width:max-content;
+
+white-space:nowrap;
+
+overflow:hidden;
+
+animation:
+
+typing 4s steps(35),
+blink .6s infinite;
+
+}
+
+
+
+.hero p{
+
+color:#bbb;
+
+font-size:18px;
+
+margin:20px;
+
+}
+
+
+
+
+.button{
+
+display:inline-block;
+
+padding:15px 45px;
+
+border-radius:50px;
+
+border:1px solid white;
+
+color:white;
+
+text-decoration:none;
+
+transition:.4s;
+
+}
+
+
+
+.button:hover{
+
+background:white;
+
+color:black;
+
+transform:scale(1.1);
+
+box-shadow:0 0 35px white;
+
+}
+
+
+
+/* Sections */
+
+
+.section{
+
+padding:80px 8%;
+
+}
+
+
+
+.heading{
+
+text-align:center;
+
+font-size:45px;
+
+margin-bottom:50px;
+
+}
+
+
+
+
+/* Cards */
+
+
+.cards{
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+width:320px;
+
+padding:30px;
+
+border-radius:25px;
+
+
+background:
+
+rgba(255,255,255,.05);
+
+
+border:
+
+1px solid rgba(255,255,255,.15);
+
+
+backdrop-filter:blur(20px);
+
+
+transition:.5s;
+
+
+animation:float 4s infinite;
+
+}
+
+
+
+.card:hover{
+
+transform:translateY(-15px);
+
+box-shadow:
+
+0 0 40px rgba(255,255,255,.25);
+
+}
+
+
+
+.card h3{
+
+font-size:25px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.card p{
+
+color:#ccc;
+
+line-height:1.8;
+
+}
+
+
+
+/* Cursor */
+
+
+.cursor{
+
+width:20px;
+
+height:20px;
+
+background:white;
+
+border-radius:50%;
+
+position:fixed;
+
+pointer-events:none;
+
+mix-blend-mode:difference;
+
+z-index:999;
+
+}
+
+
+
+/* Animations */
+
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+
+
+@keyframes typing{
+
+from{
+
+width:0;
+
+}
+
+to{
+
+width:100%;
+
+}
+
+}
+
+
+
+@keyframes blink{
+
+50%{
+
+border-color:transparent;
+
+}
+
+}
+
+
+
+::selection{
+
+background:white;
+
+color:black;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<nav>
+
+<div class="logo">
+PRIYANSH
+</div>
+
+
+<div>
+
+<a href="#home">Home</a>
+
+<a href="#about">About</a>
+
+<a href="#">Projects</a>
+
+<a href="#">Contact</a>
+
+</div>
+
+</nav>
+
+
+
+
+<section class="hero" id="home">
+
+
+<div>
+
+
+<div class="badge">
+
+PREMIUM DEVELOPER PORTFOLIO
+
+</div>
+
+
+
+<h1>
+
+Hi, I'm 
+
+<span>
+Priyansh Sharma
+</span>
+
+</h1>
+
+
+
+<div class="typing">
+
+Future Web Developer & Creator
+
+</div>
+
+
+
+<p>
+
+Building websites, learning technology and creating digital experiences.
+
+</p>
+
+
+
+<a class="button" href="#about">
+
+Explore My Work
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<section class="section" id="about">
+
+
+<h2 class="heading">
+
+About Me
+
+</h2>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>
+Developer
+</h3>
+
+<p>
+
+Learning web development, programming and modern technologies.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Creator
+</h3>
+
+<p>
+
+Creating content and building a strong digital presence.
+
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>
+Vision
+</h3>
+
+<p>
+
+Become a professional developer and create useful projects.
+
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+<script>
+
+const cursor=document.createElement("div");
+
+cursor.className="cursor";
+
+document.body.appendChild(cursor);
+
+
+document.addEventListener("mousemove",(e)=>{
+
+cursor.style.left=e.clientX+"px";
+
+cursor.style.top=e.clientY+"px";
+
+});
+
+
+</script>
+
+
+</body>
+</html><!-- =====================================================
+     PRIYANSH SHARMA
+     PREMIUM PORTFOLIO — PART 2
+===================================================== -->
+
+<section class="premium-part2" id="projects">
+
+    <div class="p2-orb p2-orb-one"></div>
+    <div class="p2-orb p2-orb-two"></div>
+
+    <div class="p2-label">MY CREATIVE WORLD</div>
+
+    <h2 class="p2-title">
+        Things I <span>Build.</span>
+    </h2>
+
+    <p class="p2-subtitle">
+        Turning ideas into modern digital experiences.
+    </p>
+
+
+    <!-- PROJECTS -->
+
+    <div class="p2-projects">
+
+
+        <div class="p2-project">
+
+            <div class="p2-project-number">01</div>
+
+            <div class="p2-project-icon">✦</div>
+
+            <h3>Personal Portfolio</h3>
+
+            <p>
+                A modern personal portfolio created to showcase
+                my skills, creativity, projects and journey.
+            </p>
+
+            <div class="p2-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>WEB</span>
+            </div>
+
+            <a href="#" class="p2-link">
+                View Project <b>↗</b>
+            </a>
+
+        </div>
+
+
+
+        <div class="p2-project p2-featured">
+
+            <div class="p2-featured-text">
+                FEATURED
+            </div>
+
+            <div class="p2-project-number">02</div>
+
+            <div class="p2-project-icon">◇</div>
+
+            <h3>Creative Web Design</h3>
+
+            <p>
+                Premium interfaces focused on clean visuals,
+                smooth interactions and responsive experiences.
+            </p>
+
+            <div class="p2-tags">
+                <span>DESIGN</span>
+                <span>UI</span>
+                <span>ANIMATION</span>
+            </div>
+
+            <a href="#" class="p2-link">
+                View Project <b>↗</b>
+            </a>
+
+        </div>
+
+
+
+        <div class="p2-project">
+
+            <div class="p2-project-number">03</div>
+
+            <div class="p2-project-icon">∞</div>
+
+            <h3>Content Creation</h3>
+
+            <p>
+                Building creative digital content while learning,
+                experimenting and growing consistently.
+            </p>
+
+            <div class="p2-tags">
+                <span>CONTENT</span>
+                <span>CREATIVE</span>
+                <span>MEDIA</span>
+            </div>
+
+            <a href="#" class="p2-link">
+                View Project <b>↗</b>
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STATS -->
+
+    <div class="p2-stats">
+
+        <div>
+            <strong>∞</strong>
+            <small>IDEAS</small>
+        </div>
+
+        <div>
+            <strong>24/7</strong>
+            <small>LEARNING</small>
+        </div>
+
+        <div>
+            <strong>100%</strong>
+            <small>DEDICATION</small>
+        </div>
+
+        <div>
+            <strong>2026</strong>
+            <small>BUILDING</small>
+        </div>
+
+    </div>
+
+
+
+    <!-- REVIEWS -->
+
+    <div class="p2-review-heading">
+
+        <div class="p2-label">
+            WHAT PEOPLE SAY
+        </div>
+
+        <h2 class="p2-title">
+            Made With <span>Passion.</span>
+        </h2>
+
+    </div>
+
+
+    <div class="p2-reviews">
+
+
+        <div class="p2-review">
+
+            <div class="p2-stars">
+                ★★★★★
+            </div>
+
+            <div class="p2-quote">
+                "
+            </div>
+
+            <p>
+                Creative design, smooth experience and a
+                really unique presentation.
+            </p>
+
+            <div class="p2-user">
+
+                <div class="p2-avatar">
+                    V
+                </div>
+
+                <div>
+                    <b>Visitor</b>
+                    <small>Website Visitor</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="p2-review">
+
+            <div class="p2-stars">
+                ★★★★★
+            </div>
+
+            <div class="p2-quote">
+                "
+            </div>
+
+            <p>
+                Great attention to detail with a strong
+                vision for future development.
+            </p>
+
+            <div class="p2-user">
+
+                <div class="p2-avatar">
+                    C
+                </div>
+
+                <div>
+                    <b>Community</b>
+                    <small>Community Member</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="p2-review">
+
+            <div class="p2-stars">
+                ★★★★★
+            </div>
+
+            <div class="p2-quote">
+                "
+            </div>
+
+            <p>
+                A modern portfolio with creativity,
+                consistency and ambition.
+            </p>
+
+            <div class="p2-user">
+
+                <div class="p2-avatar">
+                    S
+                </div>
+
+                <div>
+                    <b>Supporter</b>
+                    <small>Website Supporter</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FEEDBACK -->
+
+    <div class="p2-feedback">
+
+        <div class="p2-feedback-info">
+
+            <div class="p2-label">
+                YOUR FEEDBACK
+            </div>
+
+            <h2>
+                Tell Me<br>
+                <span>Your Thoughts.</span>
+            </h2>
+
+            <p>
+                Every opinion helps me improve my work,
+                learn something new and create better
+                experiences.
+            </p>
+
+            <div class="p2-check">
+                <i>✓</i>
+                <span>Quick & simple</span>
+            </div>
+
+            <div class="p2-check">
+                <i>✓</i>
+                <span>Your opinion matters</span>
+            </div>
+
+        </div>
+
+
+
+        <div class="p2-form">
+
+            <label>Your Name</label>
+
+            <input
+                type="text"
+                id="p2Name"
+                placeholder="Enter your name"
+            >
+
+
+            <label>Rating</label>
+
+            <select id="p2Rating">
+
+                <option value="">
+                    Select your rating
+                </option>
+
+                <option>★★★★★ Excellent</option>
+
+                <option>★★★★☆ Very Good</option>
+
+                <option>★★★☆☆ Good</option>
+
+                <option>★★☆☆☆ Needs Improvement</option>
+
+            </select>
+
+
+            <label>Your Message</label>
+
+            <textarea
+                id="p2Message"
+                rows="5"
+                placeholder="Write something..."
+            ></textarea>
+
+
+            <button
+                onclick="p2SubmitFeedback()"
+            >
+                <span>Submit Feedback</span>
+                <b>→</b>
+            </button>
+
+
+            <div id="p2Success"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FUTURE VISION -->
+
+    <div class="p2-vision">
+
+        <div class="p2-ring ring-one"></div>
+        <div class="p2-ring ring-two"></div>
+        <div class="p2-ring ring-three"></div>
+
+        <div class="p2-vision-content">
+
+            <div class="p2-label">
+                THE FUTURE
+            </div>
+
+            <h2>
+                Dream Bigger.<br>
+                <span>Build Better.</span>
+            </h2>
+
+            <p>
+                My goal is to keep learning advanced technology,
+                build meaningful projects and create digital
+                experiences that people remember.
+            </p>
+
+            <div class="p2-divider"></div>
+
+            <strong>
+                LEARN • CREATE • BUILD • GROW
+            </strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- PREMIUM FOOTER -->
+
+<footer class="p2-footer">
+
+    <div class="p2-footer-main">
+
+        <div>
+
+            <div class="p2-logo">
+                PRIYANSH
+            </div>
+
+            <p>
+                Future Developer • Creator
+            </p>
+
+        </div>
+
+
+        <div class="p2-footer-nav">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="p2-footer-line"></div>
+
+
+    <div class="p2-footer-bottom">
+
+        <span>
+            © 2026 Priyansh Sharma
+        </span>
+
+        <span>
+            Crafted with creativity.
+        </span>
+
+    </div>
+
+</footer>
+
+
+
+<style>
+
+/* =====================================================
+   PREMIUM PART 2 STYLE
+===================================================== */
+
+.premium-part2{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 50% 10%,
+        rgba(155,92,255,.08),
+        transparent 35%
+    );
+
+    padding-top:100px;
+
+}
+
+
+/* BACKGROUND ORBS */
+
+.p2-orb{
+
+    position:absolute;
+
+    width:300px;
+
+    height:300px;
+
+    border-radius:50%;
+
+    background:#9b5cff;
+
+    filter:blur(150px);
+
+    opacity:.06;
+
+    pointer-events:none;
+
+}
+
+
+.p2-orb-one{
+
+    top:300px;
+    left:-180px;
+
+    animation:
+    p2OrbOne 12s infinite alternate ease-in-out;
+
+}
+
+
+.p2-orb-two{
+
+    top:900px;
+    right:-180px;
+
+    animation:
+    p2OrbTwo 15s infinite alternate ease-in-out;
+
+}
+
+
+@keyframes p2OrbOne{
+
+    to{
+        transform:
+        translate(300px,150px)
+        scale(1.4);
+    }
+
+}
+
+
+@keyframes p2OrbTwo{
+
+    to{
+        transform:
+        translate(-250px,-100px)
+        scale(1.3);
+    }
+
+}
+
+
+/* HEADINGS */
+
+.p2-label{
+
+    text-align:center;
+
+    color:#b993ff;
+
+    font-size:11px;
+
+    letter-spacing:5px;
+
+    margin-bottom:18px;
+
+}
+
+
+.p2-title{
+
+    text-align:center;
+
+    font-size:55px;
+
+    line-height:1.1;
+
+    margin-bottom:18px;
+
+}
+
+
+.p2-title span{
+
+    color:#9b5cff;
+
+    text-shadow:
+    0 0 30px rgba(155,92,255,.35);
+
+}
+
+
+.p2-subtitle{
+
+    text-align:center;
+
+    color:#777;
+
+    margin-bottom:65px;
+
+}
+
+
+
+/* PROJECTS */
+
+.p2-projects{
+
+    max-width:1150px;
+
+    margin:auto;
+
+    padding:0 8%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+.p2-project{
+
+    position:relative;
+
+    min-height:430px;
+
+    padding:32px;
+
+    overflow:hidden;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,.09),
+        rgba(155,92,255,.025)
+    );
+
+    border:
+    1px solid rgba(255,255,255,.12);
+
+    transition:.5s;
+
+    animation:
+    p2CardFloat 6s ease-in-out infinite;
+
+}
+
+
+.p2-project:nth-child(2){
+
+    animation-delay:1s;
+
+}
+
+
+.p2-project:nth-child(3){
+
+    animation-delay:2s;
+
+}
+
+
+@keyframes p2CardFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+}
+
+
+.p2-project::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:150px;
+
+    height:150px;
+
+    border-radius:50%;
+
+    background:#9b5cff;
+
+    filter:blur(100px);
+
+    opacity:0;
+
+    right:-50px;
+
+    bottom:-50px;
+
+    transition:.6s;
+
+}
+
+
+.p2-project:hover{
+
+    transform:
+    translateY(-18px)
+    scale(1.02);
+
+    border-color:
+    rgba(155,92,255,.55);
+
+    box-shadow:
+    0 25px 70px
+    rgba(155,92,255,.15);
+
+}
+
+
+.p2-project:hover::before{
+
+    opacity:.3;
+
+}
+
+
+.p2-featured{
+
+    background:
+    linear-gradient(
+        145deg,
+        rgba(155,92,255,.14),
+        rgba(255,255,255,.035)
+    );
+
+}
+
+
+.p2-featured-text{
+
+    position:absolute;
+
+    top:20px;
+
+    right:20px;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    padding:7px 12px;
+
+    border-radius:50px;
+
+    background:#9b5cff;
+
+    color:white;
+
+}
+
+
+.p2-project-number{
+
+    color:#555;
+
+    font-size:12px;
+
+    letter-spacing:3px;
+
+}
+
+
+.p2-project-icon{
+
+    width:65px;
+
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:45px 0 25px;
+
+    border-radius:20px;
+
+    border:1px solid #333;
+
+    font-size:28px;
+
+    transition:.5s;
+
+}
+
+
+.p2-project:hover .p2-project-icon{
+
+    background:#9b5cff;
+
+    color:white;
+
+    border-color:#9b5cff;
+
+    box-shadow:
+    0 0 35px rgba(155,92,255,.5);
+
+    transform:
+    rotate(-8deg)
+    scale(1.1);
+
+}
+
+
+.p2-project h3{
+
+    font-size:25px;
+
+    margin-bottom:15px;
+
+}
+
+
+.p2-project p{
+
+    color:#888;
+
+    line-height:1.8;
+
+}
+
+
+.p2-tags{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin-top:25px;
+
+}
+
+
+.p2-tags span{
+
+    padding:7px 11px;
+
+    border-radius:50px;
+
+    border:1px solid #292929;
+
+    color:#888;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    transition:.3s;
+
+}
+
+
+.p2-tags span:hover{
+
+    background:#9b5cff;
+
+    border-color:#9b5cff;
+
+    color:white;
+
+}
+
+
+.p2-link{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    color:white;
+
+    text-decoration:none;
+
+}
+
+
+.p2-link b{
+
+    display:inline-block;
+
+    margin-left:7px;
+
+    transition:.3s;
+
+}
+
+
+.p2-link:hover{
+
+    color:#c9a7ff;
+
+}
+
+
+.p2-link:hover b{
+
+    transform:translate(5px,-5px);
+
+}
+
+
+
+/* STATS */
+
+.p2-stats{
+
+    max-width:1000px;
+
+    margin:100px auto;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    border-top:1px solid #1c1c1c;
+
+    border-bottom:1px solid #1c1c1c;
+
+}
+
+
+.p2-stats div{
+
+    text-align:center;
+
+    padding:40px 10px;
+
+    border-right:1px solid #1c1c1c;
+
+    transition:.4s;
+
+}
+
+
+.p2-stats div:last-child{
+
+    border:none;
+
+}
+
+
+.p2-stats div:hover{
+
+    background:
+    rgba(155,92,255,.05);
+
+}
+
+
+.p2-stats strong{
+
+    display:block;
+
+    font-size:32px;
+
+    color:white;
+
+    transition:.4s;
+
+}
+
+
+.p2-stats div:hover strong{
+
+    color:#b993ff;
+
+    text-shadow:
+    0 0 20px #9b5cff;
+
+}
+
+
+.p2-stats small{
+
+    display:block;
+
+    margin-top:8px;
+
+    color:#666;
+
+    letter-spacing:2px;
+
+    font-size:9px;
+
+}
+
+
+
+/* REVIEWS */
+
+.p2-review-heading{
+
+    margin-bottom:55px;
+
+}
+
+
+.p2-reviews{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:0 8%;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+.p2-review{
+
+    position:relative;
+
+    padding:35px;
+
+    min-height:300px;
+
+    border-radius:30px;
+
+    background:#080808;
+
+    border:1px solid #1d1d1d;
+
+    transition:.5s;
+
+}
+
+
+.p2-review:hover{
+
+    transform:
+    translateY(-12px);
+
+    border-color:
+    rgba(155,92,255,.5);
+
+    box-shadow:
+    0 25px 60px
+    rgba(155,92,255,.1);
+
+}
+
+
+.p2-stars{
+
+    color:#c9a7ff;
+
+    letter-spacing:4px;
+
+}
+
+
+.p2-quote{
+
+    position:absolute;
+
+    top:15px;
+
+    right:25px;
+
+    font-size:80px;
+
+    color:rgba(155,92,255,.12);
+
+}
+
+
+.p2-review > p{
+
+    margin-top:25px;
+
+    color:#999;
+
+    line-height:1.9;
+
+}
+
+
+.p2-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:30px;
+
+}
+
+
+.p2-avatar{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#9b5cff;
+
+    color:white;
+
+    box-shadow:
+    0 0 20px
+    rgba(155,92,255,.3);
+
+}
+
+
+.p2-user b{
+
+    display:block;
+
+    font-size:13px;
+
+}
+
+
+.p2-user small{
+
+    color:#666;
+
+}
+
+
+
+/* FEEDBACK */
+
+.p2-feedback{
+
+    max-width:1100px;
+
+    margin:120px auto;
+
+    padding:0 8%;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:70px;
+
+    align-items:center;
+
+}
+
+
+.p2-feedback-info h2{
+
+    font-size:58px;
+
+    line-height:1;
+
+    margin:20px 0 25px;
+
+}
+
+
+.p2-feedback-info h2 span{
+
+    color:#9b5cff;
+
+}
+
+
+.p2-feedback-info > p{
+
+    color:#888;
+
+    line-height:1.9;
+
+    max-width:450px;
+
+}
+
+
+.p2-check{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-top:20px;
+
+    color:#999;
+
+}
+
+
+.p2-check i{
+
+    width:28px;
+
+    height:28px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:1px solid #9b5cff;
+
+    color:#c9a7ff;
+
+    font-style:normal;
+
+}
+
+
+.p2-form{
+
+    padding:35px;
+
+    border-radius:30px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:1px solid #222;
+
+    transition:.5s;
+
+}
+
+
+.p2-form:hover{
+
+    border-color:
+    rgba(155,92,255,.5);
+
+    box-shadow:
+    0 20px 70px
+    rgba(155,92,255,.1);
+
+}
+
+
+.p2-form label{
+
+    display:block;
+
+    color:#777;
+
+    font-size:11px;
+
+    margin:15px 0 8px;
+
+    letter-spacing:1px;
+
+}
+
+
+.p2-form input,
+.p2-form select,
+.p2-form textarea{
+
+    width:100%;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    border:1px solid #222;
+
+    background:#050505;
+
+    color:white;
+
+    outline:none;
+
+    resize:none;
+
+    transition:.3s;
+
+}
+
+
+.p2-form input:focus,
+.p2-form select:focus,
+.p2-form textarea:focus{
+
+    border-color:#9b5cff;
+
+    box-shadow:
+    0 0 20px
+    rgba(155,92,255,.1);
+
+}
+
+
+.p2-form option{
+
+    background:#050505;
+
+    color:white;
+
+}
+
+
+.p2-form button{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:16px 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#9b5cff;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+
+.p2-form button:hover{
+
+    background:#b37cff;
+
+    transform:
+    translateY(-3px);
+
+    box-shadow:
+    0 0 35px
+    rgba(155,92,255,.45);
+
+}
+
+
+.p2-form button b{
+
+    font-size:20px;
+
+}
+
+
+#p2Success{
+
+    text-align:center;
+
+    color:#c9a7ff;
+
+    min-height:20px;
+
+    margin-top:15px;
+
+}
+
+
+
+/* FUTURE VISION */
+
+.p2-vision{
+
+    position:relative;
+
+    min-height:650px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    border-top:1px solid #111;
+
+    border-bottom:1px solid #111;
+
+}
+
+
+.p2-vision-content{
+
+    position:relative;
+
+    z-index:3;
+
+    max-width:800px;
+
+    padding:40px;
+
+}
+
+
+.p2-vision-content h2{
+
+    font-size:68px;
+
+    line-height:1;
+
+    margin:20px 0 30px;
+
+}
+
+
+.p2-vision-content h2 span{
+
+    color:#9b5cff;
+
+    text-shadow:
+    0 0 30px
+    rgba(155,92,255,.3);
+
+}
+
+
+.p2-vision-content p{
+
+    color:#888;
+
+    line-height:2;
+
+    font-size:17px;
+
+}
+
+
+.p2-divider{
+
+    width:100px;
+
+    height:2px;
+
+    margin:35px auto;
+
+    background:#9b5cff;
+
+    box-shadow:
+    0 0 20px #9b5cff;
+
+}
+
+
+.p2-vision-content strong{
+
+    color:#b993ff;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+}
+
+
+.p2-ring{
+
+    position:absolute;
+
+    border:1px solid
+    rgba(155,92,255,.12);
+
+    border-radius:50%;
+
+    animation:
+    p2Rotate 18s linear infinite;
+
+}
+
+
+.ring-one{
+
+    width:400px;
+    height:400px;
+
+}
+
+
+.ring-two{
+
+    width:600px;
+    height:600px;
+
+    animation-duration:25s;
+
+    animation-direction:reverse;
+
+}
+
+
+.ring-three{
+
+    width:800px;
+    height:800px;
+
+    animation-duration:35s;
+
+}
+
+
+@keyframes p2Rotate{
+
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+
+/* FOOTER */
+
+.p2-footer{
+
+    padding:70px 8% 30px;
+
+    background:#030303;
+
+    border-top:
+    1px solid
+    rgba(155,92,255,.15);
+
+}
+
+
+.p2-footer-main{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    gap:30px;
+
+}
+
+
+.p2-logo{
+
+    font-size:32px;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    transition:.4s;
+
+}
+
+
+.p2-logo:hover{
+
+    color:#b993ff;
+
+    text-shadow:
+    0 0 25px #9b5cff;
+
+}
+
+
+.p2-footer p{
+
+    color:#666;
+
+    margin-top:10px;
+
+}
+
+
+.p2-footer-nav{
+
+    display:flex;
+
+    gap:25px;
+
+}
+
+
+.p2-footer-nav a{
+
+    color:#777;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+
+.p2-footer-nav a:hover{
+
+    color:#b993ff;
+
+}
+
+
+.p2-footer-line{
+
+    max-width:1100px;
+
+    height:1px;
+
+    margin:45px auto 25px;
+
+    background:
+    linear-gradient(
+        90deg,
+        transparent,
+        #333,
+        #9b5cff,
+        #333,
+        transparent
+    );
+
+}
+
+
+.p2-footer-bottom{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    color:#555;
+
+    font-size:11px;
+
+}
+
+
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .p2-projects,
+    .p2-reviews{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+    .p2-stats{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+
+    .p2-stats div:nth-child(2){
+
+        border-right:none;
+
+    }
+
+
+    .p2-feedback{
+
+        grid-template-columns:1fr;
+
+        gap:40px;
+
+    }
+
+
+    .p2-vision-content h2{
+
+        font-size:48px;
+
+    }
+
+
+    .p2-footer-main{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .p2-title{
+
+        font-size:40px;
+
+    }
+
+
+    .p2-feedback-info h2{
+
+        font-size:45px;
+
+    }
+
+
+    .p2-vision-content h2{
+
+        font-size:38px;
+
+    }
+
+
+    .p2-ring{
+
+        width:400px;
+
+        height:400px;
+
+    }
+
+
+    .p2-footer-bottom{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+}
+
+</style>
+
+
+
+<script>
+
+function p2SubmitFeedback(){
+
+    const name =
+    document.getElementById("p2Name").value.trim();
+
+    const rating =
+    document.getElementById("p2Rating").value;
+
+    const message =
+    document.getElementById("p2Message").value.trim();
+
+    const result =
+    document.getElementById("p2Success");
+
+
+    if(!name || !rating || !message){
+
+        result.textContent =
+        "Please complete all fields.";
+
+        return;
+
+    }
+
+
+    result.textContent =
+    "✓ Thank you, " + name +
+    "! Your feedback has been submitted.";
+
+
+    document.getElementById("p2Name").value = "";
+
+    document.getElementById("p2Rating").value = "";
+
+    document.getElementById("p2Message").value = "";
+
+}
+
+</script>
