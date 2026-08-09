@@ -1,21 +1,25 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
 if (req.method !== "POST") {
-return res.status(405).json({ error: "Method not allowed" });
+return res.status(405).json({
+error: "Method not allowed"
+});
 }
 
 try {
-const message = req.body?.message;
+const message = req.body && req.body.message;
 
 ```
 if (!message) {
-  return res.status(400).json({ error: "Message is required" });
+  return res.status(400).json({
+    error: "Message is required"
+  });
 }
 
 const apiKey = process.env.GEMINI_API_KEY;
 
 if (!apiKey) {
   return res.status(500).json({
-    error: "GEMINI_API_KEY is missing."
+    error: "GEMINI_API_KEY is missing in Vercel."
   });
 }
 
@@ -32,8 +36,7 @@ const response = await fetch(url, {
     systemInstruction: {
       parts: [
         {
-          text:
-            "You are Ask Priyansh AI, the helpful AI assistant on Priyansh Sharma's portfolio website. Priyansh is a BCA student, future web developer and creator. Give clear, friendly and useful answers. Do not invent private information."
+          text: "You are Ask Priyansh AI, the AI assistant on Priyansh Sharma's portfolio website. Priyansh is a BCA student, future web developer and creator. Give clear, friendly and useful answers. Do not invent private information."
         }
       ]
     },
@@ -60,12 +63,19 @@ if (!response.ok) {
   console.error("Gemini API error:", data);
 
   return res.status(response.status).json({
-    error: data?.error?.message || "Gemini API request failed."
+    error:
+      (data.error && data.error.message) ||
+      "Gemini API request failed."
   });
 }
 
 const reply =
-  data?.candidates?.[0]?.content?.parts?.[0]?.text;
+  data.candidates &&
+  data.candidates[0] &&
+  data.candidates[0].content &&
+  data.candidates[0].content.parts &&
+  data.candidates[0].content.parts[0] &&
+  data.candidates[0].content.parts[0].text;
 
 if (!reply) {
   return res.status(500).json({
@@ -83,9 +93,9 @@ console.error("Server error:", error);
 
 ```
 return res.status(500).json({
-  error: error?.message || "Server error."
+  error: error.message || "Server error."
 });
 ```
 
 }
-}
+};
