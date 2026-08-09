@@ -2810,6 +2810,446 @@ function(){
     <button class="ai-send" id="aiSend" type="submit">➤</button>
   </form>
 </div>
+```html
+<!-- =========================================================
+     ASK PRIYANSH AI - CHAT POPUP
+========================================================= -->
+
+<style>
+/* AI BUTTON */
+.ai-button {
+    cursor: pointer;
+    border: none;
+    font: inherit;
+}
+
+/* AI CHAT WINDOW */
+#aiChatBox {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 380px;
+    max-width: calc(100vw - 30px);
+    height: 540px;
+
+    display: none;
+    flex-direction: column;
+
+    background: #080808;
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 80px rgba(0,0,0,0.75),
+        0 0 40px rgba(255,255,255,0.05);
+
+    z-index: 999999;
+}
+
+/* OPEN STATE */
+#aiChatBox.active {
+    display: flex;
+    animation: aiPopup 0.25s ease;
+}
+
+@keyframes aiPopup {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* HEADER */
+.ai-chat-header {
+    min-height: 72px;
+
+    padding: 15px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: linear-gradient(
+        135deg,
+        #151515,
+        #050505
+    );
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.ai-chat-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ai-chat-title-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #fff;
+    color: #000;
+
+    font-size: 20px;
+}
+
+.ai-chat-title strong {
+    display: block;
+    font-size: 15px;
+}
+
+.ai-chat-title small {
+    display: block;
+    margin-top: 3px;
+    color: #999;
+    font-size: 11px;
+}
+
+#closeAIButton {
+    width: 36px;
+    height: 36px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.06);
+    color: #fff;
+
+    font-size: 25px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+#closeAIButton:hover {
+    background: rgba(255,255,255,0.14);
+}
+
+/* MESSAGES */
+#aiMessages {
+    flex: 1;
+
+    padding: 18px;
+
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.ai-message {
+    width: fit-content;
+    max-width: 82%;
+
+    padding: 12px 14px;
+
+    margin-bottom: 12px;
+
+    border-radius: 15px;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ai-message.bot {
+    background: #151515;
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #fff;
+}
+
+.ai-message.user {
+    margin-left: auto;
+
+    background: #fff;
+    color: #000;
+}
+
+/* INPUT */
+.ai-input-area {
+    display: flex;
+    gap: 8px;
+
+    padding: 12px;
+
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    background: #080808;
+}
+
+#aiInput {
+    flex: 1;
+    min-width: 0;
+
+    height: 46px;
+
+    padding: 0 14px;
+
+    border: 1px solid #2b2b2b;
+    border-radius: 13px;
+
+    outline: none;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+}
+
+#aiInput::placeholder {
+    color: #777;
+}
+
+#aiInput:focus {
+    border-color: #555;
+}
+
+#sendAIButton {
+    width: 46px;
+    height: 46px;
+
+    border: none;
+    border-radius: 13px;
+
+    background: #fff;
+    color: #000;
+
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+#sendAIButton:hover {
+    transform: scale(1.04);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+
+    #aiChatBox {
+        right: 15px;
+        bottom: 15px;
+
+        width: calc(100vw - 30px);
+        height: 70vh;
+
+        border-radius: 20px;
+    }
+}
+</style>
+
+
+<!-- AI CHAT HTML -->
+
+<div id="aiChatBox">
+
+    <div class="ai-chat-header">
+
+        <div class="ai-chat-title">
+
+            <div class="ai-chat-title-icon">
+                🤖
+            </div>
+
+            <div>
+                <strong>Ask Priyansh AI</strong>
+                <small>Priyansh's AI Assistant</small>
+            </div>
+
+        </div>
+
+        <button
+            id="closeAIButton"
+            type="button"
+            aria-label="Close AI">
+            ×
+        </button>
+
+    </div>
+
+
+    <div id="aiMessages">
+
+        <div class="ai-message bot">
+            👋 Hi! I'm <strong>Priyansh AI</strong>.<br>
+            Ask me anything about Priyansh, his projects,
+            website or technology.
+        </div>
+
+    </div>
+
+
+    <div class="ai-input-area">
+
+        <input
+            id="aiInput"
+            type="text"
+            placeholder="Ask something..."
+            autocomplete="off"
+        >
+
+        <button
+            id="sendAIButton"
+            type="button">
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const aiButton = document.getElementById("askAIButton");
+    const chatBox = document.getElementById("aiChatBox");
+    const closeButton = document.getElementById("closeAIButton");
+    const sendButton = document.getElementById("sendAIButton");
+    const input = document.getElementById("aiInput");
+    const messages = document.getElementById("aiMessages");
+
+
+    /* OPEN AI */
+
+    if (aiButton) {
+
+        aiButton.addEventListener("click", function () {
+
+            chatBox.classList.add("active");
+
+            setTimeout(function () {
+                input.focus();
+            }, 100);
+
+        });
+
+    }
+
+
+    /* CLOSE AI */
+
+    closeButton.addEventListener("click", function () {
+
+        chatBox.classList.remove("active");
+
+    });
+
+
+    /* SEND MESSAGE */
+
+    function sendMessage() {
+
+        const text = input.value.trim();
+
+        if (!text) return;
+
+
+        /* USER MESSAGE */
+
+        const userMessage = document.createElement("div");
+
+        userMessage.className = "ai-message user";
+
+        userMessage.textContent = text;
+
+        messages.appendChild(userMessage);
+
+
+        input.value = "";
+
+
+        messages.scrollTop = messages.scrollHeight;
+
+
+        /* TEMPORARY AI RESPONSE */
+
+        setTimeout(function () {
+
+            const botMessage = document.createElement("div");
+
+            botMessage.className = "ai-message bot";
+
+            botMessage.innerHTML =
+                "🤖 Thanks for your question! " +
+                "Priyansh AI is ready. " +
+                "<br><br>" +
+                "The real AI connection will be added next.";
+
+            messages.appendChild(botMessage);
+
+            messages.scrollTop = messages.scrollHeight;
+
+        }, 600);
+
+    }
+
+
+    /* SEND BUTTON */
+
+    sendButton.addEventListener(
+        "click",
+        sendMessage
+    );
+
+
+    /* ENTER KEY */
+
+    input.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                sendMessage();
+
+            }
+
+        }
+    );
+
+
+    /* ESC TO CLOSE */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Escape" &&
+                chatBox.classList.contains("active")
+            ) {
+
+                chatBox.classList.remove("active");
+
+            }
+
+        }
+    );
+
+});
+</script>
+
+<!-- =========================================================
+     END ASK PRIYANSH AI
+========================================================= -->
+```
 
 </body>
 </html>
