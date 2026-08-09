@@ -1543,6 +1543,19 @@ nav{
 
 }
 
+
+
+/* ===== ASK PRIYANSH AI ===== */
+.ai-button{position:fixed;right:25px;bottom:25px;z-index:9999;border:1px solid rgba(96,165,250,.5);background:linear-gradient(135deg,#2563eb,#60a5fa);color:#fff;padding:14px 20px;border-radius:50px;font-weight:700;cursor:pointer;box-shadow:0 10px 35px rgba(37,99,235,.35);transition:.3s}
+.ai-button:hover{transform:translateY(-3px) scale(1.03)}
+.ai-chat{position:fixed;right:25px;bottom:85px;width:360px;max-width:calc(100vw - 30px);height:500px;background:#080808;border:1px solid rgba(96,165,250,.35);border-radius:22px;z-index:9998;display:none;flex-direction:column;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.7)}
+.ai-chat.active{display:flex}
+.ai-header{padding:18px;background:linear-gradient(135deg,#111827,#050505);border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center}
+.ai-title{font-weight:800}.ai-title span{color:#60a5fa}.ai-close{background:none;border:0;color:#aaa;font-size:22px;cursor:pointer}
+.ai-messages{flex:1;padding:16px;overflow-y:auto}.ai-message{max-width:85%;padding:11px 14px;margin-bottom:12px;border-radius:14px;font-size:14px;line-height:1.5;white-space:pre-wrap}.ai-message.bot{background:#111;border:1px solid rgba(255,255,255,.08)}.ai-message.user{background:#2563eb;margin-left:auto}
+.ai-input-area{display:flex;padding:12px;gap:8px;border-top:1px solid rgba(255,255,255,.08)}.ai-input{flex:1;background:#111;color:#fff;border:1px solid #333;border-radius:12px;padding:11px;outline:none}.ai-send{border:0;background:#2563eb;color:#fff;border-radius:12px;padding:0 15px;cursor:pointer}.ai-send:disabled{opacity:.6;cursor:not-allowed}
+@media(max-width:600px){.ai-chat{right:15px;bottom:80px;width:calc(100vw - 30px);height:70vh}.ai-button{right:15px;bottom:15px}}
+
 </style>
 
 </head>
@@ -2721,8 +2734,82 @@ function(){
 
 });
 
+
+
+/* ===== ASK PRIYANSH AI ===== */
+(function(){
+  const chat=document.getElementById('aiChat');
+  const openBtn=document.getElementById('aiOpenBtn');
+  const closeBtn=document.getElementById('aiCloseBtn');
+  const form=document.getElementById('aiForm');
+  const input=document.getElementById('aiInput');
+  const messages=document.getElementById('aiMessages');
+  const sendBtn=document.getElementById('aiSend');
+
+  function toggle(open){
+    const isOpen = typeof open === 'boolean' ? open : !chat.classList.contains('active');
+    chat.classList.toggle('active',isOpen);
+    chat.setAttribute('aria-hidden',String(!isOpen));
+    if(isOpen) input.focus();
+  }
+  openBtn.addEventListener('click',()=>toggle(true));
+  closeBtn.addEventListener('click',()=>toggle(false));
+
+  function addMessage(text,type){
+    const el=document.createElement('div');
+    el.className='ai-message '+type;
+    el.textContent=text;
+    messages.appendChild(el);
+    messages.scrollTop=messages.scrollHeight;
+    return el;
+  }
+
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    const message=input.value.trim();
+    if(!message || sendBtn.disabled) return;
+    addMessage(message,'user');
+    input.value='';
+    sendBtn.disabled=true;
+    const loading=addMessage('Thinking...','bot');
+    try{
+      const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message})});
+      let data={};
+      try{data=await response.json();}catch(_){data={};}
+      loading.remove();
+      if(!response.ok) throw new Error(data.error || 'Request failed');
+      addMessage(data.reply || 'Sorry, I could not generate a response.','bot');
+    }catch(error){
+      loading.remove();
+      addMessage('Sorry, I could not connect to Priyansh AI right now. Please try again.','bot');
+      console.error('Ask Priyansh AI:',error);
+    }finally{
+      sendBtn.disabled=false;
+      input.focus();
+    }
+  });
+})();
+
 </script>
 
+
+
+
+<!-- ASK PRIYANSH AI -->
+<button class="ai-button" id="aiOpenBtn" type="button">🤖 Ask Priyansh AI</button>
+<div class="ai-chat" id="aiChat" aria-hidden="true">
+  <div class="ai-header">
+    <div class="ai-title">🤖 <span>Ask Priyansh AI</span></div>
+    <button class="ai-close" id="aiCloseBtn" type="button" aria-label="Close AI chat">×</button>
+  </div>
+  <div class="ai-messages" id="aiMessages">
+    <div class="ai-message bot">Hi! 👋 I'm Ask Priyansh AI. How can I help you?</div>
+  </div>
+  <form class="ai-input-area" id="aiForm">
+    <input class="ai-input" id="aiInput" type="text" placeholder="Ask something..." autocomplete="off" maxlength="4000" aria-label="Ask Priyansh AI">
+    <button class="ai-send" id="aiSend" type="submit">➤</button>
+  </form>
+</div>
 
 </body>
 </html>
