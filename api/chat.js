@@ -4,18 +4,24 @@ export async function POST(request) {
     const message = body?.message;
 
     if (!message) {
-      return Response.json(
-        { error: "Message is required" },
-        { status: 400 }
+      return new Response(
+        JSON.stringify({ error: "Message is required" }),
+        {
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        }
       );
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
 
     if (!apiKey) {
-      return Response.json(
-        { error: "GEMINI_API_KEY is missing in Vercel." },
-        { status: 500 }
+      return new Response(
+        JSON.stringify({ error: "GEMINI_API_KEY is missing." }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        }
       );
     }
 
@@ -30,11 +36,10 @@ export async function POST(request) {
         body: JSON.stringify({
           contents: [
             {
-              role: "user",
               parts: [
                 {
                   text:
-                    "You are Ask Priyansh AI, the AI assistant on Priyansh Sharma's portfolio website. Priyansh is a BCA student, future web developer and creator. Answer clearly, helpfully and briefly. Do not invent private information.\n\nUser: " +
+                    "You are Ask Priyansh AI, the AI assistant on Priyansh Sharma's portfolio website. Answer clearly and helpfully. Do not invent private information.\n\nUser: " +
                     String(message)
                 }
               ]
@@ -53,13 +58,16 @@ export async function POST(request) {
     if (!response.ok) {
       console.error("Gemini API error:", data);
 
-      return Response.json(
-        {
+      return new Response(
+        JSON.stringify({
           error:
             data?.error?.message ||
             "Gemini API request failed."
-        },
-        { status: response.status }
+        }),
+        {
+          status: response.status,
+          headers: { "Content-Type": "application/json" }
+        }
       );
     }
 
@@ -67,22 +75,36 @@ export async function POST(request) {
       data?.candidates?.[0]?.content?.parts?.[0]?.text;
 
     if (!reply) {
-      return Response.json(
-        { error: "Gemini returned no response." },
-        { status: 500 }
+      return new Response(
+        JSON.stringify({
+          error: "Gemini returned no response."
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        }
       );
     }
 
-    return Response.json({ reply });
+    return new Response(
+      JSON.stringify({ reply }),
+      {
+        status: 200,
+        headers: { "Content-Type": "application/json" }
+      }
+    );
 
   } catch (error) {
     console.error("Server error:", error);
 
-    return Response.json(
-      {
+    return new Response(
+      JSON.stringify({
         error: error?.message || "Server error."
-      },
-      { status: 500 }
+      }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" }
+      }
     );
   }
 }
