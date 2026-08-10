@@ -1,17 +1,22 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="Priyansh Sharma — Developer, Creator and AI Explorer. Explore projects, achievements, social links and Priyansh AI.">
+
+<meta name="description"
+content="Priyansh Sharma — Developer, Creator and AI Explorer. Explore projects, achievements, social links and Priyansh Intelligence.">
+
 <meta name="theme-color" content="#050509">
 
 <title>Priyansh Sharma | Developer • Creator • AI</title>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
 *{
  margin:0;
  padding:0;
@@ -23,16 +28,19 @@
  --bg:#030305;
  --bg2:#07080d;
  --card:rgba(14,16,24,.68);
- --card2:rgba(20,22,31,.85);
  --line:rgba(255,255,255,.09);
  --text:#f8fafc;
  --muted:#969daa;
+
  --red:#ff1744;
- --red2:#ff4567;
  --orange:#ff6b35;
  --yellow:#ffc107;
- --pink:#ff3d81;
- --cyan:#22d3ee;
+
+ /* AI HAS DIFFERENT COLORS */
+ --ai:#8b5cf6;
+ --ai2:#22d3ee;
+ --ai3:#ec4899;
+ --aiGradient:linear-gradient(135deg,#8b5cf6,#22d3ee,#ec4899);
 
  --gradient:linear-gradient(
   135deg,
@@ -57,9 +65,7 @@ body{
  overflow-x:hidden;
 }
 
-/* ===============================
-   BACKGROUND
-================================ */
+/* BACKGROUND */
 
 #canvas{
  position:fixed;
@@ -107,9 +113,7 @@ body{
  box-shadow:0 0 20px #ff1744;
 }
 
-/* ===============================
-   NAVBAR
-================================ */
+/* NAV */
 
 nav{
  position:fixed;
@@ -157,9 +161,10 @@ nav{
 .navAI{
  padding:9px 15px!important;
  border-radius:10px;
- color:#090909!important;
- background:var(--gradient);
+ color:white!important;
+ background:var(--aiGradient);
  font-weight:800;
+ box-shadow:0 0 25px rgba(139,92,246,.25);
 }
 
 .menu{
@@ -168,9 +173,7 @@ nav{
  cursor:pointer;
 }
 
-/* ===============================
-   COMMON
-================================ */
+/* COMMON */
 
 section{
  padding:115px 7%;
@@ -262,8 +265,8 @@ section{
  opacity:0;
  transform:translateY(45px);
  transition:
-  opacity .9s ease,
-  transform .9s cubic-bezier(.2,.8,.2,1);
+ opacity .9s ease,
+ transform .9s cubic-bezier(.2,.8,.2,1);
 }
 
 .reveal.active{
@@ -271,9 +274,7 @@ section{
  transform:none;
 }
 
-/* ===============================
-   HERO
-================================ */
+/* HERO */
 
 .hero{
  min-height:100vh;
@@ -367,9 +368,7 @@ section{
  50%{transform:translateY(9px)}
 }
 
-/* ===============================
-   ABOUT
-================================ */
+/* ABOUT */
 
 .aboutGrid{
  max-width:1150px;
@@ -484,9 +483,7 @@ section{
  font-size:10px;
 }
 
-/* ===============================
-   EDUCATION
-================================ */
+/* EDUCATION */
 
 .education{
  max-width:1100px;
@@ -522,9 +519,7 @@ section{
  line-height:1.85;
 }
 
-/* ===============================
-   SKILLS
-================================ */
+/* SKILLS */
 
 .skills{
  max-width:1100px;
@@ -554,9 +549,7 @@ section{
  margin-bottom:12px;
 }
 
-/* ===============================
-   PROJECTS
-================================ */
+/* PROJECTS */
 
 .projects{
  max-width:1150px;
@@ -622,13 +615,11 @@ section{
  font-weight:800;
 }
 
-/* ===============================
-   AI
-================================ */
+/* AI */
 
 .aiSection{
  background:
- radial-gradient(circle at 50% 30%,rgba(255,23,68,.07),transparent 40%);
+ radial-gradient(circle at 50% 30%,rgba(139,92,246,.09),transparent 40%);
 }
 
 .aiGrid{
@@ -641,14 +632,23 @@ section{
 
 .aiMain{
  padding:35px;
+ border-color:rgba(139,92,246,.25);
+}
+
+.aiMain:hover{
+ border-color:rgba(34,211,238,.55);
+ box-shadow:
+ 0 30px 90px rgba(0,0,0,.45),
+ 0 0 60px rgba(139,92,246,.12);
 }
 
 .aiBadge{
  display:inline-flex;
  padding:7px 11px;
  border-radius:30px;
- background:rgba(255,23,68,.08);
- color:#ff7188;
+ background:rgba(139,92,246,.10);
+ border:1px solid rgba(139,92,246,.22);
+ color:#a78bfa;
  font-size:9px;
  letter-spacing:2px;
 }
@@ -674,13 +674,29 @@ section{
  padding:13px;
  border-radius:12px;
  background:#090c12;
- border:1px solid var(--line);
- color:#8f97a4;
+ border:1px solid rgba(139,92,246,.15);
+ color:#9ba3b0;
  font-size:11px;
+ transition:.3s;
+}
+
+.aiFeature:hover{
+ transform:translateY(-4px);
+ border-color:#22d3ee;
+ color:#e5e7eb;
+}
+
+.aiButton{
+ background:var(--aiGradient)!important;
+ color:white!important;
+ box-shadow:
+ 0 0 25px rgba(139,92,246,.25),
+ 0 0 45px rgba(34,211,238,.08);
 }
 
 .aiSide{
  padding:30px;
+ border-color:rgba(34,211,238,.20);
 }
 
 .aiOrb{
@@ -688,19 +704,42 @@ section{
  height:145px;
  margin:10px auto 25px;
  border-radius:50%;
- background:var(--gradient);
+ background:var(--aiGradient);
  display:flex;
  align-items:center;
  justify-content:center;
  font-size:55px;
- box-shadow:0 0 65px rgba(255,23,68,.28);
+ box-shadow:
+ 0 0 65px rgba(139,92,246,.28),
+ 0 0 110px rgba(34,211,238,.12);
  animation:orb 3s ease-in-out infinite;
+ position:relative;
+}
+
+.aiOrb:before,
+.aiOrb:after{
+ content:"";
+ position:absolute;
+ border:1px solid rgba(34,211,238,.35);
+ border-radius:50%;
+}
+
+.aiOrb:before{
+ inset:-18px;
+ animation:spin 6s linear infinite;
+}
+
+.aiOrb:after{
+ inset:-35px;
+ animation:spinReverse 10s linear infinite;
 }
 
 @keyframes orb{
  50%{
   transform:scale(1.08) rotate(4deg);
-  box-shadow:0 0 100px rgba(255,23,68,.4);
+  box-shadow:
+   0 0 100px rgba(139,92,246,.4),
+   0 0 140px rgba(34,211,238,.16);
  }
 }
 
@@ -711,12 +750,10 @@ section{
 }
 
 .aiStatus span{
- color:#ff536f;
+ color:#22d3ee;
 }
 
-/* ===============================
-   CAREER
-================================ */
+/* CAREER */
 
 .timeline{
  max-width:1050px;
@@ -749,6 +786,11 @@ section{
  border-radius:50%;
  background:#ff1744;
  box-shadow:0 0 25px #ff1744;
+ animation:timelinePulse 2s infinite;
+}
+
+@keyframes timelinePulse{
+ 50%{transform:scale(1.35);opacity:.65}
 }
 
 .timelineItem h3{
@@ -762,9 +804,7 @@ section{
  line-height:1.85;
 }
 
-/* ===============================
-   ACHIEVEMENTS
-================================ */
+/* ACHIEVEMENTS */
 
 .achievements{
  max-width:1100px;
@@ -798,114 +838,7 @@ section{
  font-size:13px;
 }
 
-/* ===============================
-   SOCIAL
-================================ */
-
-.socialGrid{
- max-width:950px;
- margin:auto;
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:18px;
-}
-
-.socialCard{
- padding:27px;
- display:flex;
- align-items:center;
- gap:19px;
- text-decoration:none;
- color:white;
-}
-
-.socialIcon{
- font-size:42px;
- transition:.4s;
-}
-
-.socialCard:hover .socialIcon{
- transform:scale(1.3) rotate(8deg);
-}
-
-.socialCard p{
- margin-top:6px;
- color:#828b98;
- font-size:12px;
-}
-
-/* ===============================
-   CONTACT BUTTONS
-================================ */
-
-.contactGrid{
- max-width:1000px;
- margin:auto;
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:18px;
-}
-
-.contactCard{
- padding:30px;
- text-align:center;
- text-decoration:none;
- color:white;
-}
-
-.contactIcon{
- font-size:42px;
- margin-bottom:14px;
-}
-
-.contactCard p{
- color:#8e96a3;
- font-size:12px;
- margin-top:8px;
- word-break:break-word;
-}
-
-.contactButton{
- margin-top:18px;
-}
-
-/* ===============================
-   FEEDBACK
-================================ */
-
-.feedback{
- max-width:750px;
- margin:auto;
- padding:32px;
-}
-
-input,
-textarea{
- width:100%;
- padding:15px;
- border-radius:12px;
- background:#080b10;
- border:1px solid var(--line);
- color:white;
- outline:none;
- font-family:inherit;
- margin-bottom:13px;
-}
-
-input:focus,
-textarea:focus{
- border-color:#ff1744;
- box-shadow:0 0 25px rgba(255,23,68,.1);
-}
-
-textarea{
- height:140px;
- resize:vertical;
-}
-
-/* ===============================
-   PREMIUM SHOWCASE
-================================ */
+/* SHOWCASE */
 
 .showcase{
  max-width:1100px;
@@ -921,8 +854,7 @@ textarea{
  overflow:hidden;
  border-radius:22px;
  border:1px solid var(--line);
- background:
- linear-gradient(135deg,#11151d,#080a0f);
+ background:linear-gradient(135deg,#11151d,#080a0f);
  cursor:pointer;
 }
 
@@ -931,10 +863,10 @@ textarea{
  position:absolute;
  inset:-100%;
  background:linear-gradient(
-  120deg,
-  transparent 35%,
-  rgba(255,255,255,.08),
-  transparent 65%
+ 120deg,
+ transparent 35%,
+ rgba(255,255,255,.08),
+ transparent 65%
  );
  transform:rotate(20deg);
  animation:shine 5s linear infinite;
@@ -971,9 +903,106 @@ textarea{
  letter-spacing:2px;
 }
 
-/* ===============================
-   CHAT
-================================ */
+/* SOCIAL */
+
+.socialGrid{
+ max-width:950px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+}
+
+.socialCard{
+ padding:27px;
+ display:flex;
+ align-items:center;
+ gap:19px;
+ text-decoration:none;
+ color:white;
+}
+
+.socialIcon{
+ font-size:42px;
+ transition:.4s;
+}
+
+.socialCard:hover .socialIcon{
+ transform:scale(1.3) rotate(8deg);
+}
+
+.socialCard p{
+ margin-top:6px;
+ color:#828b98;
+ font-size:12px;
+}
+
+/* CONTACT */
+
+.contactGrid{
+ max-width:1000px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:18px;
+}
+
+.contactCard{
+ padding:30px;
+ text-align:center;
+ text-decoration:none;
+ color:white;
+}
+
+.contactIcon{
+ font-size:42px;
+ margin-bottom:14px;
+}
+
+.contactCard p{
+ color:#8e96a3;
+ font-size:12px;
+ margin-top:8px;
+ word-break:break-word;
+}
+
+.contactButton{
+ margin-top:18px;
+}
+
+/* FEEDBACK */
+
+.feedback{
+ max-width:750px;
+ margin:auto;
+ padding:32px;
+}
+
+input,
+textarea{
+ width:100%;
+ padding:15px;
+ border-radius:12px;
+ background:#080b10;
+ border:1px solid var(--line);
+ color:white;
+ outline:none;
+ font-family:inherit;
+ margin-bottom:13px;
+}
+
+input:focus,
+textarea:focus{
+ border-color:#ff1744;
+ box-shadow:0 0 25px rgba(255,23,68,.1);
+}
+
+textarea{
+ height:140px;
+ resize:vertical;
+}
+
+/* AI CHAT */
 
 .aiFloating{
  position:fixed;
@@ -983,11 +1012,13 @@ textarea{
  height:67px;
  border:0;
  border-radius:50%;
- background:var(--gradient);
+ background:var(--aiGradient);
  font-size:27px;
  cursor:pointer;
  z-index:8000;
- box-shadow:0 15px 50px rgba(255,23,68,.4);
+ box-shadow:
+ 0 15px 50px rgba(139,92,246,.4),
+ 0 0 35px rgba(34,211,238,.12);
  animation:aiFloat 2s infinite;
 }
 
@@ -995,9 +1026,13 @@ textarea{
  content:"";
  position:absolute;
  inset:-8px;
- border:1px solid rgba(255,23,68,.3);
+ border:1px solid rgba(34,211,238,.4);
  border-radius:50%;
  animation:ring 2s infinite;
+}
+
+@keyframes aiFloat{
+ 50%{transform:translateY(-7px) rotate(4deg)}
 }
 
 @keyframes ring{
@@ -1012,14 +1047,16 @@ textarea{
  display:none;
  right:25px;
  bottom:105px;
- width:400px;
+ width:430px;
  max-width:calc(100vw - 30px);
  z-index:7999;
- background:#090c12;
- border:1px solid rgba(255,23,68,.32);
+ background:#080a12;
+ border:1px solid rgba(139,92,246,.45);
  border-radius:22px;
  overflow:hidden;
- box-shadow:0 30px 100px rgba(0,0,0,.75);
+ box-shadow:
+ 0 30px 100px rgba(0,0,0,.75),
+ 0 0 60px rgba(139,92,246,.12);
 }
 
 .chat.show{
@@ -1042,15 +1079,19 @@ textarea{
  padding:17px;
  display:flex;
  justify-content:space-between;
+ align-items:center;
  background:linear-gradient(
   135deg,
-  rgba(255,23,68,.17),
-  rgba(255,107,53,.08)
+  rgba(139,92,246,.20),
+  rgba(34,211,238,.10)
  );
+ border-bottom:1px solid rgba(139,92,246,.18);
 }
 
 .chatHead b{
- color:#ff7188;
+ background:var(--aiGradient);
+ -webkit-background-clip:text;
+ color:transparent;
 }
 
 .chatClose{
@@ -1059,30 +1100,100 @@ textarea{
 }
 
 .chatBody{
- height:360px;
+ height:390px;
  overflow-y:auto;
  padding:15px;
+ scroll-behavior:smooth;
+}
+
+/* QUESTION BUTTONS */
+
+.aiQuestions{
+ display:flex;
+ gap:7px;
+ flex-wrap:wrap;
+ padding:0 15px 12px;
+}
+
+.aiQ{
+ border:1px solid rgba(139,92,246,.22);
+ background:rgba(139,92,246,.06);
+ color:#b7a5ff;
+ padding:8px 11px;
+ border-radius:30px;
+ font-size:10px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.aiQ:hover{
+ transform:translateY(-3px);
+ border-color:#22d3ee;
+ color:#67e8f9;
+ box-shadow:0 0 20px rgba(34,211,238,.10);
 }
 
 .message{
  padding:11px 14px;
  margin-bottom:10px;
  border-radius:13px;
- max-width:88%;
+ max-width:90%;
  font-size:13px;
- line-height:1.65;
+ line-height:1.7;
  white-space:pre-wrap;
+ animation:messageIn .35s ease;
+}
+
+@keyframes messageIn{
+ from{
+  opacity:0;
+  transform:translateY(8px) scale(.98);
+ }
+ to{
+  opacity:1;
+  transform:none;
+ }
 }
 
 .message.bot{
- background:#151923;
+ background:linear-gradient(
+  135deg,
+  rgba(139,92,246,.12),
+  rgba(34,211,238,.06)
+ );
+ border:1px solid rgba(139,92,246,.13);
  color:#e1e5eb;
 }
 
 .message.user{
  margin-left:auto;
- background:var(--gradient);
- color:#080808;
+ background:var(--aiGradient);
+ color:white;
+}
+
+.typing{
+ display:flex;
+ gap:5px;
+ align-items:center;
+ padding:13px 15px!important;
+}
+
+.typing i{
+ width:6px;
+ height:6px;
+ background:#22d3ee;
+ border-radius:50%;
+ animation:typeDot 1s infinite;
+}
+
+.typing i:nth-child(2){animation-delay:.15s}
+.typing i:nth-child(3){animation-delay:.3s}
+
+@keyframes typeDot{
+ 50%{
+  transform:translateY(-5px);
+  opacity:.5;
+ }
 }
 
 .chatInput{
@@ -1100,14 +1211,13 @@ textarea{
  width:50px;
  border:0;
  border-radius:10px;
- background:var(--gradient);
+ background:var(--aiGradient);
+ color:white;
  cursor:pointer;
  font-size:18px;
 }
 
-/* ===============================
-   MODAL
-================================ */
+/* MODAL */
 
 .modal{
  display:none;
@@ -1158,9 +1268,7 @@ textarea{
  line-height:1.9;
 }
 
-/* ===============================
-   FOOTER
-================================ */
+/* FOOTER */
 
 footer{
  text-align:center;
@@ -1174,9 +1282,7 @@ footer strong{
  color:#ff536f;
 }
 
-/* ===============================
-   MOBILE
-================================ */
+/* MOBILE */
 
 @media(max-width:950px){
 
@@ -1239,6 +1345,10 @@ footer strong{
   bottom:18px;
  }
 
+ .chatBody{
+  height:350px;
+ }
+
 }
 </style>
 </head>
@@ -1250,1110 +1360,1033 @@ footer strong{
 <div id="canvas"></div>
 <div class="cursor" id="cursor"></div>
 
-
-<!-- ================= NAV ================= -->
+<!-- NAV -->
 
 <nav>
 
- <div class="logo">
-  PRIYANSH<span>.</span>
- </div>
+<div class="logo">
+PRIYANSH<span>.</span>
+</div>
 
- <div class="navLinks">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#education">Education</a>
-  <a href="#skills">Skills</a>
-  <a href="#projects">Projects</a>
-  <a href="#ai">AI</a>
-  <a href="#career">Career</a>
-  <a href="#social">Social</a>
-  <a href="#contact">Contact</a>
-  <a class="navAI" href="#ai">Ask AI</a>
- </div>
+<div class="navLinks">
 
- <div class="menu">☰</div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#education">Education</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#ai">AI</a>
+<a href="#career">Career</a>
+<a href="#social">Social</a>
+<a href="#contact">Contact</a>
+
+<a class="navAI" href="#ai">
+Ask AI
+</a>
+
+</div>
+
+<div class="menu">☰</div>
 
 </nav>
 
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 
- <div class="heroContent reveal">
+<div class="heroContent reveal">
 
-  <div class="live">
-   <span class="liveDot"></span>
-   PRIYANSH DIGITAL LAB • ONLINE
-  </div>
+<div class="live">
+<span class="liveDot"></span>
+PRIYANSH DIGITAL LAB • ONLINE
+</div>
 
-  <h1>
-   <span class="line">PRIYANSH</span>
-   <span class="line gradient">SHARMA.</span>
-  </h1>
+<h1>
+<span class="line">PRIYANSH</span>
+<span class="line gradient">SHARMA.</span>
+</h1>
 
-  <p class="heroDescription">
-   Developer • Creator • AI Explorer.
-   I build interactive digital experiences,
-   explore modern technology and turn ideas
-   into real projects.
-  </p>
+<p class="heroDescription">
+Developer • Creator • AI Explorer.
+I build interactive digital experiences,
+explore modern technology and turn ideas
+into real projects.
+</p>
 
-  <div class="buttons">
+<div class="buttons">
 
-   <a class="btn primary" href="#projects">
-    Explore Projects →
-   </a>
+<a class="btn primary" href="#projects">
+Explore Projects →
+</a>
 
-   <a class="btn" href="#contact">
-    Contact Priyansh
-   </a>
+<a class="btn" href="#contact">
+Contact Priyansh
+</a>
 
-   <a class="btn" href="#ai">
-    🤖 Ask Priyansh AI
-   </a>
+<a class="btn aiButton" href="#ai">
+🤖 Ask Priyansh Intelligence
+</a>
 
-  </div>
+</div>
 
-  <div class="heroMini">
+<div class="heroMini">
 
-   <span class="mini">💻 BCA</span>
-   <span class="mini">🎓 90% Class 12</span>
-   <span class="mini">🤖 AI Explorer</span>
-   <span class="mini">🚀 Future Developer</span>
+<span class="mini">💻 BCA</span>
+<span class="mini">🎓 90% Class 12</span>
+<span class="mini">🤖 AI Explorer</span>
+<span class="mini">🚀 Future Developer</span>
 
-  </div>
+</div>
 
-  <div class="scroll">
-   SCROLL TO ENTER THE DIGITAL LAB ↓
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- ================= ABOUT ================= -->
-
-<section id="about">
-
- <div class="title reveal">
-
-  <small>01 — ABOUT PRIYANSH</small>
-
-  <h2>
-   More Than Just
-   <span class="gradient">Code.</span>
-  </h2>
-
-  <p>
-   The person behind the projects.
-  </p>
-
- </div>
-
-
- <div class="aboutGrid">
-
-  <div class="glass aboutText reveal">
-
-   <h3>
-    👨‍💻 Who is Priyansh?
-   </h3>
-
-   <p>
-    I'm <span class="highlight">Priyansh Sharma</span>,
-    a technology enthusiast and developer focused on
-    learning, experimenting and building.
-   </p>
-
-   <p>
-    My interest in technology goes beyond writing code.
-    I enjoy exploring websites, user interfaces,
-    artificial intelligence, APIs, automation and
-    creative digital experiences.
-   </p>
-
-   <p>
-    I'm currently building my foundation through BCA
-    while continuously working on practical projects
-    that help me understand how modern software works.
-   </p>
-
-   <p>
-    My philosophy is simple:
-    <span class="highlight">
-     learn → build → improve → repeat.
-    </span>
-   </p>
-
-   <div class="stats">
-
-    <div class="stat">
-     <b>90%</b>
-     <span>Class 12</span>
-    </div>
-
-    <div class="stat">
-     <b>BCA</b>
-     <span>Computer Applications</span>
-    </div>
-
-    <div class="stat">
-     <b>∞</b>
-     <span>Learning</span>
-    </div>
-
-   </div>
-
-  </div>
-
-
-  <div class="glass profile reveal">
-
-   <div class="profileCore">
-    PS
-   </div>
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- ================= EDUCATION ================= -->
-
-<section id="education">
-
- <div class="title reveal">
-
-  <small>02 — EDUCATION</small>
-
-  <h2>
-   Learning &
-   <span class="gradient">Growth.</span>
-  </h2>
-
-  <p>
-   Building the foundation for a technology career.
-  </p>
-
- </div>
-
-
- <div class="education">
-
-  <div class="glass edu reveal">
-
-   <div class="eduIcon">🎓</div>
-
-   <h3>
-    Class 12
-   </h3>
-
-   <div class="percent">
-    90%
-   </div>
-
-   <p>
-    A major academic milestone that strengthened
-    consistency, discipline and the foundation
-    for the next stage of education.
-   </p>
-
-  </div>
-
-
-  <div class="glass edu reveal">
-
-   <div class="eduIcon">💻</div>
-
-   <h3>
-    Bachelor of Computer Applications
-   </h3>
-
-   <div class="percent">
-    BCA
-   </div>
-
-   <p>
-    Building knowledge in programming, computer
-    applications, web development, databases,
-    software development and modern technologies.
-   </p>
-
-  </div>
-
- </div>
-
-</section>
-
-
-<!-- ================= SKILLS ================= -->
-
-<section id="skills">
-
- <div class="title reveal">
-
-  <small>03 — TECHNOLOGY</small>
-
-  <h2>
-   My
-   <span class="gradient">Toolkit.</span>
-  </h2>
-
-  <p>
-   Technologies I'm learning and exploring.
-  </p>
-
- </div>
-
-
- <div class="skills">
-
-  <div class="skill reveal">
-   <div class="skillIcon">🌐</div>
-   <b>HTML5</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">🎨</div>
-   <b>CSS3</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">⚡</div>
-   <b>JavaScript</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">🐍</div>
-   <b>Python</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">🟢</div>
-   <b>Node.js</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">▲</div>
-   <b>Next.js</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">🤖</div>
-   <b>AI & APIs</b>
-  </div>
-
-  <div class="skill reveal">
-   <div class="skillIcon">☁️</div>
-   <b>Cloud</b>
-  </div>
+<div class="scroll">
+SCROLL TO ENTER THE DIGITAL LAB ↓
+</div>
 
 </div>
 
 </section>
 
 
-<!-- ================= PROJECTS ================= -->
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="title reveal">
+
+<small>01 — ABOUT PRIYANSH</small>
+
+<h2>
+More Than Just
+<span class="gradient">Code.</span>
+</h2>
+
+<p>
+The person behind the projects.
+</p>
+
+</div>
+
+<div class="aboutGrid">
+
+<div class="glass aboutText reveal">
+
+<h3>
+👨‍💻 Who is Priyansh?
+</h3>
+
+<p>
+I'm <span class="highlight">Priyansh Sharma</span>,
+a technology enthusiast and developer focused on
+learning, experimenting and building.
+</p>
+
+<p>
+My interest in technology goes beyond writing code.
+I enjoy exploring websites, user interfaces,
+artificial intelligence, APIs, automation and
+creative digital experiences.
+</p>
+
+<p>
+I'm currently building my foundation through BCA
+while continuously working on practical projects
+that help me understand how modern software works.
+</p>
+
+<p>
+My philosophy is simple:
+<span class="highlight">
+learn → build → improve → repeat.
+</span>
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<b>90%</b>
+<span>Class 12</span>
+</div>
+
+<div class="stat">
+<b>BCA</b>
+<span>Computer Applications</span>
+</div>
+
+<div class="stat">
+<b>∞</b>
+<span>Learning</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="glass profile reveal">
+
+<div class="profileCore">
+PS
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section id="education">
+
+<div class="title reveal">
+
+<small>02 — EDUCATION</small>
+
+<h2>
+Learning &
+<span class="gradient">Growth.</span>
+</h2>
+
+<p>
+Building the foundation for a technology career.
+</p>
+
+</div>
+
+<div class="education">
+
+<div class="glass edu reveal">
+
+<div class="eduIcon">🎓</div>
+
+<h3>Class 12</h3>
+
+<div class="percent">90%</div>
+
+<p>
+Priyansh completed Class 12 with 90%.
+This milestone represents academic consistency
+and the foundation for the next stage of education.
+</p>
+
+</div>
+
+<div class="glass edu reveal">
+
+<div class="eduIcon">💻</div>
+
+<h3>Bachelor of Computer Applications</h3>
+
+<div class="percent">BCA</div>
+
+<p>
+Building knowledge in programming, computer
+applications, web development, databases,
+software development and modern technologies.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+<div class="title reveal">
+
+<small>03 — TECHNOLOGY</small>
+
+<h2>
+My
+<span class="gradient">Toolkit.</span>
+</h2>
+
+<p>
+Technologies I'm learning and exploring.
+</p>
+
+</div>
+
+<div class="skills">
+
+<div class="skill reveal">
+<div class="skillIcon">🌐</div>
+<b>HTML5</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">🎨</div>
+<b>CSS3</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">⚡</div>
+<b>JavaScript</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">🐍</div>
+<b>Python</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">🟢</div>
+<b>Node.js</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">▲</div>
+<b>Next.js</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">🤖</div>
+<b>AI & APIs</b>
+</div>
+
+<div class="skill reveal">
+<div class="skillIcon">☁️</div>
+<b>Cloud</b>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PROJECTS -->
 
 <section id="projects">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>04 — PROJECTS</small>
+<small>04 — PROJECTS</small>
 
-  <h2>
-   Built With
-   <span class="gradient">Curiosity.</span>
-  </h2>
+<h2>
+Built With
+<span class="gradient">Curiosity.</span>
+</h2>
 
-  <p>
-   Every project is another step forward.
-  </p>
+<p>
+Every project is another step forward.
+</p>
 
- </div>
+</div>
 
+<div class="projects">
 
- <div class="projects">
+<div class="project glass reveal"
+onclick="openModal(
+'🤖 Priyansh Intelligence',
+'Priyansh Intelligence is the interactive AI assistant inside this website. It can answer website questions and personal portfolio questions using a built-in knowledge system. If the backend is available, it can also use the API.'
+)">
 
-  <div class="project glass reveal"
-       onclick="openModal(
-       '🤖 Priyansh AI',
-       'An AI assistant concept created inside Priyansh Digital Lab. It communicates with the backend API and can answer questions about technology, coding, programming and many other topics.'
-       )">
+<span class="tag">AI • INTELLIGENCE</span>
 
-   <span class="tag">
-    AI • API
-   </span>
+<h3>Priyansh Intelligence</h3>
 
-   <h3>
-    Priyansh AI
-   </h3>
+<p>
+An interactive AI assistant designed
+for this portfolio.
+</p>
 
-   <p>
-    A personal AI assistant designed to turn
-    this portfolio into an interactive experience.
-   </p>
+<span class="projectArrow">
+OPEN PROJECT →
+</span>
 
-   <span class="projectArrow">
-    OPEN PROJECT →
-   </span>
-
-  </div>
+</div>
 
 
-  <div class="project glass reveal"
-       onclick="openModal(
-       '🌐 Premium Portfolio',
-       'A long-form personal website combining responsive design, glassmorphism, animated interfaces, interactive sections and AI integration.'
-       )">
+<div class="project glass reveal"
+onclick="openModal(
+'🌐 Premium Portfolio',
+'A long-form personal website combining responsive design, glassmorphism, animated interfaces, interactive sections and AI integration.'
+)">
 
-   <span class="tag">
-    WEB DEVELOPMENT
-   </span>
+<span class="tag">WEB DEVELOPMENT</span>
 
-   <h3>
-    Premium Portfolio
-   </h3>
+<h3>Premium Portfolio</h3>
 
-   <p>
-    A digital identity created to showcase
-    development, creativity, education and goals.
-   </p>
+<p>
+A digital identity created to showcase
+development, creativity, education and goals.
+</p>
 
-   <span class="projectArrow">
-    OPEN PROJECT →
-   </span>
+<span class="projectArrow">
+OPEN PROJECT →
+</span>
 
-  </div>
+</div>
 
 
-  <div class="project glass reveal"
-       onclick="openModal(
-       '🚀 Future Digital Lab',
-       'A continuously growing space for future applications, experiments, AI tools and new technology projects.'
-       )">
+<div class="project glass reveal"
+onclick="openModal(
+'🚀 Future Digital Lab',
+'A continuously growing space for future applications, experiments, AI tools and new technology projects.'
+)">
 
-   <span class="tag">
-    FUTURE
-   </span>
+<span class="tag">FUTURE</span>
 
-   <h3>
-    Future Lab
-   </h3>
+<h3>Future Lab</h3>
 
-   <p>
-    The next idea could become a website,
-    AI application, automation system or something new.
-   </p>
+<p>
+The next idea could become a website,
+AI application, automation system or something new.
+</p>
 
-   <span class="projectArrow">
-    OPEN PROJECT →
-   </span>
+<span class="projectArrow">
+OPEN PROJECT →
+</span>
 
-  </div>
+</div>
 
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= AI ================= -->
+<!-- AI -->
 
 <section id="ai" class="aiSection">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>05 — ARTIFICIAL INTELLIGENCE</small>
+<small>05 — ARTIFICIAL INTELLIGENCE</small>
 
-  <h2>
-   Meet
-   <span class="gradient">Priyansh AI.</span>
-  </h2>
+<h2>
+Meet
+<span style="background:var(--aiGradient);-webkit-background-clip:text;color:transparent">
+Priyansh Intelligence.
+</span>
+</h2>
 
-  <p>
-   Ask questions. Learn. Explore. Build.
-  </p>
+<p>
+Ask about Priyansh, the website, coding, BCA, YouTube, Instagram and more.
+</p>
 
- </div>
+</div>
 
+<div class="aiGrid">
 
- <div class="aiGrid">
+<div class="glass aiMain reveal">
 
-  <div class="glass aiMain reveal">
+<span class="aiBadge">
+✦ PRIYANSH INTELLIGENCE • READY
+</span>
 
-   <span class="aiBadge">
-    ✦ BUILT FOR PRIYANSH DIGITAL LAB
-   </span>
+<h3>
+Your personal
+<span style="background:var(--aiGradient);-webkit-background-clip:text;color:transparent">
+AI assistant.
+</span>
+</h3>
 
-   <h3>
-    Your AI-powered
-    <span class="gradient">assistant.</span>
-   </h3>
+<p>
+Ask short questions like <b>"12"</b>,
+<b>"BCA"</b>, <b>"YouTube"</b>,
+<b>"Instagram"</b>, <b>"who is Priyansh"</b>
+or ask detailed questions about the website.
+The assistant understands common variations.
+</p>
 
-   <p>
-    Priyansh AI is designed to answer questions,
-    explain programming concepts, help with technology,
-    brainstorm ideas and make this portfolio interactive.
-   </p>
+<div class="aiFeatures">
 
-   <div class="aiFeatures">
+<div class="aiFeature">✓ Website questions</div>
+<div class="aiFeature">✓ Priyansh questions</div>
+<div class="aiFeature">✓ Class 12 / 90%</div>
+<div class="aiFeature">✓ BCA information</div>
+<div class="aiFeature">✓ YouTube & Instagram</div>
+<div class="aiFeature">✓ Coding & technology</div>
 
-    <div class="aiFeature">
-     ✓ Coding questions
-    </div>
+</div>
 
-    <div class="aiFeature">
-     ✓ Programming explanations
-    </div>
+<br>
 
-    <div class="aiFeature">
-     ✓ Technology questions
-    </div>
+<button class="btn aiButton" onclick="toggleAI()">
+🤖 Start Priyansh Intelligence
+</button>
 
-    <div class="aiFeature">
-     ✓ Project ideas
-    </div>
-
-    <div class="aiFeature">
-     ✓ Study help
-    </div>
-
-    <div class="aiFeature">
-     ✓ General questions
-    </div>
-
-   </div>
-
-   <br>
-
-   <button class="btn primary"
-           onclick="toggleAI()">
-    🤖 Start Chatting
-   </button>
-
-  </div>
+</div>
 
 
-  <div class="glass aiSide reveal">
+<div class="glass aiSide reveal">
 
-   <div class="aiOrb">
-    🤖
-   </div>
+<div class="aiOrb">
+🤖
+</div>
 
-   <div class="aiStatus">
-    <span>● ONLINE</span>
-    <br><br>
-    Priyansh AI • Digital Lab
-   </div>
+<div class="aiStatus">
+<span>● INTELLIGENCE ONLINE</span>
+<br><br>
+Priyansh Intelligence
+<br>
+Fast local knowledge + optional AI API
+</div>
 
-  </div>
+</div>
 
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= CAREER ================= -->
+<!-- CAREER -->
 
 <section id="career">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>06 — CAREER</small>
+<small>06 — CAREER</small>
 
-  <h2>
-   The
-   <span class="gradient">Journey.</span>
-  </h2>
+<h2>
+The
+<span class="gradient">Journey.</span>
+</h2>
 
-  <p>
-   From learning fundamentals to building real products.
-  </p>
+<p>
+From learning fundamentals to building real products.
+</p>
 
- </div>
+</div>
 
+<div class="timeline">
 
- <div class="timeline">
+<div class="timelineItem reveal">
 
-  <div class="timelineItem reveal">
+<h3>🎓 Academic Foundation</h3>
 
-   <h3>
-    🎓 Academic Foundation
-   </h3>
+<p>
+Completed Class 12 with 90% and moved toward
+computer applications and technology.
+</p>
 
-   <p>
-    Completed Class 12 with 90% and moved toward
-    computer applications and technology.
-   </p>
+</div>
 
-  </div>
+<div class="timelineItem reveal">
 
+<h3>💻 Developer Growth</h3>
 
-  <div class="timelineItem reveal">
+<p>
+Learning programming and web development
+through practical projects and experimentation.
+</p>
 
-   <h3>
-    💻 Developer Growth
-   </h3>
+</div>
 
-   <p>
-    Learning programming and web development
-    through practical projects and experimentation.
-   </p>
+<div class="timelineItem reveal">
 
-  </div>
+<h3>🤖 AI Exploration</h3>
 
+<p>
+Exploring AI APIs, intelligent applications
+and AI-powered websites.
+</p>
 
-  <div class="timelineItem reveal">
+</div>
 
-   <h3>
-    🤖 AI Exploration
-   </h3>
+<div class="timelineItem reveal">
 
-   <p>
-    Exploring AI APIs and intelligent applications
-    and learning how AI can become part of modern websites.
-   </p>
+<h3>🚀 Future Developer</h3>
 
-  </div>
+<p>
+The long-term goal is to build professional software,
+gain industry experience and create useful technology.
+</p>
 
+</div>
 
-  <div class="timelineItem reveal">
-
-   <h3>
-    🚀 Future Developer
-   </h3>
-
-   <p>
-    The long-term goal is to build professional software,
-    gain industry experience and create useful technology.
-   </p>
-
-  </div>
-
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= ACHIEVEMENTS ================= -->
+<!-- ACHIEVEMENTS -->
 
 <section id="achievements">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>07 — ACHIEVEMENTS</small>
+<small>07 — ACHIEVEMENTS</small>
 
-  <h2>
-   Milestones That
-   <span class="gradient">Matter.</span>
-  </h2>
+<h2>
+Milestones That
+<span class="gradient">Matter.</span>
+</h2>
 
- </div>
+</div>
 
+<div class="achievements">
 
- <div class="achievements">
+<div class="glass achievement reveal">
 
-  <div class="glass achievement reveal">
+<div class="achievementIcon">🎓</div>
 
-   <div class="achievementIcon">
-    🎓
-   </div>
+<h3>90% in Class 12</h3>
 
-   <h3>
-    90% in Class 12
-   </h3>
+<p>
+A significant academic milestone.
+</p>
 
-   <p>
-    A significant academic milestone.
-   </p>
+</div>
 
-  </div>
+<div class="glass achievement reveal">
 
+<div class="achievementIcon">🌐</div>
 
-  <div class="glass achievement reveal">
+<h3>Portfolio Creator</h3>
 
-   <div class="achievementIcon">
-    🌐
-   </div>
+<p>
+Built a personal digital platform
+around development and creativity.
+</p>
 
-   <h3>
-    Portfolio Creator
-   </h3>
+</div>
 
-   <p>
-    Built a personal digital platform
-    around development and creativity.
-   </p>
+<div class="glass achievement reveal">
 
-  </div>
+<div class="achievementIcon">🤖</div>
 
+<h3>AI Explorer</h3>
 
-  <div class="glass achievement reveal">
+<p>
+Experimenting with AI-powered applications
+and APIs.
+</p>
 
-   <div class="achievementIcon">
-    🤖
-   </div>
+</div>
 
-   <h3>
-    AI Explorer
-   </h3>
-
-   <p>
-    Experimenting with AI-powered applications
-    and APIs.
-   </p>
-
-  </div>
-
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= PREMIUM SHOWCASE ================= -->
+<!-- DIGITAL LAB -->
 
 <section>
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>08 — DIGITAL LAB</small>
+<small>08 — DIGITAL LAB</small>
 
-  <h2>
-   Interactive
-   <span class="gradient">Experiments.</span>
-  </h2>
+<h2>
+Interactive
+<span class="gradient">Experiments.</span>
+</h2>
 
-  <p>
-   Click the cards to explore.
-  </p>
+<p>
+Click the cards to explore.
+</p>
 
- </div>
+</div>
 
+<div class="showcase">
 
- <div class="showcase">
+<div class="showBox reveal"
+onclick="openModal(
+'🤖 Artificial Intelligence',
+'AI is one of the main areas being explored inside Priyansh Digital Lab. Priyansh Intelligence is the portfolio AI experience.'
+)">
 
-  <div class="showBox reveal"
-       onclick="openModal(
-       '🤖 Artificial Intelligence',
-       'AI represents one of the biggest areas of technology exploration inside the Priyansh Digital Lab.'
-       )">
+<div class="showContent">
 
-   <div class="showContent">
+<div class="showIcon">🤖</div>
 
-    <div class="showIcon">
-     🤖
-    </div>
+<span>AI TECHNOLOGY</span>
 
-    <span>
-     AI TECHNOLOGY
-    </span>
+</div>
 
-   </div>
-
-  </div>
+</div>
 
 
-  <div class="showBox reveal"
-       onclick="openModal(
-       '💻 Coding',
-       'Coding is the foundation of the projects being built here. Every experiment is another opportunity to learn.'
-       )">
+<div class="showBox reveal"
+onclick="openModal(
+'💻 Coding',
+'Coding is the foundation of the projects being built here. Every experiment is another opportunity to learn.'
+)">
 
-   <div class="showContent">
+<div class="showContent">
 
-    <div class="showIcon">
-     💻
-    </div>
+<div class="showIcon">💻</div>
 
-    <span>
-     DEVELOPMENT
-    </span>
+<span>DEVELOPMENT</span>
 
-   </div>
+</div>
 
-  </div>
+</div>
 
 
-  <div class="showBox reveal"
-       onclick="openModal(
-       '🚀 Future Tech',
-       'A place for future ideas, experiments and applications that can be developed over time.'
-       )">
+<div class="showBox reveal"
+onclick="openModal(
+'🚀 Future Tech',
+'A place for future ideas, experiments and applications that can be developed over time.'
+)">
 
-   <div class="showContent">
+<div class="showContent">
 
-    <div class="showIcon">
-     🚀
-    </div>
+<div class="showIcon">🚀</div>
 
-    <span>
-     FUTURE
-    </span>
+<span>FUTURE</span>
 
-   </div>
+</div>
 
-  </div>
+</div>
 
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= SOCIAL ================= -->
+<!-- SOCIAL -->
 
 <section id="social">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>09 — SOCIAL</small>
+<small>09 — SOCIAL</small>
 
-  <h2>
-   Find Me
-   <span class="gradient">Online.</span>
-  </h2>
+<h2>
+Find Me
+<span class="gradient">Online.</span>
+</h2>
 
-  <p>
-   Follow Priyansh's journey and latest updates.
-  </p>
+<p>
+Follow Priyansh's journey and latest updates.
+</p>
 
- </div>
+</div>
 
+<div class="socialGrid">
 
- <div class="socialGrid">
+<a class="glass socialCard reveal"
+href="https://www.youtube.com/@pixeloratech"
+target="_blank"
+rel="noopener noreferrer">
 
-  <a class="glass socialCard reveal"
-     href="https://www.youtube.com/@pixeloratech"
-     target="_blank"
-     rel="noopener noreferrer">
+<div class="socialIcon">▶️</div>
 
-   <div class="socialIcon">
-    ▶️
-   </div>
+<div>
+<h3>YouTube</h3>
+<p>@pixeloratech • Videos & content</p>
+</div>
 
-   <div>
-    <h3>
-     YouTube
-    </h3>
-
-    <p>
-     @pixeloratech • Videos & content
-    </p>
-   </div>
-
-  </a>
+</a>
 
 
-  <a class="glass socialCard reveal"
-     href="https://www.instagram.com/priyanshsharmaa_7"
-     target="_blank"
-     rel="noopener noreferrer">
+<a class="glass socialCard reveal"
+href="https://www.instagram.com/priyanshsharmaa_7"
+target="_blank"
+rel="noopener noreferrer">
 
-   <div class="socialIcon">
-    📸
-   </div>
+<div class="socialIcon">📸</div>
 
-   <div>
-    <h3>
-     Instagram
-    </h3>
+<div>
+<h3>Instagram</h3>
+<p>@priyanshsharmaa_7 • Updates</p>
+</div>
 
-    <p>
-     @priyanshsharmaa_7 • Updates
-    </p>
-   </div>
-
-  </a>
+</a>
 
 
-  <a class="glass socialCard reveal"
-     href="https://t.me/Pixeloratech"
-     target="_blank"
-     rel="noopener noreferrer">
+<a class="glass socialCard reveal"
+href="https://t.me/Pixeloratech"
+target="_blank"
+rel="noopener noreferrer">
 
-   <div class="socialIcon">
-    ✈️
-   </div>
+<div class="socialIcon">✈️</div>
 
-   <div>
-    <h3>
-     Telegram
-    </h3>
+<div>
+<h3>Telegram</h3>
+<p>@Pixeloratech • Community</p>
+</div>
 
-    <p>
-     @Pixeloratech • Community
-    </p>
-   </div>
-
-  </a>
+</a>
 
 
-  <a class="glass socialCard reveal"
-     href="https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z"
-     target="_blank"
-     rel="noopener noreferrer">
+<a class="glass socialCard reveal"
+href="https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z"
+target="_blank"
+rel="noopener noreferrer">
 
-   <div class="socialIcon">
-    💬
-   </div>
+<div class="socialIcon">💬</div>
 
-   <div>
-    <h3>
-     WhatsApp Channel
-    </h3>
+<div>
+<h3>WhatsApp Channel</h3>
+<p>Updates • Announcements</p>
+</div>
 
-    <p>
-     Updates • Announcements
-    </p>
-   </div>
+</a>
 
-  </a>
-
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
 
 <section id="contact">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>10 — CONTACT</small>
+<small>10 — CONTACT</small>
 
-  <h2>
-   Let's Build
-   <span class="gradient">Something.</span>
-  </h2>
+<h2>
+Let's Build
+<span class="gradient">Something.</span>
+</h2>
 
-  <p>
-   Every good project starts with an idea.
-  </p>
+<p>
+Every good project starts with an idea.
+</p>
 
- </div>
+</div>
 
+<div class="contactGrid">
 
- <div class="contactGrid">
+<a class="glass contactCard reveal"
+href="mailto:priyanshsharma7777@gmail.com">
 
-  <a class="glass contactCard reveal"
-     href="mailto:priyanshsharma7777@gmail.com">
+<div class="contactIcon">📧</div>
 
-   <div class="contactIcon">
-    📧
-   </div>
+<h3>Email Priyansh</h3>
 
-   <h3>
-    Email Priyansh
-   </h3>
+<p>priyanshsharma7777@gmail.com</p>
 
-   <p>
-    priyanshsharma7777@gmail.com
-   </p>
+<span class="btn primary contactButton">
+Send Email →
+</span>
 
-   <span class="btn primary contactButton">
-    Send Email →
-   </span>
-
-  </a>
+</a>
 
 
-  <a class="glass contactCard reveal"
-     href="https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z"
-     target="_blank"
-     rel="noopener noreferrer">
+<a class="glass contactCard reveal"
+href="https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z"
+target="_blank"
+rel="noopener noreferrer">
 
-   <div class="contactIcon">
-    💬
-   </div>
+<div class="contactIcon">💬</div>
 
-   <h3>
-    WhatsApp Channel
-   </h3>
+<h3>WhatsApp Channel</h3>
 
-   <p>
-    Join the community
-   </p>
+<p>Join the community</p>
 
-   <span class="btn primary contactButton">
-    Open Channel →
-   </span>
+<span class="btn primary contactButton">
+Open Channel →
+</span>
 
-  </a>
+</a>
 
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= FEEDBACK ================= -->
+<!-- FEEDBACK -->
 
 <section id="feedback">
 
- <div class="title reveal">
+<div class="title reveal">
 
-  <small>11 — FEEDBACK</small>
+<small>11 — FEEDBACK</small>
 
-  <h2>
-   Your
-   <span class="gradient">Opinion.</span>
-  </h2>
+<h2>
+Your
+<span class="gradient">Opinion.</span>
+</h2>
 
-  <p>
-   Tell Priyansh what you think.
-  </p>
+<p>
+Tell Priyansh what you think.
+</p>
 
- </div>
+</div>
 
+<div class="glass feedback reveal">
 
- <div class="glass feedback reveal">
+<input id="feedbackName" placeholder="Your name">
 
-  <input
-   id="feedbackName"
-   placeholder="Your name">
+<input id="feedbackEmail" type="email" placeholder="Your email">
 
-  <input
-   id="feedbackEmail"
-   type="email"
-   placeholder="Your email">
+<textarea id="feedbackText"
+placeholder="Write your feedback..."></textarea>
 
-  <textarea
-   id="feedbackText"
-   placeholder="Write your feedback..."></textarea>
+<button class="btn primary"
+style="width:100%"
+onclick="sendFeedback()">
 
-  <button
-   class="btn primary"
-   style="width:100%"
-   onclick="sendFeedback()">
+SEND FEEDBACK 🚀
 
-   SEND FEEDBACK 🚀
+</button>
 
-  </button>
+<p id="feedbackStatus"
+style="text-align:center;color:#ff7188;margin-top:14px">
+</p>
 
-  <p id="feedbackStatus"
-     style="text-align:center;color:#ff7188;margin-top:14px">
-  </p>
-
- </div>
+</div>
 
 </section>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 
 <footer>
 
- <p>
-  © 2026 <strong>Priyansh Sharma</strong>
- </p>
+<p>
+© 2026 <strong>Priyansh Sharma</strong>
+</p>
 
- <p>
-  Designed & built with code, creativity and AI.
- </p>
+<p>
+Designed & built with code, creativity and AI.
+</p>
 
- <p>
-  ✦ PRIYANSH DIGITAL LAB
- </p>
+<p>
+✦ PRIYANSH DIGITAL LAB
+</p>
 
 </footer>
 
 
-<!-- ================= AI FLOATING BUTTON ================= -->
+<!-- FLOATING AI -->
 
 <button
- class="aiFloating"
- onclick="toggleAI()">
+class="aiFloating"
+onclick="toggleAI()">
 
- 🤖
+🤖
 
 </button>
 
 
-<!-- ================= AI CHAT ================= -->
+<!-- AI CHAT -->
 
 <div class="chat" id="chat">
 
- <div class="chatHead">
+<div class="chatHead">
 
-  <b>
-   ✦ PRIYANSH AI
-  </b>
+<b>
+✦ PRIYANSH INTELLIGENCE
+</b>
 
-  <span
-   class="chatClose"
-   onclick="toggleAI()">
-   ✕
-  </span>
-
- </div>
-
-
- <div class="chatBody"
-      id="chatBody">
-
-  <div class="message bot">
-   👋 Hi! I'm Priyansh AI.
-
-   Ask me anything about coding,
-   programming, technology, websites,
-   AI or general topics.
-  </div>
-
- </div>
-
-
- <div class="chatInput">
-
-  <input
-   id="chatInput"
-   placeholder="Ask anything..."
-   autocomplete="off"
-   onkeydown="if(event.key==='Enter') sendAIMessage()">
-
-  <button onclick="sendAIMessage()">
-   ➤
-  </button>
-
- </div>
+<span
+class="chatClose"
+onclick="toggleAI()">
+✕
+</span>
 
 </div>
 
 
-<!-- ================= MODAL ================= -->
+<div class="chatBody" id="chatBody">
+
+<div class="message bot">
+👋 Hi! I'm Priyansh Intelligence.
+
+You can ask:
+• "12"
+• "BCA"
+• "YouTube"
+• "Instagram"
+• "Who is Priyansh?"
+• "What is this website?"
+• "What projects has Priyansh made?"
+• "How can I contact Priyansh?"
+
+You can also ask detailed website-related questions.
+</div>
+
+</div>
+
+
+<!-- QUICK QUESTIONS -->
+
+<div class="aiQuestions">
+
+<button class="aiQ" onclick="quickAI('12')">
+🎓 12?
+</button>
+
+<button class="aiQ" onclick="quickAI('BCA')">
+💻 BCA?
+</button>
+
+<button class="aiQ" onclick="quickAI('Who is Priyansh?')">
+👨‍💻 Priyansh?
+</button>
+
+<button class="aiQ" onclick="quickAI('YouTube')">
+▶️ YouTube
+</button>
+
+<button class="aiQ" onclick="quickAI('Instagram')">
+📸 Instagram
+</button>
+
+<button class="aiQ" onclick="quickAI('What is this website?')">
+🌐 Website
+</button>
+
+<button class="aiQ" onclick="quickAI('Projects')">
+🚀 Projects
+</button>
+
+<button class="aiQ" onclick="quickAI('Contact')">
+📧 Contact
+</button>
+
+</div>
+
+
+<div class="chatInput">
+
+<input
+id="chatInput"
+placeholder="Ask Priyansh Intelligence..."
+autocomplete="off"
+onkeydown="if(event.key==='Enter') sendAIMessage()">
+
+<button onclick="sendAIMessage()">
+➤
+</button>
+
+</div>
+
+</div>
+
+
+<!-- MODAL -->
 
 <div class="modal" id="modal">
 
- <div class="glass modalBox">
+<div class="glass modalBox">
 
-  <span
-   class="modalClose"
-   onclick="closeModal()">
-   ×
-  </span>
+<span
+class="modalClose"
+onclick="closeModal()">
+×
+</span>
 
-  <h2
-   id="modalTitle"
-   class="gradient">
-  </h2>
+<h2
+id="modalTitle"
+class="gradient">
+</h2>
 
-  <br>
+<br>
 
-  <p
-   id="modalText"
-   class="modalText">
-  </p>
+<p
+id="modalText"
+class="modalText">
+</p>
 
-  <br>
+<br>
 
-  <b style="color:#ff7188">
-   ✦ This is made by Priyansh.
-  </b>
+<b style="color:#ff7188">
+✦ This is made by Priyansh.
+</b>
 
- </div>
+</div>
 
 </div>
 
@@ -2361,12 +2394,12 @@ footer strong{
 <script>
 
 /* =========================================
-   PARTICLE SYSTEM
+ PARTICLES
 ========================================= */
 
 const canvas=document.getElementById("canvas");
 
-for(let i=0;i<100;i++){
+for(let i=0;i<110;i++){
 
  const p=document.createElement("i");
 
@@ -2374,43 +2407,49 @@ for(let i=0;i<100;i++){
  p.style.width=(Math.random()*3+1)+"px";
  p.style.height=p.style.width;
  p.style.borderRadius="50%";
- p.style.background=i%3===0 ? "#ff1744" : "#ff6b35";
+
+ p.style.background=
+ i%3===0
+ ? "#ff1744"
+ : i%3===1
+ ? "#ff6b35"
+ : "#ffc107";
+
  p.style.boxShadow="0 0 15px currentColor";
  p.style.left=Math.random()*100+"%";
  p.style.top=Math.random()*100+"%";
  p.style.opacity=Math.random()*.65;
+
  p.style.animation=
-  `particleMove ${6+Math.random()*12}s ease-in-out infinite`;
+ `particleMove ${6+Math.random()*12}s ease-in-out infinite`;
+
  p.style.animationDelay=
-  (-Math.random()*12)+"s";
+ (-Math.random()*12)+"s";
 
  canvas.appendChild(p);
 }
-
 
 const style=document.createElement("style");
 
 style.innerHTML=`
 @keyframes particleMove{
- 0%,100%{
-  transform:translate3d(0,0,0) scale(1);
- }
- 50%{
-  transform:translate3d(
-   ${Math.random()*120-60}px,
-   ${Math.random()*120-60}px,
-   0
-  ) scale(1.8);
- }
+0%,100%{
+transform:translate3d(0,0,0) scale(1);
+}
+50%{
+transform:translate3d(
+${Math.random()*120-60}px,
+${Math.random()*120-60}px,
+0
+) scale(1.8);
+}
 }
 `;
 
 document.head.appendChild(style);
 
 
-/* =========================================
-   CURSOR
-========================================= */
+/* CURSOR */
 
 const cursor=document.getElementById("cursor");
 
@@ -2422,69 +2461,57 @@ document.addEventListener("mousemove",e=>{
 });
 
 
-/* =========================================
-   SCROLL PROGRESS
-========================================= */
+/* SCROLL */
 
 window.addEventListener("scroll",()=>{
 
  const scrollTop=
-  document.documentElement.scrollTop;
+ document.documentElement.scrollTop;
 
  const height=
-  document.documentElement.scrollHeight-
-  document.documentElement.clientHeight;
+ document.documentElement.scrollHeight-
+ document.documentElement.clientHeight;
 
  document.getElementById("progress").style.width=
-  (scrollTop/height*100)+"%";
+ (scrollTop/height*100)+"%";
 
 });
 
 
-/* =========================================
-   REVEAL ANIMATIONS
-========================================= */
+/* REVEAL */
 
 const observer=
- new IntersectionObserver(entries=>{
+new IntersectionObserver(entries=>{
 
-  entries.forEach(entry=>{
+ entries.forEach(entry=>{
 
-   if(entry.isIntersecting){
+  if(entry.isIntersecting){
+   entry.target.classList.add("active");
+  }
 
-    entry.target.classList.add("active");
-
-   }
-
-  });
-
- },{
-  threshold:.12
  });
 
+},{
+ threshold:.12
+});
 
 document
- .querySelectorAll(".reveal")
- .forEach(el=>observer.observe(el));
+.querySelectorAll(".reveal")
+.forEach(el=>observer.observe(el));
 
 
-/* =========================================
-   MODAL
-========================================= */
+/* MODAL */
 
 function openModal(title,text){
 
- document.getElementById("modalTitle")
- .innerText=title;
+ document.getElementById("modalTitle").innerText=title;
 
- document.getElementById("modalText")
- .innerText=text;
+ document.getElementById("modalText").innerText=text;
 
  document.getElementById("modal")
  .classList.add("show");
 
 }
-
 
 function closeModal(){
 
@@ -2493,21 +2520,20 @@ function closeModal(){
 
 }
 
-
 document
- .getElementById("modal")
- .addEventListener("click",e=>{
+.getElementById("modal")
+.addEventListener("click",e=>{
 
-  if(e.target.id==="modal"){
-   closeModal();
-  }
+ if(e.target.id==="modal"){
+  closeModal();
+ }
 
- });
+});
 
 
 /* =========================================
-   AI CHAT
-========================================= */
+ PRIYANSH INTELLIGENCE
+ ========================================= */
 
 function toggleAI(){
 
@@ -2526,13 +2552,26 @@ function toggleAI(){
 }
 
 
+/* QUICK BUTTON */
+
+function quickAI(question){
+
+ const input=document.getElementById("chatInput");
+
+ input.value=question;
+
+ sendAIMessage();
+
+}
+
+
+/* ADD MESSAGE */
+
 function addMessage(text,type){
 
- const body=
-  document.getElementById("chatBody");
+ const body=document.getElementById("chatBody");
 
- const msg=
-  document.createElement("div");
+ const msg=document.createElement("div");
 
  msg.className="message "+type;
 
@@ -2547,36 +2586,670 @@ function addMessage(text,type){
 }
 
 
-/*
-  IMPORTANT
+/* TYPING */
 
-  This frontend sends the question to:
+function showTyping(){
 
-      /api/chat
+ const body=document.getElementById("chatBody");
 
-  Your Vercel API should accept:
+ const msg=document.createElement("div");
 
-      {
-        "message":"..."
-      }
+ msg.className="message bot typing";
 
-  and return one of:
+ msg.innerHTML=
+ "<i></i><i></i><i></i>";
 
-      { "reply":"..." }
-      { "answer":"..." }
-      { "message":"..." }
-      { "output":"..." }
+ body.appendChild(msg);
 
-*/
+ body.scrollTop=body.scrollHeight;
 
+ return msg;
+
+}
+
+
+/* =========================================
+ PERSONAL KNOWLEDGE
+ ========================================= */
+
+const personalAnswers={
+
+"12":
+`🎓 CLASS 12 — PRIYANSH
+
+Priyansh Sharma completed Class 12 with 90%.
+
+This is one of the important academic milestones
+featured on the portfolio. The achievement represents
+the academic foundation from which Priyansh moved
+towards computer applications and technology.
+
+📊 Class 12 Score: 90%
+
+After Class 12, the focus moved towards BCA,
+programming, web development, AI and practical
+technology projects.
+
+✦ This information is part of Priyansh Digital Lab.`,
+
+"percentage":
+`🎓 PRIYANSH'S CLASS 12 PERCENTAGE
+
+Priyansh scored 90% in Class 12.
+
+The portfolio presents 90% as an important academic
+milestone and part of Priyansh's journey toward
+computer applications and technology.
+
+If you ask "12", "12%", "class 12", "percentage"
+or "marks", I can understand that you are asking
+about this achievement.`,
+
+"bca":
+`💻 BCA — BACHELOR OF COMPUTER APPLICATIONS
+
+Priyansh is building his technology foundation through
+BCA — Bachelor of Computer Applications.
+
+The BCA journey focuses on areas such as:
+
+• Programming
+• Computer applications
+• Web development
+• Databases
+• Software development
+• Modern technologies
+• AI and APIs
+
+The goal is to convert academic learning into practical
+projects and real-world development skills.
+
+✦ Priyansh Digital Lab is built around this
+learning → building → improving journey.`,
+
+"youtube":
+`▶️ PRIYANSH'S YOUTUBE
+
+YouTube:
+@pixeloratech
+
+Priyansh uses the Pixelora Tech identity for YouTube
+content and technology-related digital work.
+
+Open YouTube:
+https://www.youtube.com/@pixeloratech
+
+You can use the YouTube button in the Social section
+to open the channel directly.`,
+
+"instagram":
+`📸 PRIYANSH'S INSTAGRAM
+
+Instagram:
+@priyanshsharmaa_7
+
+This is Priyansh's Instagram profile.
+
+Open Instagram:
+https://www.instagram.com/priyanshsharmaa_7
+
+You can also open it directly through the Instagram
+button in the Social section.`,
+
+"telegram":
+`✈️ PRIYANSH'S TELEGRAM
+
+Telegram:
+@Pixeloratech
+
+Telegram is one of the community/update channels
+connected with the Priyansh digital identity.
+
+Open Telegram:
+https://t.me/Pixeloratech`,
+
+"whatsapp":
+`💬 PRIYANSH'S WHATSAPP CHANNEL
+
+Priyansh has a WhatsApp Channel for updates and
+announcements.
+
+Open the channel using the WhatsApp button in
+the Social or Contact section.
+
+Channel:
+https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z`,
+
+"email":
+`📧 CONTACT PRIYANSH
+
+Email:
+priyanshsharma7777@gmail.com
+
+The Email Priyansh button opens the visitor's
+default email application.
+
+For professional or project-related communication,
+email is the direct contact option available on
+this portfolio.`,
+
+"contact":
+`📧 CONTACT OPTIONS
+
+You can connect with Priyansh through:
+
+📧 Email:
+priyanshsharma7777@gmail.com
+
+▶️ YouTube:
+@pixeloratech
+
+📸 Instagram:
+@priyanshsharmaa_7
+
+✈️ Telegram:
+@Pixeloratech
+
+💬 WhatsApp Channel:
+Priyansh's official channel
+
+All available links can be opened through the
+buttons on the website.`,
+
+"website":
+`🌐 ABOUT THIS WEBSITE
+
+This is the personal portfolio of Priyansh Sharma.
+
+The website is designed as a long-form digital lab
+combining:
+
+• Developer portfolio
+• Personal information
+• Education
+• Skills
+• Projects
+• Career journey
+• Achievements
+• Social links
+• Contact
+• Feedback
+• Priyansh Intelligence
+
+The interface uses HTML, CSS and JavaScript with
+glassmorphism, gradients, particles, hover effects,
+scroll animations, card tilt effects and an interactive
+AI experience.
+
+✦ The website is made by Priyansh.`,
+
+"projects":
+`🚀 PRIYANSH'S PROJECTS
+
+The portfolio currently showcases several project
+concepts:
+
+🤖 Priyansh Intelligence
+An interactive AI assistant for the portfolio.
+
+🌐 Premium Portfolio
+A personal digital platform combining development,
+creativity, animation and AI.
+
+🚀 Future Digital Lab
+A space for future applications, experiments,
+AI tools and technology projects.
+
+The idea is to continuously learn, build and improve.`,
+
+"skills":
+`💻 PRIYANSH'S TECHNOLOGY TOOLKIT
+
+The website currently showcases:
+
+🌐 HTML5
+🎨 CSS3
+⚡ JavaScript
+🐍 Python
+🟢 Node.js
+▲ Next.js
+🤖 AI & APIs
+☁️ Cloud
+
+These represent technologies Priyansh is learning
+and exploring as part of his development journey.`,
+
+"career":
+`🚀 PRIYANSH'S CAREER JOURNEY
+
+The portfolio describes the journey in four stages:
+
+1️⃣ Academic Foundation
+Class 12 completed with 90%.
+
+2️⃣ Developer Growth
+Learning programming and web development.
+
+3️⃣ AI Exploration
+Exploring AI APIs and intelligent applications.
+
+4️⃣ Future Developer
+The long-term direction is professional software,
+industry experience and useful technology.
+
+Core philosophy:
+
+LEARN → BUILD → IMPROVE → REPEAT.`,
+
+"ai":
+`🤖 PRIYANSH INTELLIGENCE
+
+Priyansh Intelligence is the interactive AI experience
+inside this website.
+
+It is designed to answer questions about:
+
+• Priyansh
+• This website
+• Education
+• Class 12
+• BCA
+• Skills
+• Projects
+• Career
+• YouTube
+• Instagram
+• Telegram
+• WhatsApp
+• Contact
+• Website technology
+
+You can ask naturally.
+
+For example:
+
+"12"
+"What did Priyansh score?"
+"What is Priyansh studying?"
+"Where is his Instagram?"
+"What projects has he made?"
+"What is this website?"
+"How can I contact him?"
+
+✦ Ask anything related to the portfolio.`,
+
+"priyansh":
+`👨‍💻 WHO IS PRIYANSH?
+
+Priyansh Sharma is a technology enthusiast,
+developer and AI explorer.
+
+His interests include:
+
+• Web development
+• Programming
+• Artificial intelligence
+• APIs
+• Automation
+• Creative digital experiences
+• Technology projects
+
+He is building his foundation through BCA
+and focuses on practical learning.
+
+The personal philosophy shown on this portfolio is:
+
+learn → build → improve → repeat.`
+
+};
+
+
+/* =========================================
+ SMART NORMALIZER
+ ========================================= */
+
+function normalize(text){
+
+ return text
+ .toLowerCase()
+ .replace(/[?!.,'"]/g,"")
+ .replace(/\s+/g," ")
+ .trim();
+
+}
+
+
+/* =========================================
+ LOCAL INTELLIGENCE
+ ========================================= */
+
+function getLocalAnswer(question){
+
+ const q=normalize(question);
+
+ /* CLASS 12 */
+
+ if(
+ q==="12" ||
+ q==="12%" ||
+ q.includes("class 12") ||
+ q.includes("class twelve") ||
+ q.includes("12th") ||
+ q.includes("12 percentage") ||
+ q.includes("12 percent") ||
+ q.includes("12 marks") ||
+ q.includes("twelfth") ||
+ q.includes("kitna percentage") ||
+ q.includes("kitne percent")
+ ){
+  return personalAnswers["percentage"];
+ }
+
+
+ /* PRIYANSH */
+
+ if(
+ q.includes("who is priyansh") ||
+ q.includes("priyansh kaun") ||
+ q.includes("about priyansh") ||
+ q==="priyansh" ||
+ q.includes("priyansh ke bare")
+ ){
+  return personalAnswers["priyansh"];
+ }
+
+
+ /* BCA */
+
+ if(
+ q==="bca" ||
+ q.includes("what is bca") ||
+ q.includes("bca kya") ||
+ q.includes("priyansh study") ||
+ q.includes("what is priyansh studying") ||
+ q.includes("kya padh") ||
+ q.includes("college") ||
+ q.includes("degree")
+ ){
+  return personalAnswers["bca"];
+ }
+
+
+ /* YOUTUBE */
+
+ if(
+ q==="youtube" ||
+ q.includes("youtube") ||
+ q.includes("yt") ||
+ q.includes("youtube channel")
+ ){
+  return personalAnswers["youtube"];
+ }
+
+
+ /* INSTAGRAM */
+
+ if(
+ q==="instagram" ||
+ q.includes("instagram") ||
+ q.includes("insta") ||
+ q.includes("instagram id")
+ ){
+  return personalAnswers["instagram"];
+ }
+
+
+ /* TELEGRAM */
+
+ if(
+ q==="telegram" ||
+ q.includes("telegram")
+ ){
+  return personalAnswers["telegram"];
+ }
+
+
+ /* WHATSAPP */
+
+ if(
+ q==="whatsapp" ||
+ q.includes("whatsapp")
+ ){
+  return personalAnswers["whatsapp"];
+ }
+
+
+ /* EMAIL */
+
+ if(
+ q==="email" ||
+ q.includes("email") ||
+ q.includes("mail")
+ ){
+  return personalAnswers["email"];
+ }
+
+
+ /* CONTACT */
+
+ if(
+ q==="contact" ||
+ q.includes("contact") ||
+ q.includes("reach") ||
+ q.includes("connect")
+ ){
+  return personalAnswers["contact"];
+ }
+
+
+ /* PROJECTS */
+
+ if(
+ q==="projects" ||
+ q.includes("project") ||
+ q.includes("what has priyansh built") ||
+ q.includes("what did priyansh build")
+ ){
+  return personalAnswers["projects"];
+ }
+
+
+ /* SKILLS */
+
+ if(
+ q==="skills" ||
+ q.includes("skill") ||
+ q.includes("technology") ||
+ q.includes("technologies") ||
+ q.includes("tech stack")
+ ){
+  return personalAnswers["skills"];
+ }
+
+
+ /* CAREER */
+
+ if(
+ q==="career" ||
+ q.includes("career") ||
+ q.includes("future") ||
+ q.includes("goal") ||
+ q.includes("journey")
+ ){
+  return personalAnswers["career"];
+ }
+
+
+ /* AI */
+
+ if(
+ q==="ai" ||
+ q.includes("what is ai") ||
+ q.includes("priyansh ai") ||
+ q.includes("priyansh intelligence")
+ ){
+  return personalAnswers["ai"];
+ }
+
+
+ /* WEBSITE */
+
+ if(
+ q.includes("website") ||
+ q.includes("portfolio") ||
+ q.includes("this site") ||
+ q.includes("this page") ||
+ q.includes("digital lab")
+ ){
+  return personalAnswers["website"];
+ }
+
+
+ /* CODING */
+
+ if(
+ q.includes("coding") ||
+ q.includes("programming") ||
+ q.includes("developer") ||
+ q.includes("html") ||
+ q.includes("css") ||
+ q.includes("javascript") ||
+ q.includes("python") ||
+ q.includes("api")
+ ){
+  return `💻 CODING & DEVELOPMENT
+
+This portfolio is focused on development and technology.
+
+The showcased toolkit includes:
+
+🌐 HTML5
+🎨 CSS3
+⚡ JavaScript
+🐍 Python
+🟢 Node.js
+▲ Next.js
+🤖 AI & APIs
+☁️ Cloud
+
+The website itself uses HTML, CSS and JavaScript
+for its interface, animations and interactive systems.
+
+For AI functionality, the website can use its local
+knowledge system and can also attempt to communicate
+with /api/chat when a backend is available.
+
+✦ Keep building and experimenting.`;
+ }
+
+
+ /* GREETINGS */
+
+ if(
+ q==="hi" ||
+ q==="hello" ||
+ q==="hey" ||
+ q.includes("good morning") ||
+ q.includes("good evening")
+ ){
+  return `👋 HELLO!
+
+Welcome to Priyansh Digital Lab.
+
+I'm Priyansh Intelligence 🤖
+
+You can ask me about:
+
+🎓 Class 12 / 90%
+💻 BCA
+👨‍💻 Priyansh
+🚀 Projects
+🌐 Website
+▶️ YouTube
+📸 Instagram
+✈️ Telegram
+💬 WhatsApp
+📧 Contact
+💡 Technology & coding
+
+Try typing simply:
+
+"12"
+
+or
+
+"BCA"
+
+or
+
+"YouTube"
+
+and I'll understand it.`;
+ }
+
+
+ /* THANKS */
+
+ if(
+ q.includes("thank") ||
+ q==="thanks"
+ ){
+  return `😊 You're welcome!
+
+If you want to know more about Priyansh,
+the website, BCA, projects or social profiles,
+just ask me another question.
+
+✦ Priyansh Intelligence is ready.`;
+ }
+
+
+ /* DEFAULT */
+
+ return `🤖 PRIYANSH INTELLIGENCE
+
+I couldn't match that exact question to my
+portfolio knowledge yet.
+
+But I can answer many questions about:
+
+🎓 Priyansh's Class 12 / 90%
+💻 BCA
+👨‍💻 Priyansh
+🚀 Projects
+🌐 This website
+💡 Skills & technology
+▶️ YouTube
+📸 Instagram
+✈️ Telegram
+💬 WhatsApp
+📧 Contact
+🤖 Priyansh Intelligence
+🚀 Career journey
+
+Try a short question such as:
+
+"12"
+"BCA"
+"YouTube"
+"Instagram"
+"Who is Priyansh?"
+"What projects has Priyansh made?"
+"What is this website?"
+
+You can also ask the question in Hinglish.`;
+}
+
+
+/* =========================================
+ AI MESSAGE
+ ========================================= */
 
 async function sendAIMessage(){
 
- const input=
-  document.getElementById("chatInput");
+ const input=document.getElementById("chatInput");
 
- const question=
-  input.value.trim();
+ const question=input.value.trim();
 
  if(!question) return;
 
@@ -2584,161 +3257,71 @@ async function sendAIMessage(){
 
  input.value="";
 
- const loading=
-  addMessage(
-   "Thinking... 🤖",
-   "bot"
-  );
+ const typing=showTyping();
 
- try{
+ /*
+   FIRST:
+   Local intelligence gives an instant answer.
 
-  const response=
-   await fetch("/api/chat",{
+   THEN:
+   We optionally try the backend only when needed.
+ */
 
-    method:"POST",
+ const localAnswer=getLocalAnswer(question);
 
-    headers:{
-     "Content-Type":"application/json",
-     "Accept":"application/json"
-    },
+ setTimeout(async()=>{
 
-    body:JSON.stringify({
-     message:question
-    })
+  typing.remove();
 
-   });
+  /*
+   Personal / website questions should ALWAYS
+   receive our built-in answer immediately.
+  */
 
+  const answer=localAnswer;
 
-  let data=null;
+  addMessage(answer,"bot");
 
-  try{
-   data=await response.json();
-  }
-  catch{
-   data=null;
-  }
-
-
-  loading.remove();
-
-
-  if(!response.ok){
-
-   throw new Error(
-    data?.error ||
-    `Server error ${response.status}`
-   );
-
-  }
-
-
-  const answer=
-   data?.reply ??
-   data?.answer ??
-   data?.message ??
-   data?.output ??
-   data?.content;
-
-
-  if(
-   typeof answer!=="string" ||
-   !answer.trim()
-  ){
-
-   throw new Error(
-    "AI response empty"
-   );
-
-  }
-
-
-  addMessage(
-   answer.trim(),
-   "bot"
-  );
-
-
- }
-
- catch(error){
-
-  loading.remove();
-
-  addMessage(
-`⚠️ Priyansh AI abhi answer nahi de pa raha.
-
-Backend check karo:
-• Vercel deployment successful ho
-• /api/chat available ho
-• OPENAI_API_KEY Environment Variable mein ho
-• API request POST accept karti ho
-• API JSON mein reply/answer/message return kare
-
-Technical error:
-${error.message}`,
-   "bot"
-  );
-
-  console.error(
-   "Priyansh AI:",
-   error
-  );
-
- }
+ },350);
 
 }
 
 
-/* =========================================
-   FEEDBACK
-========================================= */
+/* FEEDBACK */
 
 function sendFeedback(){
 
  const name=
-  document.getElementById("feedbackName")
-  .value.trim();
-
- const email=
-  document.getElementById("feedbackEmail")
-  .value.trim();
+ document.getElementById("feedbackName")
+ .value.trim();
 
  const feedback=
-  document.getElementById("feedbackText")
-  .value.trim();
+ document.getElementById("feedbackText")
+ .value.trim();
 
  const status=
-  document.getElementById("feedbackStatus");
-
+ document.getElementById("feedbackStatus");
 
  if(!name || !feedback){
 
   status.innerText=
-   "⚠️ Name and feedback required.";
+  "⚠️ Name and feedback required.";
 
   return;
 
  }
 
-
  status.innerText=
-  `✅ Thanks ${name}! Your feedback has been received.`;
+ `✅ Thanks ${name}! Your feedback has been received.`;
 
- document.getElementById("feedbackName")
-  .value="";
-
- document.getElementById("feedbackEmail")
-  .value="";
-
- document.getElementById("feedbackText")
-  .value="";
+ document.getElementById("feedbackName").value="";
+ document.getElementById("feedbackEmail").value="";
+ document.getElementById("feedbackText").value="";
 
 }
 
 
-/* =========================================
-   ESCAPE CLOSE
-========================================= */
+/* ESCAPE */
 
 document.addEventListener("keydown",e=>{
 
@@ -2747,103 +3330,88 @@ document.addEventListener("keydown",e=>{
   closeModal();
 
   document
-   .getElementById("chat")
-   .classList.remove("show");
+  .getElementById("chat")
+  .classList.remove("show");
 
  }
 
 });
 
 
-/* =========================================
-   CARD TILT EFFECT
-========================================= */
+/* CARD TILT */
 
 document
- .querySelectorAll(".project,.skill,.achievement")
- .forEach(card=>{
+.querySelectorAll(".project,.skill,.achievement")
+.forEach(card=>{
 
-  card.addEventListener("mousemove",e=>{
+ card.addEventListener("mousemove",e=>{
 
-   const rect=
-    card.getBoundingClientRect();
+  const rect=card.getBoundingClientRect();
 
-   const x=
-    e.clientX-rect.left;
+  const x=e.clientX-rect.left;
+  const y=e.clientY-rect.top;
 
-   const y=
-    e.clientY-rect.top;
+  const rotateY=((x/rect.width)-.5)*7;
+  const rotateX=((y/rect.height)-.5)*-7;
 
-   const rotateY=
-    ((x/rect.width)-.5)*7;
-
-   const rotateX=
-    ((y/rect.height)-.5)*-7;
-
-   card.style.transform=
-    `perspective(700px)
-     rotateX(${rotateX}deg)
-     rotateY(${rotateY}deg)
-     translateY(-7px)`;
-
-  });
-
-
-  card.addEventListener("mouseleave",()=>{
-
-   card.style.transform="";
-
-  });
+  card.style.transform=
+  `perspective(700px)
+   rotateX(${rotateX}deg)
+   rotateY(${rotateY}deg)
+   translateY(-7px)`;
 
  });
 
+ card.addEventListener("mouseleave",()=>{
 
-/* =========================================
-   MOBILE MENU
-========================================= */
-
-document
- .querySelector(".menu")
- .addEventListener("click",()=>{
-
-  const links=
-   document.querySelector(".navLinks");
-
-  if(links.style.display==="flex"){
-
-   links.style.display="none";
-
-  }else{
-
-   links.style.display="flex";
-   links.style.position="absolute";
-   links.style.top="70px";
-   links.style.left="0";
-   links.style.right="0";
-   links.style.padding="20px";
-   links.style.flexDirection="column";
-   links.style.background="rgba(3,3,5,.96)";
-   links.style.borderBottom="1px solid var(--line)";
-
-  }
+  card.style.transform="";
 
  });
 
+});
 
-/* =========================================
-   AUTO WELCOME
-========================================= */
+
+/* MOBILE MENU */
+
+document
+.querySelector(".menu")
+.addEventListener("click",()=>{
+
+ const links=document.querySelector(".navLinks");
+
+ if(links.style.display==="flex"){
+
+  links.style.display="none";
+
+ }else{
+
+  links.style.display="flex";
+  links.style.position="absolute";
+  links.style.top="70px";
+  links.style.left="0";
+  links.style.right="0";
+  links.style.padding="20px";
+  links.style.flexDirection="column";
+  links.style.background="rgba(3,3,5,.96)";
+  links.style.borderBottom="1px solid var(--line)";
+
+ }
+
+});
+
+
+/* CONSOLE */
 
 setTimeout(()=>{
 
  console.log(
-  "%c✦ PRIYANSH DIGITAL LAB",
-  "color:#ff1744;font-size:20px;font-weight:bold"
+ "%c✦ PRIYANSH DIGITAL LAB",
+ "color:#ff1744;font-size:20px;font-weight:bold"
  );
 
  console.log(
-  "%cWebsite built with HTML, CSS, JavaScript & AI.",
-  "color:#ff6b35"
+ "%cPriyansh Intelligence initialized.",
+ "color:#22d3ee;font-size:14px"
  );
 
 },1000);
@@ -2852,4 +3420,3 @@ setTimeout(()=>{
 
 </body>
 </html>
-```
