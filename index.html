@@ -1,812 +1,2855 @@
+```html
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Priyansh Sharma — Future Developer, Creator & Technology Enthusiast">
-<title>Priyansh Sharma | Future Developer</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Priyansh Sharma — Developer, Creator and AI Explorer. Explore projects, achievements, social links and Priyansh AI.">
+<meta name="theme-color" content="#050509">
+
+<title>Priyansh Sharma | Developer • Creator • AI</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:Arial,Helvetica,sans-serif;background:#050505;color:#fff;line-height:1.6;overflow-x:hidden}
-a{text-decoration:none;color:inherit}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-header{
-position:fixed;top:0;left:0;right:0;z-index:1000;
-padding:18px 6%;display:flex;justify-content:space-between;align-items:center;
-background:rgba(5,5,5,.78);backdrop-filter:blur(18px);
-border-bottom:1px solid rgba(255,255,255,.07)
+*{
+ margin:0;
+ padding:0;
+ box-sizing:border-box;
+ scroll-behavior:smooth;
 }
-.logo{font-size:24px;font-weight:900;letter-spacing:2px}
-.logo span{color:#3b82f6}
-.nav-links{display:flex;gap:25px;align-items:center}
-.nav-links a{color:#aaa;transition:.3s}
-.nav-links a:hover{color:#60a5fa}
+
+:root{
+ --bg:#030305;
+ --bg2:#07080d;
+ --card:rgba(14,16,24,.68);
+ --card2:rgba(20,22,31,.85);
+ --line:rgba(255,255,255,.09);
+ --text:#f8fafc;
+ --muted:#969daa;
+ --red:#ff1744;
+ --red2:#ff4567;
+ --orange:#ff6b35;
+ --yellow:#ffc107;
+ --pink:#ff3d81;
+ --cyan:#22d3ee;
+
+ --gradient:linear-gradient(
+  135deg,
+  #ff1744 0%,
+  #ff4d35 40%,
+  #ffc107 100%
+ );
+}
+
+html{
+ background:var(--bg);
+}
+
+body{
+ font-family:Inter,sans-serif;
+ color:var(--text);
+ background:
+ radial-gradient(circle at 10% 5%,rgba(255,23,68,.17),transparent 25%),
+ radial-gradient(circle at 90% 10%,rgba(255,107,53,.13),transparent 23%),
+ radial-gradient(circle at 50% 95%,rgba(255,193,7,.08),transparent 28%),
+ var(--bg);
+ overflow-x:hidden;
+}
+
+/* ===============================
+   BACKGROUND
+================================ */
+
+#canvas{
+ position:fixed;
+ inset:0;
+ z-index:-8;
+ pointer-events:none;
+}
+
+.grid{
+ position:fixed;
+ inset:0;
+ z-index:-7;
+ pointer-events:none;
+ opacity:.035;
+ background-image:
+ linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),
+ linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
+ background-size:55px 55px;
+ mask-image:linear-gradient(to bottom,black,transparent 90%);
+}
+
+.cursor{
+ position:fixed;
+ width:320px;
+ height:320px;
+ border-radius:50%;
+ pointer-events:none;
+ z-index:-2;
+ transform:translate(-50%,-50%);
+ background:radial-gradient(
+  circle,
+  rgba(255,23,68,.10),
+  transparent 68%
+ );
+}
+
+.progress{
+ position:fixed;
+ top:0;
+ left:0;
+ height:3px;
+ width:0%;
+ z-index:9999;
+ background:var(--gradient);
+ box-shadow:0 0 20px #ff1744;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+
+nav{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ z-index:5000;
+ padding:17px 6%;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ background:rgba(3,3,5,.65);
+ backdrop-filter:blur(22px);
+ border-bottom:1px solid var(--line);
+}
+
+.logo{
+ font:800 25px "Space Grotesk";
+ letter-spacing:-1px;
+}
+
+.logo span{
+ background:var(--gradient);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.navLinks{
+ display:flex;
+ gap:24px;
+}
+
+.navLinks a{
+ color:#aeb4bf;
+ text-decoration:none;
+ font-size:12px;
+ transition:.3s;
+}
+
+.navLinks a:hover{
+ color:#ff4d6d;
+ text-shadow:0 0 20px rgba(255,23,68,.7);
+}
+
+.navAI{
+ padding:9px 15px!important;
+ border-radius:10px;
+ color:#090909!important;
+ background:var(--gradient);
+ font-weight:800;
+}
+
+.menu{
+ display:none;
+ font-size:25px;
+ cursor:pointer;
+}
+
+/* ===============================
+   COMMON
+================================ */
 
 section{
-min-height:100vh;padding:120px 7%;
-display:flex;align-items:center;justify-content:center;
-position:relative
+ padding:115px 7%;
+ position:relative;
 }
 
-.hero{text-align:center;overflow:hidden}
-.hero-orb{
-position:absolute;width:420px;height:420px;border-radius:50%;
-filter:blur(110px);opacity:.2;background:#2563eb
-}
-.hero-orb.one{top:5%;left:5%}
-.hero-orb.two{bottom:5%;right:5%}
-.hero-content{position:relative;z-index:2;max-width:900px}
-
-.badge,.section-tag{
-display:inline-block;font-size:12px;letter-spacing:3px;color:#60a5fa;
-border:1px solid rgba(96,165,250,.3);padding:8px 15px;
-border-radius:30px;margin-bottom:25px
+.title{
+ text-align:center;
+ margin-bottom:58px;
 }
 
-h1{font-size:clamp(48px,8vw,90px);line-height:1.05;margin-bottom:20px}
-.blue{color:#60a5fa}
-.typing{font-size:22px;color:#aaa;margin-bottom:20px}
-.hero-description{max-width:650px;margin:auto;color:#999;font-size:17px}
-
-.hero-buttons{
-margin-top:35px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap
-}
-.hero-button{padding:14px 24px;border-radius:30px;font-weight:700;transition:.3s}
-.primary{background:#2563eb}
-.secondary{border:1px solid #444}
-.hero-button:hover{transform:translateY(-3px)}
-
-.about-inner,.projects-inner,.contact-inner{max-width:1100px;width:100%}
-
-.luxury-title,.project-heading h2,.p3-contact-heading h2{
-font-size:clamp(40px,6vw,65px);line-height:1.1;margin-bottom:20px
-}
-.luxury-title span,.p3-contact-heading h2 span{color:#60a5fa}
-.luxury-description,.project-heading p,.p3-contact-heading p{
-max-width:750px;color:#999;font-size:17px
+.title small{
+ color:#ff627c;
+ letter-spacing:3px;
+ font-size:10px;
+ font-weight:700;
 }
 
-.cards,.project-grid,.p3-contact-grid,.p3-social-grid{
-display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:45px
+.title h2{
+ margin-top:10px;
+ font:700 clamp(38px,6vw,67px) "Space Grotesk";
+ letter-spacing:-3px;
 }
 
-.premium-card,.project-card,.p3-contact-card,.p3-social-card{
-background:linear-gradient(145deg,#111,#080808);
-border:1px solid rgba(255,255,255,.09);border-radius:22px;
-padding:28px;transition:.35s
+.gradient{
+ background:var(--gradient);
+ -webkit-background-clip:text;
+ color:transparent;
 }
 
-.premium-card:hover,.project-card:hover,.p3-contact-card:hover,.p3-social-card:hover{
-transform:translateY(-8px);
-border-color:rgba(96,165,250,.5);
-box-shadow:0 20px 50px rgba(37,99,235,.15)
+.title p{
+ color:#858d99;
+ margin-top:12px;
 }
 
-.card-number,.project-no{color:#60a5fa;font-weight:800;margin-bottom:30px}
-.premium-card h3,.project-card h3,.p3-contact-card h3,.p3-social-card h3{
-font-size:23px;margin-bottom:12px
+.glass{
+ background:var(--card);
+ border:1px solid var(--line);
+ border-radius:25px;
+ backdrop-filter:blur(20px);
+ box-shadow:0 25px 80px rgba(0,0,0,.18);
+ transition:.45s cubic-bezier(.2,.8,.2,1);
 }
-.premium-card p,.project-card p,.p3-social-card p{color:#888}
 
-.timeline{max-width:800px;width:100%;margin-top:45px}
-.timeline-item{display:flex;gap:20px;margin:30px 0}
-.timeline-dot{
-min-width:14px;height:14px;background:#3b82f6;border-radius:50%;
-margin-top:7px;box-shadow:0 0 20px #2563eb
+.glass:hover{
+ transform:translateY(-9px);
+ border-color:rgba(255,23,68,.38);
+ box-shadow:
+ 0 30px 90px rgba(0,0,0,.35),
+ 0 0 45px rgba(255,23,68,.06);
 }
-.timeline-content p{color:#888}
+
+.btn{
+ display:inline-flex;
+ justify-content:center;
+ align-items:center;
+ gap:8px;
+ padding:14px 22px;
+ border-radius:13px;
+ text-decoration:none;
+ color:white;
+ background:#10131a;
+ border:1px solid var(--line);
+ font-weight:700;
+ font-size:13px;
+ transition:.35s;
+ cursor:pointer;
+}
+
+.btn:hover{
+ transform:translateY(-5px) scale(1.02);
+ box-shadow:0 15px 35px rgba(0,0,0,.35);
+}
+
+.btn.primary{
+ color:#080808;
+ background:var(--gradient);
+ border:0;
+}
+
+.buttons{
+ display:flex;
+ justify-content:center;
+ gap:13px;
+ flex-wrap:wrap;
+}
+
+.reveal{
+ opacity:0;
+ transform:translateY(45px);
+ transition:
+  opacity .9s ease,
+  transform .9s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.active{
+ opacity:1;
+ transform:none;
+}
+
+/* ===============================
+   HERO
+================================ */
+
+.hero{
+ min-height:100vh;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding-top:140px;
+}
+
+.heroContent{
+ max-width:1050px;
+}
+
+.live{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ padding:9px 16px;
+ border-radius:50px;
+ background:rgba(255,23,68,.07);
+ border:1px solid rgba(255,23,68,.35);
+ color:#ff7b91;
+ font-size:11px;
+ letter-spacing:1px;
+ animation:livePulse 2s infinite;
+}
+
+.liveDot{
+ width:7px;
+ height:7px;
+ border-radius:50%;
+ background:#ff1744;
+ box-shadow:0 0 15px #ff1744;
+ animation:dotPulse 1.2s infinite;
+}
+
+@keyframes livePulse{
+ 50%{box-shadow:0 0 35px rgba(255,23,68,.14)}
+}
+
+@keyframes dotPulse{
+ 50%{transform:scale(1.8);opacity:.5}
+}
+
+.hero h1{
+ margin-top:28px;
+ font:700 clamp(58px,10vw,125px) "Space Grotesk";
+ line-height:.86;
+ letter-spacing:-7px;
+}
+
+.hero h1 .line{
+ display:block;
+}
+
+.heroDescription{
+ max-width:780px;
+ margin:31px auto;
+ color:#a6adb8;
+ font-size:17px;
+ line-height:1.9;
+}
+
+.heroMini{
+ margin-top:28px;
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ flex-wrap:wrap;
+}
+
+.mini{
+ padding:9px 13px;
+ border-radius:10px;
+ background:#0d1016;
+ border:1px solid var(--line);
+ color:#858d99;
+ font-size:11px;
+}
+
+.scroll{
+ margin-top:60px;
+ color:#555d68;
+ font-size:10px;
+ letter-spacing:4px;
+ animation:scrollBounce 1.8s infinite;
+}
+
+@keyframes scrollBounce{
+ 50%{transform:translateY(9px)}
+}
+
+/* ===============================
+   ABOUT
+================================ */
+
+.aboutGrid{
+ max-width:1150px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:1.35fr .65fr;
+ gap:22px;
+}
+
+.aboutText{
+ padding:37px;
+}
+
+.aboutText h3{
+ font:700 29px "Space Grotesk";
+ margin-bottom:21px;
+}
+
+.aboutText p{
+ color:#9ba3af;
+ line-height:1.9;
+ margin-bottom:15px;
+}
+
+.highlight{
+ color:#ff6b81;
+ font-weight:700;
+}
+
+.profile{
+ min-height:390px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+ overflow:hidden;
+}
+
+.profileCore{
+ width:185px;
+ height:185px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font:800 57px "Space Grotesk";
+ color:#090909;
+ background:var(--gradient);
+ box-shadow:
+ 0 0 55px rgba(255,23,68,.3),
+ 0 0 110px rgba(255,107,53,.13);
+ animation:floatCore 4s ease-in-out infinite;
+ position:relative;
+ z-index:2;
+}
+
+.profileCore:before,
+.profileCore:after{
+ content:"";
+ position:absolute;
+ border:1px solid rgba(255,23,68,.35);
+ border-radius:50%;
+}
+
+.profileCore:before{
+ inset:-25px;
+ animation:spin 8s linear infinite;
+}
+
+.profileCore:after{
+ inset:-48px;
+ animation:spinReverse 12s linear infinite;
+}
+
+@keyframes floatCore{
+ 50%{transform:translateY(-15px) rotate(3deg)}
+}
+
+@keyframes spin{
+ to{transform:rotate(360deg)}
+}
+
+@keyframes spinReverse{
+ to{transform:rotate(-360deg)}
+}
 
 .stats{
-display:grid;grid-template-columns:repeat(4,1fr);
-gap:20px;width:100%;max-width:1100px
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+ margin-top:27px;
 }
-.stat-box{
-text-align:center;padding:35px 20px;background:#0c0c0c;
-border:1px solid #191919;border-radius:20px
+
+.stat{
+ padding:19px 10px;
+ text-align:center;
+ border-radius:15px;
+ background:#0a0d12;
+ border:1px solid var(--line);
 }
-.stat-box h2{font-size:42px;color:#60a5fa}
-.stat-box p{color:#888}
 
-.vision{text-align:center;overflow:hidden}
-.vision-content{position:relative;z-index:2}
-.vision-content h2{
-font-size:clamp(45px,7vw,80px);line-height:1.05;margin:20px 0
+.stat b{
+ display:block;
+ font-size:27px;
+ background:var(--gradient);
+ -webkit-background-clip:text;
+ color:transparent;
 }
-.vision-content h2 span{color:#60a5fa}
-.vision-content p{max-width:650px;color:#888;margin:auto}
-.vision-line{width:100px;height:2px;background:#3b82f6;margin:30px auto}
 
-.vision-ring{
-position:absolute;border:1px solid rgba(59,130,246,.18);border-radius:50%
+.stat span{
+ color:#707987;
+ font-size:10px;
 }
-.ring-1{width:350px;height:350px}
-.ring-2{width:550px;height:550px}
-.ring-3{width:750px;height:750px}
 
-.p3-contact-card{display:flex;align-items:center;gap:18px}
-.p3-card-icon,.p3-social-icon{font-size:28px;color:#60a5fa}
-.p3-contact-card small{color:#666;letter-spacing:2px}
-.p3-contact-card b{margin-left:auto}
+/* ===============================
+   EDUCATION
+================================ */
 
-.p3-social-card{min-height:250px}
-.p3-social-number{color:#60a5fa}
-.p3-social-link{display:inline-block;margin-top:25px;color:#60a5fa}
+.education{
+ max-width:1100px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:22px;
+}
+
+.edu{
+ padding:34px;
+}
+
+.eduIcon{
+ font-size:43px;
+ margin-bottom:17px;
+}
+
+.edu h3{
+ font-size:24px;
+}
+
+.percent{
+ font:800 54px "Space Grotesk";
+ margin:13px 0;
+ background:var(--gradient);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.edu p{
+ color:#929aa7;
+ line-height:1.85;
+}
+
+/* ===============================
+   SKILLS
+================================ */
+
+.skills{
+ max-width:1100px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
+}
+
+.skill{
+ padding:27px 15px;
+ text-align:center;
+ border-radius:18px;
+ background:#0a0d12;
+ border:1px solid var(--line);
+ transition:.4s;
+}
+
+.skill:hover{
+ transform:translateY(-8px) rotateX(4deg);
+ border-color:#ff1744;
+ box-shadow:0 0 40px rgba(255,23,68,.12);
+}
+
+.skillIcon{
+ font-size:35px;
+ margin-bottom:12px;
+}
+
+/* ===============================
+   PROJECTS
+================================ */
+
+.projects{
+ max-width:1150px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.project{
+ min-height:330px;
+ padding:30px;
+ position:relative;
+ overflow:hidden;
+ cursor:pointer;
+}
+
+.project:before{
+ content:"";
+ position:absolute;
+ width:180px;
+ height:180px;
+ right:-80px;
+ top:-80px;
+ border-radius:50%;
+ background:#ff1744;
+ filter:blur(70px);
+ opacity:.13;
+ transition:.5s;
+}
+
+.project:hover:before{
+ transform:scale(2);
+ opacity:.2;
+}
+
+.tag{
+ display:inline-block;
+ padding:6px 10px;
+ border-radius:30px;
+ background:rgba(255,23,68,.08);
+ color:#ff7087;
+ font-size:9px;
+ letter-spacing:1.5px;
+}
+
+.project h3{
+ margin:18px 0 12px;
+ font-size:23px;
+}
+
+.project p{
+ color:#8f98a5;
+ line-height:1.8;
+ font-size:13px;
+}
+
+.projectArrow{
+ display:inline-block;
+ margin-top:23px;
+ color:#ff7188;
+ font-size:11px;
+ font-weight:800;
+}
+
+/* ===============================
+   AI
+================================ */
+
+.aiSection{
+ background:
+ radial-gradient(circle at 50% 30%,rgba(255,23,68,.07),transparent 40%);
+}
+
+.aiGrid{
+ max-width:1150px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:1.2fr .8fr;
+ gap:22px;
+}
+
+.aiMain{
+ padding:35px;
+}
+
+.aiBadge{
+ display:inline-flex;
+ padding:7px 11px;
+ border-radius:30px;
+ background:rgba(255,23,68,.08);
+ color:#ff7188;
+ font-size:9px;
+ letter-spacing:2px;
+}
+
+.aiMain h3{
+ font:700 36px "Space Grotesk";
+ margin:18px 0 12px;
+}
+
+.aiMain p{
+ color:#949ca8;
+ line-height:1.85;
+}
+
+.aiFeatures{
+ margin-top:25px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+
+.aiFeature{
+ padding:13px;
+ border-radius:12px;
+ background:#090c12;
+ border:1px solid var(--line);
+ color:#8f97a4;
+ font-size:11px;
+}
+
+.aiSide{
+ padding:30px;
+}
+
+.aiOrb{
+ width:145px;
+ height:145px;
+ margin:10px auto 25px;
+ border-radius:50%;
+ background:var(--gradient);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:55px;
+ box-shadow:0 0 65px rgba(255,23,68,.28);
+ animation:orb 3s ease-in-out infinite;
+}
+
+@keyframes orb{
+ 50%{
+  transform:scale(1.08) rotate(4deg);
+  box-shadow:0 0 100px rgba(255,23,68,.4);
+ }
+}
+
+.aiStatus{
+ text-align:center;
+ color:#777f8b;
+ font-size:11px;
+}
+
+.aiStatus span{
+ color:#ff536f;
+}
+
+/* ===============================
+   CAREER
+================================ */
+
+.timeline{
+ max-width:1050px;
+ margin:auto;
+ position:relative;
+}
+
+.timeline:before{
+ content:"";
+ position:absolute;
+ left:20px;
+ top:0;
+ bottom:0;
+ width:2px;
+ background:linear-gradient(#ff1744,#ffc107,transparent);
+}
+
+.timelineItem{
+ position:relative;
+ padding:0 0 48px 65px;
+}
+
+.timelineItem:before{
+ content:"";
+ position:absolute;
+ left:11px;
+ top:3px;
+ width:19px;
+ height:19px;
+ border-radius:50%;
+ background:#ff1744;
+ box-shadow:0 0 25px #ff1744;
+}
+
+.timelineItem h3{
+ font-size:23px;
+}
+
+.timelineItem p{
+ margin-top:9px;
+ max-width:730px;
+ color:#9199a6;
+ line-height:1.85;
+}
+
+/* ===============================
+   ACHIEVEMENTS
+================================ */
+
+.achievements{
+ max-width:1100px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
+}
+
+.achievement{
+ padding:32px;
+ text-align:center;
+}
+
+.achievementIcon{
+ font-size:45px;
+ animation:achievementFloat 3s ease-in-out infinite;
+}
+
+@keyframes achievementFloat{
+ 50%{transform:translateY(-7px) scale(1.05)}
+}
+
+.achievement h3{
+ margin:15px 0 10px;
+}
+
+.achievement p{
+ color:#8e97a4;
+ line-height:1.75;
+ font-size:13px;
+}
+
+/* ===============================
+   SOCIAL
+================================ */
+
+.socialGrid{
+ max-width:950px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+}
+
+.socialCard{
+ padding:27px;
+ display:flex;
+ align-items:center;
+ gap:19px;
+ text-decoration:none;
+ color:white;
+}
+
+.socialIcon{
+ font-size:42px;
+ transition:.4s;
+}
+
+.socialCard:hover .socialIcon{
+ transform:scale(1.3) rotate(8deg);
+}
+
+.socialCard p{
+ margin-top:6px;
+ color:#828b98;
+ font-size:12px;
+}
+
+/* ===============================
+   CONTACT BUTTONS
+================================ */
+
+.contactGrid{
+ max-width:1000px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:18px;
+}
+
+.contactCard{
+ padding:30px;
+ text-align:center;
+ text-decoration:none;
+ color:white;
+}
+
+.contactIcon{
+ font-size:42px;
+ margin-bottom:14px;
+}
+
+.contactCard p{
+ color:#8e96a3;
+ font-size:12px;
+ margin-top:8px;
+ word-break:break-word;
+}
+
+.contactButton{
+ margin-top:18px;
+}
+
+/* ===============================
+   FEEDBACK
+================================ */
 
 .feedback{
-display:grid;grid-template-columns:1fr 1fr;gap:50px;
-max-width:1000px;width:100%
+ max-width:750px;
+ margin:auto;
+ padding:32px;
 }
-.feedback h2{font-size:55px;line-height:1.05;margin:20px 0}
-.feedback h2 span{color:#60a5fa}
-.feedback p{color:#888}
 
-.form label{
-display:block;color:#777;font-size:12px;letter-spacing:2px;margin:15px 0 8px
+input,
+textarea{
+ width:100%;
+ padding:15px;
+ border-radius:12px;
+ background:#080b10;
+ border:1px solid var(--line);
+ color:white;
+ outline:none;
+ font-family:inherit;
+ margin-bottom:13px;
 }
-.form input,.form textarea{
-width:100%;background:#0d0d0d;border:1px solid #292929;
-color:#fff;padding:14px;border-radius:12px;outline:none
-}
-.form textarea{min-height:120px;resize:vertical}
 
-.rating button{
-background:none;border:0;color:#444;font-size:25px;cursor:pointer
+input:focus,
+textarea:focus{
+ border-color:#ff1744;
+ box-shadow:0 0 25px rgba(255,23,68,.1);
 }
-.rating button.active{color:#60a5fa}
 
-.submit{
-margin-top:20px;width:100%;padding:14px;border:0;border-radius:12px;
-background:#2563eb;color:#fff;font-weight:800;cursor:pointer
+textarea{
+ height:140px;
+ resize:vertical;
 }
-.success{margin-top:15px;color:#60a5fa}
+
+/* ===============================
+   PREMIUM SHOWCASE
+================================ */
+
+.showcase{
+ max-width:1100px;
+ margin:auto;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:18px;
+}
+
+.showBox{
+ height:250px;
+ position:relative;
+ overflow:hidden;
+ border-radius:22px;
+ border:1px solid var(--line);
+ background:
+ linear-gradient(135deg,#11151d,#080a0f);
+ cursor:pointer;
+}
+
+.showBox:after{
+ content:"";
+ position:absolute;
+ inset:-100%;
+ background:linear-gradient(
+  120deg,
+  transparent 35%,
+  rgba(255,255,255,.08),
+  transparent 65%
+ );
+ transform:rotate(20deg);
+ animation:shine 5s linear infinite;
+}
+
+@keyframes shine{
+ to{transform:translateX(60%) rotate(20deg)}
+}
+
+.showContent{
+ position:absolute;
+ inset:0;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+ z-index:2;
+}
+
+.showIcon{
+ font-size:58px;
+ transition:.5s;
+}
+
+.showBox:hover .showIcon{
+ transform:scale(1.3) translateY(-8px);
+ filter:drop-shadow(0 0 20px #ff1744);
+}
+
+.showContent span{
+ margin-top:15px;
+ color:#929aa7;
+ font-size:11px;
+ letter-spacing:2px;
+}
+
+/* ===============================
+   CHAT
+================================ */
+
+.aiFloating{
+ position:fixed;
+ right:25px;
+ bottom:25px;
+ width:67px;
+ height:67px;
+ border:0;
+ border-radius:50%;
+ background:var(--gradient);
+ font-size:27px;
+ cursor:pointer;
+ z-index:8000;
+ box-shadow:0 15px 50px rgba(255,23,68,.4);
+ animation:aiFloat 2s infinite;
+}
+
+.aiFloating:after{
+ content:"";
+ position:absolute;
+ inset:-8px;
+ border:1px solid rgba(255,23,68,.3);
+ border-radius:50%;
+ animation:ring 2s infinite;
+}
+
+@keyframes ring{
+ to{
+  transform:scale(1.35);
+  opacity:0;
+ }
+}
+
+.chat{
+ position:fixed;
+ display:none;
+ right:25px;
+ bottom:105px;
+ width:400px;
+ max-width:calc(100vw - 30px);
+ z-index:7999;
+ background:#090c12;
+ border:1px solid rgba(255,23,68,.32);
+ border-radius:22px;
+ overflow:hidden;
+ box-shadow:0 30px 100px rgba(0,0,0,.75);
+}
+
+.chat.show{
+ display:block;
+ animation:chatIn .35s ease;
+}
+
+@keyframes chatIn{
+ from{
+  opacity:0;
+  transform:translateY(25px) scale(.94);
+ }
+ to{
+  opacity:1;
+  transform:none;
+ }
+}
+
+.chatHead{
+ padding:17px;
+ display:flex;
+ justify-content:space-between;
+ background:linear-gradient(
+  135deg,
+  rgba(255,23,68,.17),
+  rgba(255,107,53,.08)
+ );
+}
+
+.chatHead b{
+ color:#ff7188;
+}
+
+.chatClose{
+ cursor:pointer;
+ color:#858d99;
+}
+
+.chatBody{
+ height:360px;
+ overflow-y:auto;
+ padding:15px;
+}
+
+.message{
+ padding:11px 14px;
+ margin-bottom:10px;
+ border-radius:13px;
+ max-width:88%;
+ font-size:13px;
+ line-height:1.65;
+ white-space:pre-wrap;
+}
+
+.message.bot{
+ background:#151923;
+ color:#e1e5eb;
+}
+
+.message.user{
+ margin-left:auto;
+ background:var(--gradient);
+ color:#080808;
+}
+
+.chatInput{
+ display:flex;
+ gap:8px;
+ padding:10px;
+ border-top:1px solid var(--line);
+}
+
+.chatInput input{
+ margin:0;
+}
+
+.chatInput button{
+ width:50px;
+ border:0;
+ border-radius:10px;
+ background:var(--gradient);
+ cursor:pointer;
+ font-size:18px;
+}
+
+/* ===============================
+   MODAL
+================================ */
+
+.modal{
+ display:none;
+ position:fixed;
+ inset:0;
+ z-index:10000;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:rgba(0,0,0,.82);
+ backdrop-filter:blur(15px);
+}
+
+.modal.show{
+ display:flex;
+}
+
+.modalBox{
+ width:100%;
+ max-width:700px;
+ padding:40px;
+ position:relative;
+ animation:modalPop .4s cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes modalPop{
+ from{
+  opacity:0;
+  transform:scale(.75) translateY(30px);
+ }
+ to{
+  opacity:1;
+  transform:none;
+ }
+}
+
+.modalClose{
+ position:absolute;
+ right:20px;
+ top:15px;
+ color:#ff7188;
+ font-size:27px;
+ cursor:pointer;
+}
+
+.modalText{
+ color:#a0a8b4;
+ line-height:1.9;
+}
+
+/* ===============================
+   FOOTER
+================================ */
 
 footer{
-padding:40px 7%;border-top:1px solid #151515;
-display:flex;justify-content:space-between;color:#777
+ text-align:center;
+ padding:55px 7%;
+ border-top:1px solid var(--line);
+ color:#5f6875;
+ line-height:2;
 }
 
-/* ============================= */
-/* PREMIUM ASK PRIYANSH AI */
-/* ============================= */
-
-.ai-button{
-position:fixed;right:25px;bottom:25px;z-index:9999;
-border:1px solid rgba(96,165,250,.55);
-background:linear-gradient(135deg,#1d4ed8,#60a5fa);
-color:#fff;padding:15px 21px;border-radius:50px;
-font-weight:800;cursor:pointer;
-box-shadow:0 10px 35px rgba(37,99,235,.45);
-transition:.3s
-}
-.ai-button:hover{transform:translateY(-4px) scale(1.03)}
-
-.ai-chat{
-position:fixed;right:25px;bottom:88px;
-width:390px;max-width:calc(100vw - 30px);height:560px;
-background:#070707;border:1px solid rgba(96,165,250,.35);
-border-radius:24px;z-index:9998;
-display:none;flex-direction:column;overflow:hidden;
-box-shadow:0 25px 80px rgba(0,0,0,.85)
-}
-.ai-chat.active{display:flex}
-
-.ai-header{
-padding:18px;background:linear-gradient(135deg,#111827,#050505);
-border-bottom:1px solid rgba(255,255,255,.08);
-display:flex;justify-content:space-between;align-items:center
-}
-.ai-title{font-weight:900;font-size:18px}
-.ai-title span{color:#60a5fa}
-.ai-status{font-size:11px;color:#4ade80;margin-top:3px}
-.ai-close{
-background:none;border:0;color:#aaa;font-size:22px;cursor:pointer
+footer strong{
+ color:#ff536f;
 }
 
-.ai-messages{
-flex:1;padding:16px;overflow-y:auto
-}
+/* ===============================
+   MOBILE
+================================ */
 
-.ai-message{
-max-width:85%;padding:12px 14px;margin-bottom:12px;
-border-radius:15px;font-size:14px;line-height:1.5;
-white-space:pre-wrap
-}
-.ai-message.bot{
-background:#111;border:1px solid rgba(255,255,255,.08)
-}
-.ai-message.user{background:#2563eb;margin-left:auto}
-.ai-message.loading{color:#888}
+@media(max-width:950px){
 
-.ai-input-area{
-display:flex;padding:12px;gap:8px;
-border-top:1px solid rgba(255,255,255,.08)
-}
-.ai-input{
-flex:1;background:#111;color:#fff;border:1px solid #333;
-border-radius:12px;padding:12px;outline:none
-}
-.ai-input:focus{border-color:#3b82f6}
-.ai-send{
-border:0;background:#2563eb;color:#fff;border-radius:12px;
-padding:0 17px;cursor:pointer;font-weight:800
-}
-.ai-send:disabled{opacity:.5;cursor:not-allowed}
+ .navLinks{
+  display:none;
+ }
 
-@media(max-width:800px){
-.cards,.project-grid,.p3-contact-grid,.p3-social-grid,.stats{
-grid-template-columns:1fr 1fr
-}
-.feedback{grid-template-columns:1fr}
+ .menu{
+  display:block;
+ }
+
+ .aboutGrid,
+ .aiGrid,
+ .education,
+ .projects,
+ .achievements{
+  grid-template-columns:1fr;
+ }
+
+ .skills{
+  grid-template-columns:repeat(2,1fr);
+ }
+
+ .showcase{
+  grid-template-columns:1fr;
+ }
+
 }
 
 @media(max-width:600px){
-.nav-links{display:none}
-section{padding:100px 5%}
-.cards,.project-grid,.p3-contact-grid,.p3-social-grid,.stats{
-grid-template-columns:1fr
-}
-.ai-chat{
-right:15px;bottom:80px;width:calc(100vw - 30px);height:70vh
-}
-.ai-button{right:15px;bottom:15px}
-footer{flex-direction:column;gap:15px}
+
+ section{
+  padding:85px 5%;
+ }
+
+ .hero h1{
+  font-size:59px;
+  letter-spacing:-4px;
+ }
+
+ .stats{
+  grid-template-columns:1fr;
+ }
+
+ .socialGrid,
+ .contactGrid{
+  grid-template-columns:1fr;
+ }
+
+ .aiFeatures{
+  grid-template-columns:1fr;
+ }
+
+ .chat{
+  right:15px;
+ }
+
+ .aiFloating{
+  right:18px;
+  bottom:18px;
+ }
+
 }
 </style>
-
 </head>
 
 <body>
 
-<header>
-<div class="logo">PRIYANSH<span>.</span></div>
+<div class="progress" id="progress"></div>
+<div class="grid"></div>
+<div id="canvas"></div>
+<div class="cursor" id="cursor"></div>
 
-<div class="nav-links">
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#projects">Projects</a>
-<a href="#contact">Contact</a>
-</div>
-</header>
 
-<section id="home" class="hero">
+<!-- ================= NAV ================= -->
 
-<div class="hero-orb one"></div>
-<div class="hero-orb two"></div>
+<nav>
 
-<div class="hero-content">
+ <div class="logo">
+  PRIYANSH<span>.</span>
+ </div>
 
-<span class="badge">PREMIUM DEVELOPER PORTFOLIO</span>
+ <div class="navLinks">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#ai">AI</a>
+  <a href="#career">Career</a>
+  <a href="#social">Social</a>
+  <a href="#contact">Contact</a>
+  <a class="navAI" href="#ai">Ask AI</a>
+ </div>
 
-<h1>
-Hi, I'm
-<span>
-Priyansh <span class="blue">Sharma.</span>
-</span>
-</h1>
+ <div class="menu">☰</div>
 
-<div class="typing">Future Web Developer & Creator</div>
+</nav>
 
-<p class="hero-description">
-Building websites, learning technology and creating digital experiences with creativity, ambition and consistency.
-</p>
 
-<div class="hero-buttons">
-<a href="#about" class="hero-button primary">Explore My Journey →</a>
-<a href="#projects" class="hero-button secondary">View Projects</a>
-</div>
+<!-- ================= HERO ================= -->
 
-</div>
+<section class="hero" id="home">
+
+ <div class="heroContent reveal">
+
+  <div class="live">
+   <span class="liveDot"></span>
+   PRIYANSH DIGITAL LAB • ONLINE
+  </div>
+
+  <h1>
+   <span class="line">PRIYANSH</span>
+   <span class="line gradient">SHARMA.</span>
+  </h1>
+
+  <p class="heroDescription">
+   Developer • Creator • AI Explorer.
+   I build interactive digital experiences,
+   explore modern technology and turn ideas
+   into real projects.
+  </p>
+
+  <div class="buttons">
+
+   <a class="btn primary" href="#projects">
+    Explore Projects →
+   </a>
+
+   <a class="btn" href="#contact">
+    Contact Priyansh
+   </a>
+
+   <a class="btn" href="#ai">
+    🤖 Ask Priyansh AI
+   </a>
+
+  </div>
+
+  <div class="heroMini">
+
+   <span class="mini">💻 BCA</span>
+   <span class="mini">🎓 90% Class 12</span>
+   <span class="mini">🤖 AI Explorer</span>
+   <span class="mini">🚀 Future Developer</span>
+
+  </div>
+
+  <div class="scroll">
+   SCROLL TO ENTER THE DIGITAL LAB ↓
+  </div>
+
+ </div>
+
 </section>
+
+
+<!-- ================= ABOUT ================= -->
 
 <section id="about">
 
-<div class="about-inner">
+ <div class="title reveal">
 
-<span class="section-tag">ABOUT ME</span>
+  <small>01 — ABOUT PRIYANSH</small>
 
-<h2 class="luxury-title">
-Creating Digital <span>Experiences</span> That Matter.
-</h2>
+  <h2>
+   More Than Just
+   <span class="gradient">Code.</span>
+  </h2>
 
-<p class="luxury-description">
-I'm Priyansh Sharma, a passionate BCA student, future developer and creator.
-My focus is building modern websites, learning advanced technologies and
-creating digital experiences that combine creativity with functionality.
-</p>
+  <p>
+   The person behind the projects.
+  </p>
 
-<div class="cards">
+ </div>
 
-<div class="premium-card">
-<div class="card-number">01</div>
-<h3>Web Development</h3>
-<p>Building modern responsive websites with clean UI, smooth animations and premium design.</p>
-</div>
 
-<div class="premium-card">
-<div class="card-number">02</div>
-<h3>Creative Design</h3>
-<p>Designing attractive digital experiences with a focus on elegance, usability and detail.</p>
-</div>
+ <div class="aboutGrid">
 
-<div class="premium-card">
-<div class="card-number">03</div>
-<h3>Future Vision</h3>
-<p>Learning continuously and working toward becoming a professional developer.</p>
-</div>
+  <div class="glass aboutText reveal">
 
-</div>
-</div>
+   <h3>
+    👨‍💻 Who is Priyansh?
+   </h3>
+
+   <p>
+    I'm <span class="highlight">Priyansh Sharma</span>,
+    a technology enthusiast and developer focused on
+    learning, experimenting and building.
+   </p>
+
+   <p>
+    My interest in technology goes beyond writing code.
+    I enjoy exploring websites, user interfaces,
+    artificial intelligence, APIs, automation and
+    creative digital experiences.
+   </p>
+
+   <p>
+    I'm currently building my foundation through BCA
+    while continuously working on practical projects
+    that help me understand how modern software works.
+   </p>
+
+   <p>
+    My philosophy is simple:
+    <span class="highlight">
+     learn → build → improve → repeat.
+    </span>
+   </p>
+
+   <div class="stats">
+
+    <div class="stat">
+     <b>90%</b>
+     <span>Class 12</span>
+    </div>
+
+    <div class="stat">
+     <b>BCA</b>
+     <span>Computer Applications</span>
+    </div>
+
+    <div class="stat">
+     <b>∞</b>
+     <span>Learning</span>
+    </div>
+
+   </div>
+
+  </div>
+
+
+  <div class="glass profile reveal">
+
+   <div class="profileCore">
+    PS
+   </div>
+
+  </div>
+
+ </div>
+
 </section>
 
-<section>
 
-<div class="about-inner">
+<!-- ================= EDUCATION ================= -->
 
-<span class="section-tag">MY JOURNEY</span>
+<section id="education">
 
-<h2 class="luxury-title">Growth Timeline</h2>
+ <div class="title reveal">
 
-<div class="timeline">
+  <small>02 — EDUCATION</small>
 
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-content">
-<h3>2023 — Started Learning</h3>
-<p>Started exploring web development, technology and digital creativity.</p>
-</div>
-</div>
+  <h2>
+   Learning &
+   <span class="gradient">Growth.</span>
+  </h2>
 
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-content">
-<h3>2024 — Skill Development</h3>
-<p>Focused on learning design, websites, content creation and modern tools.</p>
-</div>
-</div>
+  <p>
+   Building the foundation for a technology career.
+  </p>
 
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-content">
-<h3>2025 — Academic Growth</h3>
-<p>Completed higher secondary education and prepared for future career goals.</p>
-</div>
-</div>
+ </div>
 
-<div class="timeline-item">
-<div class="timeline-dot"></div>
-<div class="timeline-content">
-<h3>2026 — BCA Journey</h3>
-<p>Started BCA and continued improving development skills and creativity.</p>
-</div>
-</div>
 
-</div>
-</div>
+ <div class="education">
+
+  <div class="glass edu reveal">
+
+   <div class="eduIcon">🎓</div>
+
+   <h3>
+    Class 12
+   </h3>
+
+   <div class="percent">
+    90%
+   </div>
+
+   <p>
+    A major academic milestone that strengthened
+    consistency, discipline and the foundation
+    for the next stage of education.
+   </p>
+
+  </div>
+
+
+  <div class="glass edu reveal">
+
+   <div class="eduIcon">💻</div>
+
+   <h3>
+    Bachelor of Computer Applications
+   </h3>
+
+   <div class="percent">
+    BCA
+   </div>
+
+   <p>
+    Building knowledge in programming, computer
+    applications, web development, databases,
+    software development and modern technologies.
+   </p>
+
+  </div>
+
+ </div>
+
 </section>
+
+
+<!-- ================= SKILLS ================= -->
+
+<section id="skills">
+
+ <div class="title reveal">
+
+  <small>03 — TECHNOLOGY</small>
+
+  <h2>
+   My
+   <span class="gradient">Toolkit.</span>
+  </h2>
+
+  <p>
+   Technologies I'm learning and exploring.
+  </p>
+
+ </div>
+
+
+ <div class="skills">
+
+  <div class="skill reveal">
+   <div class="skillIcon">🌐</div>
+   <b>HTML5</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">🎨</div>
+   <b>CSS3</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">⚡</div>
+   <b>JavaScript</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">🐍</div>
+   <b>Python</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">🟢</div>
+   <b>Node.js</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">▲</div>
+   <b>Next.js</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">🤖</div>
+   <b>AI & APIs</b>
+  </div>
+
+  <div class="skill reveal">
+   <div class="skillIcon">☁️</div>
+   <b>Cloud</b>
+  </div>
+
+</div>
+
+</section>
+
+
+<!-- ================= PROJECTS ================= -->
 
 <section id="projects">
 
-<div class="projects-inner">
+ <div class="title reveal">
 
-<span class="section-tag">FEATURED WORK</span>
+  <small>04 — PROJECTS</small>
 
-<div class="project-heading">
-<h2>Premium Projects</h2>
-<p>Projects, creativity and continuous learning that define my journey as a future developer.</p>
-</div>
+  <h2>
+   Built With
+   <span class="gradient">Curiosity.</span>
+  </h2>
 
-<div class="project-grid">
+  <p>
+   Every project is another step forward.
+  </p>
 
-<div class="project-card">
-<div class="project-no">01</div>
-<h3>Personal Portfolio</h3>
-<p>A luxury portfolio website focused on animations, responsiveness and modern UI.</p>
-</div>
+ </div>
 
-<div class="project-card">
-<div class="project-no">02</div>
-<h3>Creative Web Design</h3>
-<p>Modern interfaces with premium effects, glassmorphism and luxury aesthetics.</p>
-</div>
 
-<div class="project-card">
-<div class="project-no">03</div>
-<h3>Content Creation</h3>
-<p>Building digital content while learning technology and improving creativity.</p>
-</div>
+ <div class="projects">
 
-</div>
-</div>
+  <div class="project glass reveal"
+       onclick="openModal(
+       '🤖 Priyansh AI',
+       'An AI assistant concept created inside Priyansh Digital Lab. It communicates with the backend API and can answer questions about technology, coding, programming and many other topics.'
+       )">
+
+   <span class="tag">
+    AI • API
+   </span>
+
+   <h3>
+    Priyansh AI
+   </h3>
+
+   <p>
+    A personal AI assistant designed to turn
+    this portfolio into an interactive experience.
+   </p>
+
+   <span class="projectArrow">
+    OPEN PROJECT →
+   </span>
+
+  </div>
+
+
+  <div class="project glass reveal"
+       onclick="openModal(
+       '🌐 Premium Portfolio',
+       'A long-form personal website combining responsive design, glassmorphism, animated interfaces, interactive sections and AI integration.'
+       )">
+
+   <span class="tag">
+    WEB DEVELOPMENT
+   </span>
+
+   <h3>
+    Premium Portfolio
+   </h3>
+
+   <p>
+    A digital identity created to showcase
+    development, creativity, education and goals.
+   </p>
+
+   <span class="projectArrow">
+    OPEN PROJECT →
+   </span>
+
+  </div>
+
+
+  <div class="project glass reveal"
+       onclick="openModal(
+       '🚀 Future Digital Lab',
+       'A continuously growing space for future applications, experiments, AI tools and new technology projects.'
+       )">
+
+   <span class="tag">
+    FUTURE
+   </span>
+
+   <h3>
+    Future Lab
+   </h3>
+
+   <p>
+    The next idea could become a website,
+    AI application, automation system or something new.
+   </p>
+
+   <span class="projectArrow">
+    OPEN PROJECT →
+   </span>
+
+  </div>
+
+ </div>
+
 </section>
+
+
+<!-- ================= AI ================= -->
+
+<section id="ai" class="aiSection">
+
+ <div class="title reveal">
+
+  <small>05 — ARTIFICIAL INTELLIGENCE</small>
+
+  <h2>
+   Meet
+   <span class="gradient">Priyansh AI.</span>
+  </h2>
+
+  <p>
+   Ask questions. Learn. Explore. Build.
+  </p>
+
+ </div>
+
+
+ <div class="aiGrid">
+
+  <div class="glass aiMain reveal">
+
+   <span class="aiBadge">
+    ✦ BUILT FOR PRIYANSH DIGITAL LAB
+   </span>
+
+   <h3>
+    Your AI-powered
+    <span class="gradient">assistant.</span>
+   </h3>
+
+   <p>
+    Priyansh AI is designed to answer questions,
+    explain programming concepts, help with technology,
+    brainstorm ideas and make this portfolio interactive.
+   </p>
+
+   <div class="aiFeatures">
+
+    <div class="aiFeature">
+     ✓ Coding questions
+    </div>
+
+    <div class="aiFeature">
+     ✓ Programming explanations
+    </div>
+
+    <div class="aiFeature">
+     ✓ Technology questions
+    </div>
+
+    <div class="aiFeature">
+     ✓ Project ideas
+    </div>
+
+    <div class="aiFeature">
+     ✓ Study help
+    </div>
+
+    <div class="aiFeature">
+     ✓ General questions
+    </div>
+
+   </div>
+
+   <br>
+
+   <button class="btn primary"
+           onclick="toggleAI()">
+    🤖 Start Chatting
+   </button>
+
+  </div>
+
+
+  <div class="glass aiSide reveal">
+
+   <div class="aiOrb">
+    🤖
+   </div>
+
+   <div class="aiStatus">
+    <span>● ONLINE</span>
+    <br><br>
+    Priyansh AI • Digital Lab
+   </div>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ================= CAREER ================= -->
+
+<section id="career">
+
+ <div class="title reveal">
+
+  <small>06 — CAREER</small>
+
+  <h2>
+   The
+   <span class="gradient">Journey.</span>
+  </h2>
+
+  <p>
+   From learning fundamentals to building real products.
+  </p>
+
+ </div>
+
+
+ <div class="timeline">
+
+  <div class="timelineItem reveal">
+
+   <h3>
+    🎓 Academic Foundation
+   </h3>
+
+   <p>
+    Completed Class 12 with 90% and moved toward
+    computer applications and technology.
+   </p>
+
+  </div>
+
+
+  <div class="timelineItem reveal">
+
+   <h3>
+    💻 Developer Growth
+   </h3>
+
+   <p>
+    Learning programming and web development
+    through practical projects and experimentation.
+   </p>
+
+  </div>
+
+
+  <div class="timelineItem reveal">
+
+   <h3>
+    🤖 AI Exploration
+   </h3>
+
+   <p>
+    Exploring AI APIs and intelligent applications
+    and learning how AI can become part of modern websites.
+   </p>
+
+  </div>
+
+
+  <div class="timelineItem reveal">
+
+   <h3>
+    🚀 Future Developer
+   </h3>
+
+   <p>
+    The long-term goal is to build professional software,
+    gain industry experience and create useful technology.
+   </p>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ================= ACHIEVEMENTS ================= -->
+
+<section id="achievements">
+
+ <div class="title reveal">
+
+  <small>07 — ACHIEVEMENTS</small>
+
+  <h2>
+   Milestones That
+   <span class="gradient">Matter.</span>
+  </h2>
+
+ </div>
+
+
+ <div class="achievements">
+
+  <div class="glass achievement reveal">
+
+   <div class="achievementIcon">
+    🎓
+   </div>
+
+   <h3>
+    90% in Class 12
+   </h3>
+
+   <p>
+    A significant academic milestone.
+   </p>
+
+  </div>
+
+
+  <div class="glass achievement reveal">
+
+   <div class="achievementIcon">
+    🌐
+   </div>
+
+   <h3>
+    Portfolio Creator
+   </h3>
+
+   <p>
+    Built a personal digital platform
+    around development and creativity.
+   </p>
+
+  </div>
+
+
+  <div class="glass achievement reveal">
+
+   <div class="achievementIcon">
+    🤖
+   </div>
+
+   <h3>
+    AI Explorer
+   </h3>
+
+   <p>
+    Experimenting with AI-powered applications
+    and APIs.
+   </p>
+
+  </div>
+
+ </div>
+
+</section>
+
+
+<!-- ================= PREMIUM SHOWCASE ================= -->
 
 <section>
 
-<div class="stats">
+ <div class="title reveal">
 
-<div class="stat-box">
-<h2>1800+</h2>
-<p>YouTube Subscribers</p>
-</div>
+  <small>08 — DIGITAL LAB</small>
 
-<div class="stat-box">
-<h2>550+</h2>
-<p>Published Videos</p>
-</div>
+  <h2>
+   Interactive
+   <span class="gradient">Experiments.</span>
+  </h2>
 
-<div class="stat-box">
-<h2>90%</h2>
-<p>CBSE Result</p>
-</div>
+  <p>
+   Click the cards to explore.
+  </p>
 
-<div class="stat-box">
-<h2>∞</h2>
-<p>Learning Mode</p>
-</div>
+ </div>
 
-</div>
+
+ <div class="showcase">
+
+  <div class="showBox reveal"
+       onclick="openModal(
+       '🤖 Artificial Intelligence',
+       'AI represents one of the biggest areas of technology exploration inside the Priyansh Digital Lab.'
+       )">
+
+   <div class="showContent">
+
+    <div class="showIcon">
+     🤖
+    </div>
+
+    <span>
+     AI TECHNOLOGY
+    </span>
+
+   </div>
+
+  </div>
+
+
+  <div class="showBox reveal"
+       onclick="openModal(
+       '💻 Coding',
+       'Coding is the foundation of the projects being built here. Every experiment is another opportunity to learn.'
+       )">
+
+   <div class="showContent">
+
+    <div class="showIcon">
+     💻
+    </div>
+
+    <span>
+     DEVELOPMENT
+    </span>
+
+   </div>
+
+  </div>
+
+
+  <div class="showBox reveal"
+       onclick="openModal(
+       '🚀 Future Tech',
+       'A place for future ideas, experiments and applications that can be developed over time.'
+       )">
+
+   <div class="showContent">
+
+    <div class="showIcon">
+     🚀
+    </div>
+
+    <span>
+     FUTURE
+    </span>
+
+   </div>
+
+  </div>
+
+ </div>
+
 </section>
 
-<section class="vision">
 
-<div class="vision-ring ring-1"></div>
-<div class="vision-ring ring-2"></div>
-<div class="vision-ring ring-3"></div>
+<!-- ================= SOCIAL ================= -->
 
-<div class="vision-content">
+<section id="social">
 
-<span class="section-tag">THE FUTURE</span>
+ <div class="title reveal">
 
-<h2>
-Dream Bigger.<br>
-Build <span>Better.</span>
-</h2>
+  <small>09 — SOCIAL</small>
 
-<p>
-My goal is to master web development, create impactful projects and
-build digital experiences people remember.
-</p>
+  <h2>
+   Find Me
+   <span class="gradient">Online.</span>
+  </h2>
 
-<div class="vision-line"></div>
+  <p>
+   Follow Priyansh's journey and latest updates.
+  </p>
 
-<strong>LEARN • CREATE • BUILD • GROW</strong>
+ </div>
 
-</div>
+
+ <div class="socialGrid">
+
+  <a class="glass socialCard reveal"
+     href="https://www.youtube.com/@pixeloratech"
+     target="_blank"
+     rel="noopener noreferrer">
+
+   <div class="socialIcon">
+    ▶️
+   </div>
+
+   <div>
+    <h3>
+     YouTube
+    </h3>
+
+    <p>
+     @pixeloratech • Videos & content
+    </p>
+   </div>
+
+  </a>
+
+
+  <a class="glass socialCard reveal"
+     href="https://www.instagram.com/priyanshsharmaa_7"
+     target="_blank"
+     rel="noopener noreferrer">
+
+   <div class="socialIcon">
+    📸
+   </div>
+
+   <div>
+    <h3>
+     Instagram
+    </h3>
+
+    <p>
+     @priyanshsharmaa_7 • Updates
+    </p>
+   </div>
+
+  </a>
+
+
+  <a class="glass socialCard reveal"
+     href="https://t.me/Pixeloratech"
+     target="_blank"
+     rel="noopener noreferrer">
+
+   <div class="socialIcon">
+    ✈️
+   </div>
+
+   <div>
+    <h3>
+     Telegram
+    </h3>
+
+    <p>
+     @Pixeloratech • Community
+    </p>
+   </div>
+
+  </a>
+
+
+  <a class="glass socialCard reveal"
+     href="https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z"
+     target="_blank"
+     rel="noopener noreferrer">
+
+   <div class="socialIcon">
+    💬
+   </div>
+
+   <div>
+    <h3>
+     WhatsApp Channel
+    </h3>
+
+    <p>
+     Updates • Announcements
+    </p>
+   </div>
+
+  </a>
+
+ </div>
+
 </section>
+
+
+<!-- ================= CONTACT ================= -->
 
 <section id="contact">
 
-<div class="contact-inner">
+ <div class="title reveal">
 
-<span class="section-tag">LET'S CONNECT</span>
+  <small>10 — CONTACT</small>
 
-<div class="p3-contact-heading">
+  <h2>
+   Let's Build
+   <span class="gradient">Something.</span>
+  </h2>
 
-<h2>
-Have an idea?
-<span>Let's build it.</span>
-</h2>
+  <p>
+   Every good project starts with an idea.
+  </p>
 
-<p>
-Whether it's a website, creative project or something completely new —
-I'm always interested in learning, creating and building.
-</p>
+ </div>
 
-</div>
 
-<div class="p3-contact-grid">
+ <div class="contactGrid">
 
-<a href="mailto:priyanshsharma7777@gmail.com" class="p3-contact-card">
-<div class="p3-card-icon">✉</div>
-<div>
-<small>EMAIL</small>
-<h3>Let's Talk</h3>
-</div>
-<b>↗</b>
-</a>
+  <a class="glass contactCard reveal"
+     href="mailto:priyanshsharma7777@gmail.com">
 
-<a href="https://www.instagram.com/priyanshsharmaa_7/" target="_blank" rel="noopener noreferrer" class="p3-contact-card">
-<div class="p3-card-icon">◎</div>
-<div>
-<small>INSTAGRAM</small>
-<h3>Follow Me</h3>
-</div>
-<b>↗</b>
-</a>
+   <div class="contactIcon">
+    📧
+   </div>
 
-<a href="https://www.youtube.com/@pixeloraTech" target="_blank" rel="noopener noreferrer" class="p3-contact-card">
-<div class="p3-card-icon">▶</div>
-<div>
-<small>YOUTUBE</small>
-<h3>Watch My Work</h3>
-</div>
-<b>↗</b>
-</a>
+   <h3>
+    Email Priyansh
+   </h3>
 
-</div>
-</div>
+   <p>
+    priyanshsharma7777@gmail.com
+   </p>
+
+   <span class="btn primary contactButton">
+    Send Email →
+   </span>
+
+  </a>
+
+
+  <a class="glass contactCard reveal"
+     href="https://www.whatsapp.com/channel/0029VbDXuU9CxoAnPEEhDL0z"
+     target="_blank"
+     rel="noopener noreferrer">
+
+   <div class="contactIcon">
+    💬
+   </div>
+
+   <h3>
+    WhatsApp Channel
+   </h3>
+
+   <p>
+    Join the community
+   </p>
+
+   <span class="btn primary contactButton">
+    Open Channel →
+   </span>
+
+  </a>
+
+ </div>
+
 </section>
 
-<section>
 
-<div class="feedback">
+<!-- ================= FEEDBACK ================= -->
 
-<div>
-<span class="section-tag">YOUR OPINION</span>
-<h2>Make It <span>Better.</span></h2>
-<p>
-Your feedback helps me improve the website, learn new things and create better experiences.
-</p>
-</div>
+<section id="feedback">
 
-<div class="form">
+ <div class="title reveal">
 
-<label>YOUR NAME</label> <input id="p3Name" type="text" placeholder="Enter your name">
+  <small>11 — FEEDBACK</small>
 
-<label>RATING</label>
+  <h2>
+   Your
+   <span class="gradient">Opinion.</span>
+  </h2>
 
-<div class="rating" id="p3Rating">
-<button onclick="p3SetRating(1)">★</button>
-<button onclick="p3SetRating(2)">★</button>
-<button onclick="p3SetRating(3)">★</button>
-<button onclick="p3SetRating(4)">★</button>
-<button onclick="p3SetRating(5)">★</button>
-</div>
+  <p>
+   Tell Priyansh what you think.
+  </p>
 
-<label>YOUR MESSAGE</label>
+ </div>
 
-<textarea id="p3Message" placeholder="Tell me what you think..."></textarea>
 
-<button class="submit" onclick="p3SubmitFeedback()">
-Submit Feedback →
-</button>
+ <div class="glass feedback reveal">
 
-<div class="success" id="p3Success"></div>
+  <input
+   id="feedbackName"
+   placeholder="Your name">
 
-</div>
-</div>
+  <input
+   id="feedbackEmail"
+   type="email"
+   placeholder="Your email">
+
+  <textarea
+   id="feedbackText"
+   placeholder="Write your feedback..."></textarea>
+
+  <button
+   class="btn primary"
+   style="width:100%"
+   onclick="sendFeedback()">
+
+   SEND FEEDBACK 🚀
+
+  </button>
+
+  <p id="feedbackStatus"
+     style="text-align:center;color:#ff7188;margin-top:14px">
+  </p>
+
+ </div>
+
 </section>
+
+
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
-<div>
-<strong>PRIYANSH</strong><br>
-Future Developer • Creator
-</div>
+ <p>
+  © 2026 <strong>Priyansh Sharma</strong>
+ </p>
 
-<div>
-© 2026 Priyansh Sharma • Crafted with creativity.
-</div>
+ <p>
+  Designed & built with code, creativity and AI.
+ </p>
+
+ <p>
+  ✦ PRIYANSH DIGITAL LAB
+ </p>
 
 </footer>
 
-<!-- ASK PRIYANSH AI BUTTON -->
 
-<button class="ai-button" onclick="toggleAI()">
-🤖 Ask Priyansh AI
+<!-- ================= AI FLOATING BUTTON ================= -->
+
+<button
+ class="aiFloating"
+ onclick="toggleAI()">
+
+ 🤖
+
 </button>
 
-<!-- ASK PRIYANSH AI CHAT -->
 
-<div class="ai-chat" id="aiChat">
+<!-- ================= AI CHAT ================= -->
 
-<div class="ai-header">
+<div class="chat" id="chat">
 
-<div>
-<div class="ai-title">
-Ask Priyansh <span>AI</span>
+ <div class="chatHead">
+
+  <b>
+   ✦ PRIYANSH AI
+  </b>
+
+  <span
+   class="chatClose"
+   onclick="toggleAI()">
+   ✕
+  </span>
+
+ </div>
+
+
+ <div class="chatBody"
+      id="chatBody">
+
+  <div class="message bot">
+   👋 Hi! I'm Priyansh AI.
+
+   Ask me anything about coding,
+   programming, technology, websites,
+   AI or general topics.
+  </div>
+
+ </div>
+
+
+ <div class="chatInput">
+
+  <input
+   id="chatInput"
+   placeholder="Ask anything..."
+   autocomplete="off"
+   onkeydown="if(event.key==='Enter') sendAIMessage()">
+
+  <button onclick="sendAIMessage()">
+   ➤
+  </button>
+
+ </div>
+
 </div>
 
-<div class="ai-status">
-● AI Assistant
-</div>
-</div>
 
-<button class="ai-close" onclick="toggleAI()">×</button>
+<!-- ================= MODAL ================= -->
 
-</div>
+<div class="modal" id="modal">
 
-<div class="ai-messages" id="aiMessages">
+ <div class="glass modalBox">
 
-<div class="ai-message bot">
-Hi! 👋 I'm Priyansh AI.
+  <span
+   class="modalClose"
+   onclick="closeModal()">
+   ×
+  </span>
 
-Ask me anything about Priyansh, his portfolio, projects, web development or technology.
+  <h2
+   id="modalTitle"
+   class="gradient">
+  </h2>
 
-</div>
+  <br>
 
-</div>
+  <p
+   id="modalText"
+   class="modalText">
+  </p>
 
-<div class="ai-input-area">
+  <br>
 
-<input
-class="ai-input"
-id="aiInput"
-type="text"
-placeholder="Ask something..."
-autocomplete="off"
+  <b style="color:#ff7188">
+   ✦ This is made by Priyansh.
+  </b>
 
->
-
-<button class="ai-send" id="aiSend" onclick="sendAI()">
-➤
-</button>
+ </div>
 
 </div>
 
-</div>
 
 <script>
 
-let selectedRating=0;
+/* =========================================
+   PARTICLE SYSTEM
+========================================= */
+
+const canvas=document.getElementById("canvas");
+
+for(let i=0;i<100;i++){
+
+ const p=document.createElement("i");
+
+ p.style.position="absolute";
+ p.style.width=(Math.random()*3+1)+"px";
+ p.style.height=p.style.width;
+ p.style.borderRadius="50%";
+ p.style.background=i%3===0 ? "#ff1744" : "#ff6b35";
+ p.style.boxShadow="0 0 15px currentColor";
+ p.style.left=Math.random()*100+"%";
+ p.style.top=Math.random()*100+"%";
+ p.style.opacity=Math.random()*.65;
+ p.style.animation=
+  `particleMove ${6+Math.random()*12}s ease-in-out infinite`;
+ p.style.animationDelay=
+  (-Math.random()*12)+"s";
+
+ canvas.appendChild(p);
+}
+
+
+const style=document.createElement("style");
+
+style.innerHTML=`
+@keyframes particleMove{
+ 0%,100%{
+  transform:translate3d(0,0,0) scale(1);
+ }
+ 50%{
+  transform:translate3d(
+   ${Math.random()*120-60}px,
+   ${Math.random()*120-60}px,
+   0
+  ) scale(1.8);
+ }
+}
+`;
+
+document.head.appendChild(style);
+
+
+/* =========================================
+   CURSOR
+========================================= */
+
+const cursor=document.getElementById("cursor");
+
+document.addEventListener("mousemove",e=>{
+
+ cursor.style.left=e.clientX+"px";
+ cursor.style.top=e.clientY+"px";
+
+});
+
+
+/* =========================================
+   SCROLL PROGRESS
+========================================= */
+
+window.addEventListener("scroll",()=>{
+
+ const scrollTop=
+  document.documentElement.scrollTop;
+
+ const height=
+  document.documentElement.scrollHeight-
+  document.documentElement.clientHeight;
+
+ document.getElementById("progress").style.width=
+  (scrollTop/height*100)+"%";
+
+});
+
+
+/* =========================================
+   REVEAL ANIMATIONS
+========================================= */
+
+const observer=
+ new IntersectionObserver(entries=>{
+
+  entries.forEach(entry=>{
+
+   if(entry.isIntersecting){
+
+    entry.target.classList.add("active");
+
+   }
+
+  });
+
+ },{
+  threshold:.12
+ });
+
+
+document
+ .querySelectorAll(".reveal")
+ .forEach(el=>observer.observe(el));
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+function openModal(title,text){
+
+ document.getElementById("modalTitle")
+ .innerText=title;
+
+ document.getElementById("modalText")
+ .innerText=text;
+
+ document.getElementById("modal")
+ .classList.add("show");
+
+}
+
+
+function closeModal(){
+
+ document.getElementById("modal")
+ .classList.remove("show");
+
+}
+
+
+document
+ .getElementById("modal")
+ .addEventListener("click",e=>{
+
+  if(e.target.id==="modal"){
+   closeModal();
+  }
+
+ });
+
+
+/* =========================================
+   AI CHAT
+========================================= */
 
 function toggleAI(){
 
-const chat=document.getElementById("aiChat");
+ const chat=document.getElementById("chat");
 
-chat.classList.toggle("active");
+ chat.classList.toggle("show");
 
-if(chat.classList.contains("active")){
+ if(chat.classList.contains("show")){
 
-setTimeout(function(){
-document.getElementById("aiInput").focus();
-},100);
+  setTimeout(()=>{
+   document.getElementById("chatInput").focus();
+  },150);
 
-}
-
-}
-
-function addAIMessage(text,type){
-
-const box=document.getElementById("aiMessages");
-
-const message=document.createElement("div");
-
-message.className="ai-message "+type;
-
-message.textContent=text;
-
-box.appendChild(message);
-
-box.scrollTop=box.scrollHeight;
-
-return message;
+ }
 
 }
 
-async function sendAI(){
 
-const input=document.getElementById("aiInput");
-const send=document.getElementById("aiSend");
+function addMessage(text,type){
 
-const question=input.value.trim();
+ const body=
+  document.getElementById("chatBody");
 
-if(!question)return;
+ const msg=
+  document.createElement("div");
 
-addAIMessage(question,"user");
+ msg.className="message "+type;
 
-input.value="";
-send.disabled=true;
+ msg.innerText=text;
 
-const loading=addAIMessage("Priyansh AI is thinking...","bot loading");
+ body.appendChild(msg);
 
-try{
+ body.scrollTop=body.scrollHeight;
 
-const response=await fetch("/api/chat",{
+ return msg;
 
-method:"POST",
+}
 
-headers:{
-"Content-Type":"application/json"
-},
 
-body:JSON.stringify({
-message:question
-})
+/*
+  IMPORTANT
+
+  This frontend sends the question to:
+
+      /api/chat
+
+  Your Vercel API should accept:
+
+      {
+        "message":"..."
+      }
+
+  and return one of:
+
+      { "reply":"..." }
+      { "answer":"..." }
+      { "message":"..." }
+      { "output":"..." }
+
+*/
+
+
+async function sendAIMessage(){
+
+ const input=
+  document.getElementById("chatInput");
+
+ const question=
+  input.value.trim();
+
+ if(!question) return;
+
+ addMessage(question,"user");
+
+ input.value="";
+
+ const loading=
+  addMessage(
+   "Thinking... 🤖",
+   "bot"
+  );
+
+ try{
+
+  const response=
+   await fetch("/api/chat",{
+
+    method:"POST",
+
+    headers:{
+     "Content-Type":"application/json",
+     "Accept":"application/json"
+    },
+
+    body:JSON.stringify({
+     message:question
+    })
+
+   });
+
+
+  let data=null;
+
+  try{
+   data=await response.json();
+  }
+  catch{
+   data=null;
+  }
+
+
+  loading.remove();
+
+
+  if(!response.ok){
+
+   throw new Error(
+    data?.error ||
+    `Server error ${response.status}`
+   );
+
+  }
+
+
+  const answer=
+   data?.reply ??
+   data?.answer ??
+   data?.message ??
+   data?.output ??
+   data?.content;
+
+
+  if(
+   typeof answer!=="string" ||
+   !answer.trim()
+  ){
+
+   throw new Error(
+    "AI response empty"
+   );
+
+  }
+
+
+  addMessage(
+   answer.trim(),
+   "bot"
+  );
+
+
+ }
+
+ catch(error){
+
+  loading.remove();
+
+  addMessage(
+`⚠️ Priyansh AI abhi answer nahi de pa raha.
+
+Backend check karo:
+• Vercel deployment successful ho
+• /api/chat available ho
+• OPENAI_API_KEY Environment Variable mein ho
+• API request POST accept karti ho
+• API JSON mein reply/answer/message return kare
+
+Technical error:
+${error.message}`,
+   "bot"
+  );
+
+  console.error(
+   "Priyansh AI:",
+   error
+  );
+
+ }
+
+}
+
+
+/* =========================================
+   FEEDBACK
+========================================= */
+
+function sendFeedback(){
+
+ const name=
+  document.getElementById("feedbackName")
+  .value.trim();
+
+ const email=
+  document.getElementById("feedbackEmail")
+  .value.trim();
+
+ const feedback=
+  document.getElementById("feedbackText")
+  .value.trim();
+
+ const status=
+  document.getElementById("feedbackStatus");
+
+
+ if(!name || !feedback){
+
+  status.innerText=
+   "⚠️ Name and feedback required.";
+
+  return;
+
+ }
+
+
+ status.innerText=
+  `✅ Thanks ${name}! Your feedback has been received.`;
+
+ document.getElementById("feedbackName")
+  .value="";
+
+ document.getElementById("feedbackEmail")
+  .value="";
+
+ document.getElementById("feedbackText")
+  .value="";
+
+}
+
+
+/* =========================================
+   ESCAPE CLOSE
+========================================= */
+
+document.addEventListener("keydown",e=>{
+
+ if(e.key==="Escape"){
+
+  closeModal();
+
+  document
+   .getElementById("chat")
+   .classList.remove("show");
+
+ }
 
 });
 
-let data;
 
-try{
-data=await response.json();
-}catch{
-data={};
-}
+/* =========================================
+   CARD TILT EFFECT
+========================================= */
 
-loading.remove();
+document
+ .querySelectorAll(".project,.skill,.achievement")
+ .forEach(card=>{
 
-if(!response.ok){
+  card.addEventListener("mousemove",e=>{
 
-throw new Error(
-data.error || "AI request failed"
-);
+   const rect=
+    card.getBoundingClientRect();
 
-}
+   const x=
+    e.clientX-rect.left;
 
-addAIMessage(
-data.reply || "Sorry, I couldn't generate a response.",
-"bot"
-);
+   const y=
+    e.clientY-rect.top;
 
-}catch(error){
+   const rotateY=
+    ((x/rect.width)-.5)*7;
 
-console.error(error);
+   const rotateX=
+    ((y/rect.height)-.5)*-7;
 
-loading.remove();
+   card.style.transform=
+    `perspective(700px)
+     rotateX(${rotateX}deg)
+     rotateY(${rotateY}deg)
+     translateY(-7px)`;
 
-addAIMessage(
-"⚠️ AI connection error. Please check the Vercel API setup and try again.",
-"bot"
-);
+  });
 
-}
 
-send.disabled=false;
+  card.addEventListener("mouseleave",()=>{
 
-input.focus();
+   card.style.transform="";
 
-}
+  });
 
-document.getElementById("aiInput").addEventListener("keydown",function(event){
+ });
 
-if(event.key==="Enter"){
 
-event.preventDefault();
+/* =========================================
+   MOBILE MENU
+========================================= */
 
-sendAI();
+document
+ .querySelector(".menu")
+ .addEventListener("click",()=>{
 
-}
+  const links=
+   document.querySelector(".navLinks");
 
-});
+  if(links.style.display==="flex"){
 
-function p3SetRating(r){
+   links.style.display="none";
 
-selectedRating=r;
+  }else{
 
-document.querySelectorAll(".rating button").forEach(function(button,index){
+   links.style.display="flex";
+   links.style.position="absolute";
+   links.style.top="70px";
+   links.style.left="0";
+   links.style.right="0";
+   links.style.padding="20px";
+   links.style.flexDirection="column";
+   links.style.background="rgba(3,3,5,.96)";
+   links.style.borderBottom="1px solid var(--line)";
 
-button.classList.toggle("active",index<r);
+  }
 
-});
+ });
 
-}
 
-function p3SubmitFeedback(){
+/* =========================================
+   AUTO WELCOME
+========================================= */
 
-const name=document.getElementById("p3Name").value.trim();
+setTimeout(()=>{
 
-const message=document.getElementById("p3Message").value.trim();
+ console.log(
+  "%c✦ PRIYANSH DIGITAL LAB",
+  "color:#ff1744;font-size:20px;font-weight:bold"
+ );
 
-const success=document.getElementById("p3Success");
+ console.log(
+  "%cWebsite built with HTML, CSS, JavaScript & AI.",
+  "color:#ff6b35"
+ );
 
-if(!name || !message || !selectedRating){
-
-success.textContent="Please complete your name, rating and message.";
-
-return;
-
-}
-
-success.textContent="✓ Thank you for your feedback, "+name+"!";
-
-document.getElementById("p3Name").value="";
-
-document.getElementById("p3Message").value="";
-
-selectedRating=0;
-
-document.querySelectorAll(".rating button").forEach(function(button){
-
-button.classList.remove("active");
-
-});
-
-}
+},1000);
 
 </script>
 
 </body>
 </html>
+```
