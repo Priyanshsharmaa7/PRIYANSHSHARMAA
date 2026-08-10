@@ -3415,3 +3415,68 @@ fetch("https://api.countapi.xyz/hit/priyanshsharmaa17/portfolio")
     console.error(err);
 });
 </script>
+
+
+
+<div class="live-clock">
+    <h2>🕒 Live Clock</h2>
+    <div id="clock"></div>
+    <div id="date"></div>
+</div>
+
+<style>
+.live-clock{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:25px;
+    border-radius:20px;
+    max-width:400px;
+    margin:auto;
+    box-shadow:0 0 20px rgba(0,255,255,.4);
+    font-family:Arial,sans-serif;
+}
+
+#clock{
+    font-size:40px;
+    font-weight:bold;
+    color:#00ffff;
+    margin-bottom:10px;
+}
+
+#date{
+    font-size:18px;
+    color:#ccc;
+}
+</style>
+
+<script>
+function updateClock() {
+    const now = new Date();
+
+    let hours = now.getHours();
+    const minutes = String(now.getMinutes()).padStart(2,'0');
+    const seconds = String(now.getSeconds()).padStart(2,'0');
+
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    hours = String(hours).padStart(2,'0');
+
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    };
+
+    document.getElementById("clock").innerHTML =
+        `${hours}:${minutes}:${seconds} ${ampm}`;
+
+    document.getElementById("date").innerHTML =
+        now.toLocaleDateString('en-US', options);
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
