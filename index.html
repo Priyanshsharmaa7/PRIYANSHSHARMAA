@@ -3480,3 +3480,364 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 </script>
+
+
+<!-- 🎁 VISITOR MYSTERY GIFT -->
+<div id="visitorGift">
+    <button id="giftButton" onclick="openVisitorGift()">🎁</button>
+
+    <div id="giftPopup">
+        <button id="closeGift" onclick="closeVisitorGift()">×</button>
+
+        <div id="giftEmoji">🎁</div>
+
+        <h2>🎁 Mystery Gift!</h2>
+
+        <p id="giftMessage">
+            Open your surprise!
+        </p>
+
+        <div class="visitorBadge">
+            🏆 Visitor #<span id="visitorNo">1</span>
+        </div>
+
+        <div class="couponCard">
+            🎟️ <b>Special Visitor Card</b>
+            <br>
+            <small>Thanks for visiting my website ❤️</small>
+        </div>
+
+        <div class="giftCoins">
+            🪙 Coins: <b id="giftCoins">0</b>
+        </div>
+
+        <button class="giftAction" onclick="collectGiftCoin()">
+            🪙 Collect Coin
+        </button>
+
+        <button class="giftAction" onclick="dailyGift()">
+            ⭐ Daily Surprise
+        </button>
+
+        <button class="giftAction" onclick="changeGiftTheme()">
+            🎨 Unlock Theme
+        </button>
+    </div>
+</div>
+
+<style>
+#visitorGift{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:999999;
+}
+
+#giftButton{
+    width:65px;
+    height:65px;
+    border:none;
+    border-radius:50%;
+    background:linear-gradient(135deg,#ff5a00,#ff9d00);
+    color:white;
+    font-size:32px;
+    cursor:pointer;
+    box-shadow:0 0 25px rgba(255,100,0,.55);
+    animation:giftPulse 2s infinite;
+}
+
+@keyframes giftPulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.1)}
+}
+
+#giftPopup{
+    display:none;
+    position:fixed;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:90%;
+    max-width:390px;
+    padding:28px 20px;
+    text-align:center;
+    color:white;
+    background:rgba(15,15,15,.97);
+    border:1px solid rgba(255,120,0,.5);
+    border-radius:25px;
+    box-shadow:0 0 50px rgba(0,0,0,.7);
+    font-family:Arial,sans-serif;
+}
+
+#giftPopup.show{
+    display:block;
+    animation:giftPopup .35s ease;
+}
+
+@keyframes giftPopup{
+    from{
+        opacity:0;
+        transform:translate(-50%,-50%) scale(.7);
+    }
+    to{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+}
+
+#giftEmoji{
+    font-size:70px;
+    animation:giftBounce 1s infinite;
+}
+
+@keyframes giftBounce{
+    50%{transform:translateY(-8px) rotate(5deg)}
+}
+
+#giftPopup h2{
+    margin:10px 0;
+}
+
+#giftMessage{
+    color:#ddd;
+    margin:12px 0;
+}
+
+#closeGift{
+    position:absolute;
+    right:12px;
+    top:10px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+}
+
+.visitorBadge{
+    display:inline-block;
+    margin:10px;
+    padding:8px 14px;
+    border-radius:30px;
+    background:#ff6500;
+    font-weight:bold;
+}
+
+.couponCard{
+    margin:15px 0;
+    padding:18px;
+    border:2px dashed #ff7a00;
+    border-radius:15px;
+    background:rgba(255,100,0,.08);
+}
+
+.couponCard small{
+    display:block;
+    margin-top:7px;
+    color:#bbb;
+}
+
+.giftCoins{
+    margin:15px;
+    font-size:18px;
+}
+
+.giftAction{
+    border:none;
+    border-radius:25px;
+    padding:10px 14px;
+    margin:4px;
+    color:white;
+    background:#ff6500;
+    cursor:pointer;
+}
+
+.giftAction:hover{
+    transform:scale(1.05);
+}
+
+.giftConfetti{
+    position:fixed;
+    top:-10px;
+    width:9px;
+    height:9px;
+    z-index:9999999;
+    pointer-events:none;
+    animation:giftFall 3s linear forwards;
+}
+
+@keyframes giftFall{
+    to{
+        transform:translateY(110vh) rotate(720deg);
+        opacity:0;
+    }
+}
+</style>
+
+<script>
+/* 🎁 Visitor Number */
+let giftVisitor =
+    localStorage.getItem("giftVisitor");
+
+if(!giftVisitor){
+    giftVisitor =
+        Math.floor(Math.random()*900)+100;
+
+    localStorage.setItem(
+        "giftVisitor",
+        giftVisitor
+    );
+}
+
+document.getElementById("visitorNo").textContent =
+    giftVisitor;
+
+
+/* 🪙 Coins */
+let giftCoins =
+    Number(localStorage.getItem("giftCoins")) || 0;
+
+document.getElementById("giftCoins").textContent =
+    giftCoins;
+
+
+/* 🎁 Open Gift */
+function openVisitorGift(){
+
+    document.getElementById("giftPopup")
+        .classList.add("show");
+
+    document.getElementById("giftMessage")
+        .textContent =
+        "🎉 Congratulations! You unlocked a surprise!";
+
+    document.getElementById("giftEmoji")
+        .textContent = "🎁";
+
+    createGiftConfetti();
+}
+
+
+/* ❌ Close */
+function closeVisitorGift(){
+
+    document.getElementById("giftPopup")
+        .classList.remove("show");
+}
+
+
+/* 🪙 Collect Coin */
+function collectGiftCoin(){
+
+    giftCoins++;
+
+    localStorage.setItem(
+        "giftCoins",
+        giftCoins
+    );
+
+    document.getElementById("giftCoins")
+        .textContent = giftCoins;
+
+    document.getElementById("giftMessage")
+        .textContent =
+        "🪙 You collected 1 coin!";
+
+    createGiftConfetti();
+}
+
+
+/* ⭐ Daily Surprise */
+function dailyGift(){
+
+    let today =
+        new Date().toDateString();
+
+    let lastGift =
+        localStorage.getItem("lastDailyGift");
+
+    if(lastGift === today){
+
+        document.getElementById("giftMessage")
+            .textContent =
+            "⭐ You already collected today's surprise!";
+
+        return;
+    }
+
+    localStorage.setItem(
+        "lastDailyGift",
+        today
+    );
+
+    giftCoins += 5;
+
+    localStorage.setItem(
+        "giftCoins",
+        giftCoins
+    );
+
+    document.getElementById("giftCoins")
+        .textContent = giftCoins;
+
+    document.getElementById("giftMessage")
+        .textContent =
+        "⭐ Daily Surprise unlocked! +5 Coins 🎉";
+
+    createGiftConfetti();
+}
+
+
+/* 🎨 Theme Unlock */
+function changeGiftTheme(){
+
+    let themes = [
+        "linear-gradient(135deg,#050505,#ff5e00)",
+        "linear-gradient(135deg,#080012,#6800c9)",
+        "linear-gradient(135deg,#001010,#00a896)",
+        "linear-gradient(135deg,#100010,#d00070)"
+    ];
+
+    let randomTheme =
+        themes[Math.floor(Math.random()*themes.length)];
+
+    document.body.style.background =
+        randomTheme;
+
+    document.getElementById("giftMessage")
+        .textContent =
+        "🎨 New theme unlocked!";
+
+    createGiftConfetti();
+}
+
+
+/* 🎉 Confetti */
+function createGiftConfetti(){
+
+    for(let i=0;i<70;i++){
+
+        let c =
+            document.createElement("div");
+
+        c.className = "giftConfetti";
+
+        c.style.left =
+            Math.random()*100 + "vw";
+
+        c.style.background =
+            "hsl(" +
+            Math.random()*360 +
+            ",100%,60%)";
+
+        c.style.animationDuration =
+            (2 + Math.random()*2) + "s";
+
+        document.body.appendChild(c);
+
+        setTimeout(()=>{
+            c.remove();
+        },4000);
+    }
+}
+</script>
