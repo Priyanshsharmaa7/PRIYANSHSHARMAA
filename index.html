@@ -2641,7 +2641,7 @@ The portfolio presents 90% as an important academic
 milestone and part of Priyansh's journey toward
 computer applications and technology.
 
-If you ask "12", "12%", "class 12", "percentage"
+If you ask "12", "class 12", "percentage"
 or "marks", I can understand that you are asking
 about this achievement.`,
 
@@ -2929,21 +2929,6 @@ function getLocalAnswer(question){
 
  /* CLASS 12 */
 
- if(
- q==="12" ||
- q==="12%" ||
- q.includes("class 12") ||
- q.includes("class twelve") ||
- q.includes("12th") ||
- q.includes("12 percentage") ||
- q.includes("12 percent") ||
- q.includes("12 marks") ||
- q.includes("twelfth") ||
- q.includes("kitna percentage") ||
- q.includes("kitne percent")
- ){
-  return personalAnswers["percentage"];
- }
 
 
  /* PRIYANSH */
@@ -3160,7 +3145,7 @@ I'm Priyansh Intelligence 🤖
 
 You can ask me about:
 
-🎓 Class 12 / 90%
+🎓 Class 12
 💻 BCA
 👨‍💻 Priyansh
 🚀 Projects
@@ -3213,7 +3198,7 @@ portfolio knowledge yet.
 
 But I can answer many questions about:
 
-🎓 Priyansh's Class 12 / 90%
+🎓 Priyansh's Class 12 
 💻 BCA
 👨‍💻 Priyansh
 🚀 Projects
@@ -3227,15 +3212,7 @@ But I can answer many questions about:
 🤖 Priyansh Intelligence
 🚀 Career journey
 
-Try a short question such as:
-
-"12"
-"BCA"
-"YouTube"
-"Instagram"
-"Who is Priyansh?"
-"What projects has Priyansh made?"
-"What is this website?"
+Try a short question
 
 You can also ask the question in Hinglish.`;
 }
@@ -3405,7 +3382,7 @@ document
 setTimeout(()=>{
 
  console.log(
- "%c✦ PRIYANSH DIGITAL LAB",
+ "%c✦ PRIYANSH SHARMA",
  "color:#ff1744;font-size:20px;font-weight:bold"
  );
 
@@ -3420,3 +3397,17 @@ setTimeout(()=>{
 
 </body>
 </html>
+
+
+<div class="glass" style="padding:25px;text-align:center;max-width:350px;margin:auto;">
+    <h3>👥 Website Visitors</h3>
+    <h1 id="count">Loading...</h1>
+</div>
+
+<script>
+fetch("https://api.countapi.xyz/hit/priyanshsharmaa7/portfolio")
+.then(response => response.json())
+.then(data => {
+    document.getElementById("count").innerText = data.value;
+});
+</script>
