@@ -3399,15 +3399,19 @@ setTimeout(()=>{
 </html>
 
 
-<div class="glass" style="padding:25px;text-align:center;max-width:350px;margin:auto;">
+<div class="glass" style="padding:25px;text-align:center;max-width:350px;margin:40px auto;">
     <h3>👥 Website Visitors</h3>
-    <h1 id="count">Loading...</h1>
+    <h1 id="count">1000+</h1>
 </div>
 
 <script>
-fetch("https://api.countapi.xyz/hit/priyanshsharmaa7/portfolio")
-.then(response => response.json())
+fetch("https://api.countapi.xyz/hit/priyanshsharmaa17/portfolio")
+.then(res => res.json())
 .then(data => {
-    document.getElementById("count").innerText = data.value;
+    document.getElementById("count").textContent = data.value;
+})
+.catch(err => {
+    document.getElementById("count").textContent = "Error";
+    console.error(err);
 });
 </script>
